@@ -1,0 +1,92 @@
+/*basic map wide options*/
+html,body,#mapDiv,.map.container{
+	padding:0;
+  margin:0;
+  height:100%;
+}
+.esriLargeSliderVertical{height:150px}
+.esriLargeSliderTR{
+	left: 100px;
+	top: 50px;
+}
+/*padding options to move around the scale bar*/
+.esriScalebar{ padding: 120px 10px; }
+/* navigation tools */
+.selectIcon { background-image:url(../images/nav_select.png); width:16px; height:16px;}
+.rectIcon { background-image:url(../images/draw_rectangle.png); width:16px; height:16px;}
+.circleIcon { background-image:url(../images/draw_circle.png); width:16px; height:16px;} 
+.polyIcon { background-image:url(../images/draw_polygon.png); width:16px; height:16px;}
+.nameIcon { background-image:url(../images/naming.png); width:16px; height:16px;}
+.deleteIcon { background-image:url(../images/cancel.png); width:16px; height:16px;}
+  
+.panIcon { background-image:url(../images/nav_pan.png); width:16px; height:16px; }
+.zoominIcon { background-image:url(../images/nav_zoomin.png); width:16px; height:16px; }
+.zoomoutIcon { background-image:url(../images/nav_zoomout.png); width:16px; height:16px; }
+.zoomprevIcon { background-image:url(../images/nav_previous.png); width:16px; height:16px; }
+.zoomnextIcon { background-image:url(../images/nav_next.png); width:16px; height:16px; }
+.mapIcon { background-image:url(../images/arcmap.png); width:16px; height:16px; }
+.colorIcon{ background-image:url(../images/color_wheel.png); width:16px; height:16px; } 
+/* drawing tools */
+/* retangle/circle selector*/
+/* select by town / county / route */
+    
+/*custom styles for Popup window this is called myTheme->change!!! */
+.esriPopup.myTheme .titlePane,
+.dj_ie7 .esriPopup.myTheme .titlePane .title {
+	background-color: #cde2f5;
+  color: #000000;
+  font-weight: bold;
+}
+.esriPopup.myTheme.titlePane { color: #00135d;}
+
+.esriPopup.myTheme .contentPane,
+.esriPopup.myTheme .actionsPane {
+	border-color: 1px solid #121310;
+  background-color: #ffffff;
+  color:#000000;
+}
+
+
+/*options for the search bar AKA forward geocoder*/
+#search{
+  position: absolute;
+  z-index: 8;
+  top: 36px;
+  left: -4px;
+  width: 30%;
+  opacity:0.8;
+}
+
+/*navbar AKA toolbar options*/
+#toolbar {
+	top: 20px;
+	left: 70px;
+  color: #444;
+  height: auto;
+  width: auto;
+  font-family: arial;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  z-index: 6;
+  border: solid 2px #cde2f5;
+  border-radius: 4px;
+  background-color: #cde2f5;
+  opacity:0.9;
+}
+
+#baseDiv{
+	background-color: #cde2f5;
+  position: absolute;
+  height: auto;
+  width:  auto;
+  z-index: 2147483647;
+  top:20px;
+  left:280px;
+  font-family: arial;
+  font-size: 70%;
+  border: solid 2px #cde2f5;
+  border-radius: 4px;
+  opacity:0.7;
+}
+

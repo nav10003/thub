@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <title>thub webmap</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=7, IE=9, IE=10">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"><!--The viewport meta tag is used to view on iOS devices-->
+
+  <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.9/js/esri/css/esri.css">
+  <link rel="stylesheet" href="http://js.arcgis.com/3.9/js/dojo/dijit/themes/claro/claro.css">
+  <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.9/js/dojo/dojox/layout/resources/ExpandoPane.css">
+  <link rel="stylesheet" type='text/css' href='http://js.arcgis.com/3.9/js/esri/dijit/css/Popup.css'/>
+  <link rel="stylesheet" type='text/css' href='css/webmapstyle.css'/><!-- reference to custom webmap graphics params-->
+  
+  <script>var dojoConfig = { parseOnLoad:true };</script><!-- basic dojo setup-->
+  <script src="http://js.arcgis.com/3.9/"></script><!-- this is the arcgis-jsapi source -->
+  <script src='js/webmap.js'></script> <!-- main javascript file that uses the arcgis jsapi-->
+  </head>
+  <body id='app' class="claro">
+  	
+    <div id="toolbar" data-dojo-type="dijit.Toolbar">
+    	<span id="navbar">
+    		<button id="pan" type="button"></button>
+    		<button id="zoomin" type="button"></button>
+      	<button id="zoomout" type="button"></button>
+      	<button id="zoomprev" type="button"></button>
+      	<button id="zoomnext" type="button"></button>	
+    	</span>
+    	<span id="search"></span>
+    </div>
+		
+		<div id="baseDiv" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'base', closable:false, open:false">
+          <span id="basemap" ></span>
+    </div>
+    
+    <div id="mapDiv"></div>
+    <div id="heatDiv"></div>
+  </body>
+  </html>
