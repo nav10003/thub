@@ -1,8 +1,12 @@
 #!/usr/bin/python
 
+import cgitb
+
+cgitb.enable()
+
 def print_each(text):
     lines = text.split('\n')
-    for l in lines: print(l)
+    for l in lines: print l
     
 text = """
 Content-type: text/html
