@@ -6,61 +6,125 @@
 		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.9.3/dijit/themes/claro/claro.css">
 		<script>dojoConfig = {parseOnLoad : true}</script>
 		
-		<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.9.3/dojo/dojo.js" data-dojo-config="async: true"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.9.3/dojo/dojo.js" data-dojo-config="async: true"></script>
 		<script>
 			require(["dojo/parser", "dijit/layout/AccordionContainer", "dijit/layout/ContentPane"]);
-			
+			require(["dijit/Tooltip", "dojo/domReady!"], function(Tooltip) {
+				// create a new Tooltip and connect it
+				new Tooltip({
+					connectId : ["hartford"],
+					label : "this is the tooltip of hartford"
+				});
+				// create a new Tooltip and connect it
+				new Tooltip({
+					connectId : ["newhaven"],
+					label : "this is the tooltip of new haven"
+				});
+				// create a new Tooltip and connect it
+				new Tooltip({
+					connectId : ["shoreline"],
+					label : "this is the tooltip of shoreline"
+				});
+				// create a new Tooltip and connect it
+				new Tooltip({
+					connectId : ["allTranSys"],
+					label : "this is the tooltip of allTranSys"
+				});
+			});
+			require(["dijit/form/Button", "dojo/dom", "dojo/domReady!"], function(Button, dom) {
+				// Create a button programmatically:
+				var myButton = new Button({
+					label : "Next",
+					
+					onClick : function() {
+						// Do something:
+						alert("I was clicked");
+					}
+				}, "nextButton1").startup();
+				// Create a button programmatically:
+				var myButton = new Button({
+					label : "Next",
+					onClick : function() {
+						// Do something:
+						alert("I was clicked");
+					}
+				}, "nextButton2").startup();
+				// Create a button programmatically:
+				var myButton = new Button({
+					label : "Next",
+					onClick : function() {
+						// Do something:
+						alert("I was clicked");
+					}
+				}, "nextButton3").startup();
+				// Create a button programmatically:
+				var myButton = new Button({
+					label : "Next",
+					onClick : function() {
+						// Do something:
+						alert("I was clicked");
+					}
+				}, "nextButton4").startup();
+				// Create a button programmatically:
+				var myButton = new Button({
+					label : "Start Over",
+					onClick : function() {
+						// Do something:
+						alert("I was clicked");
+					}
+				}, "nextButton5").startup();
+				// Create a button programmatically:
+				var myButton = new Button({
+					label : "Generate Report",
+					onClick : function() {
+						// Do something:
+						alert("I was clicked");
+					}
+				}, "nextButton6").startup();
+			});
 		</script>
 	</head>
 	
 	<body class="claro">
-		<div style="height: 300px">
-			<div data-dojo-type="dijit/layout/AccordionContainer" style="height: wrap;">
+		<div style="height:500px">
+			<div data-dojo-type="dijit/layout/AccordionContainer" style="height:300px;">
 
-				<div data-dojo-type="dijit/layout/ContentPane" title="Select Transit System" selected="true">
-					<div>
-						Select Transit System below:
-					</div>
+				<div data-dojo-type="dijit/layout/ContentPane" title="Select Transit System" selected="false">
+					
+					<div style="width:600px;margin-top:10px">
+						<div id="hartford" style="margin-left:50px;float:left;display:inline-block;">
+							<input id="hartfordCheck" name="hartfordCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
+							checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+							<label for="hartfordCheck">Hartford</label>
+						</div>
 
-					<div style="width:200px;float:left;display:inline-block;">
-						<input id="hartfordCheck" name="hartfordCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
-						checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
-						<label for="hartfordCheck">Hartford</label>
+						<div id="newhaven" style="margin-left:100px;float:left;display:inline-block;">
+							<input id="newhavenCheck" name="newhavenCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
+							checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+							<label for="newhavenCheck">New Haven</label>
+						</div>
+
+						<div id="shoreline" style="margin-left:100px;float:left;">
+							<input id="shorelineCheck" name="shorelineCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
+							checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+							<label for="shorelineCheck">Shore Line East</label>
+						</div>
 					</div>
 					
-					<div style="width:200px;float:left;display:inline-block;">
-						<input id="newhavenCheck" name="newhavenCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
-						checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
-						<label for="newhavenCheck">New Haven</label>
+					<div style="width:600px;">
+						<div id="allTranSys" style="margin-left:50px;float:left;display:inline-block;">
+							<input id="allTranSysCheck" name="allTranSysCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
+							checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+							<label for="allTranSysCheck">All</label>
+						</div>						
 					</div>
-
-					<div>
-						<input id="shorelineCheck" name="shorelineCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
-						checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
-						<label for="shorelineCheck">Shore Line East</label>
-					</div>
-
-					<div style="width:200px">
-						<input id="allTranSysCheck" name="allTranSysCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
-						checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
-						<label for="allTranSysCheck">All</label>
-					</div>
-
-					<div>
+					<div style="float:right">
 						<button id="nextButton1" data-dojo-type="dijit/form/Button" type="button">
-							<span>Next</span>
-							<script type="dojo/on" data-dojo-event="click">
-							console.log("I was clicked");
-							alert("I was clicked");
-							</script>
 						</button>
 					</div>
 				</div>
 
 				<div data-dojo-type="dijit/layout/ContentPane" title="Select Performance Measures">
-					<div>
-						Select Performance Measures below:
-					</div>
 					
 					<div>
 						<div style="width:200px;float:left;display:inline-block;">
@@ -102,20 +166,21 @@
 						</div>
 					</div>
 					
-					<div>
+					<div style="float:right">
 						<button id="nextButton2" data-dojo-type="dijit/form/Button" type="button">
-							<span>Next</span>
-							<script type="dojo/on" data-dojo-event="click">
-							console.log("I was clicked");
-							alert("I was clicked");
-							</script>
 						</button>
 					</div>
+						
 				</div>
 
 				<div data-dojo-type="dijit/layout/ContentPane" title="Select Demographic Groups">
 					<div>
 						Select Demografic Groups below:
+					</div>
+					
+					<div style="float:right">
+						<button id="nextButton3" data-dojo-type="dijit/form/Button" type="button">
+						</button>
 					</div>
 				</div>
 				
@@ -123,15 +188,28 @@
 					<div>
 						Select Demografic Spatial Unit below:
 					</div>
+					
+					<div style="float:right">
+						<button id="nextButton4" data-dojo-type="dijit/form/Button" type="button">
+						</button>
+					</div>
 				</div>
 				
 				<div data-dojo-type="dijit/layout/ContentPane" title="Select Buffer Distance">
 					<div>
 						Select Buffer Distance below:
 					</div>
+					<div style="float:right">
+						<button id="nextButton5" data-dojo-type="dijit/form/Button" type="button">
+						</button>
+						<button id="nextButton6" data-dojo-type="dijit/form/Button" type="button">
+						</button>
+					</div>
 				</div>
 				
 			</div>
 		</div>
+		
+		
 	</body>
 </html>
