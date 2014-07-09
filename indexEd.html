@@ -7,34 +7,129 @@
 		<script>dojoConfig = {parseOnLoad : true}</script>
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.9.3/dojo/dojo.js" data-dojo-config="async: true"></script>
-		<script>require(["dojo/parser", "dijit/layout/AccordionContainer", "dijit/layout/ContentPane"]);</script>
+		<script>
+			require(["dojo/parser", "dijit/layout/AccordionContainer", "dijit/layout/ContentPane"]);
+			
+		</script>
 	</head>
 	
 	<body class="claro">
 		<div style="height: 300px">
-			<div data-dojo-type="dijit/layout/AccordionContainer" style="height: 300px;">
+			<div data-dojo-type="dijit/layout/AccordionContainer" style="height: wrap;">
 
-				<div data-dojo-type="dijit/layout/ContentPane" title="Heeh, this is a content pane">
-					Hi!
-					<div><input id="mycheck1" name="mycheck1" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
-					checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
-					<label for="mycheck1">I agree</label>
+				<div data-dojo-type="dijit/layout/ContentPane" title="Select Transit System" selected="true">
+					<div>
+						Select Transit System below:
+					</div>
+
+					<div style="width:200px;float:left;display:inline-block;">
+						<input id="hartfordCheck" name="hartfordCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
+						checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+						<label for="hartfordCheck">Hartford</label>
 					</div>
 					
-					<div><input id="mycheck2" name="mycheck2" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
-					checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
-					<label for="mycheck2">I agree</label>
+					<div style="width:200px;float:left;display:inline-block;">
+						<input id="newhavenCheck" name="newhavenCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
+						checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+						<label for="newhavenCheck">New Haven</label>
+					</div>
+
+					<div>
+						<input id="shorelineCheck" name="shorelineCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
+						checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+						<label for="shorelineCheck">Shore Line East</label>
+					</div>
+
+					<div style="width:200px">
+						<input id="allTranSysCheck" name="allTranSysCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
+						checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+						<label for="allTranSysCheck">All</label>
+					</div>
+
+					<div>
+						<button id="nextButton1" data-dojo-type="dijit/form/Button" type="button">
+							<span>Next</span>
+							<script type="dojo/on" data-dojo-event="click">
+							console.log("I was clicked");
+							alert("I was clicked");
+							</script>
+						</button>
 					</div>
 				</div>
 
-				<div data-dojo-type="dijit/layout/ContentPane" title="This is as well" selected="true">
-					Hi how are you?
+				<div data-dojo-type="dijit/layout/ContentPane" title="Select Performance Measures">
+					<div>
+						Select Performance Measures below:
+					</div>
+					
+					<div>
+						<div style="width:200px;float:left;display:inline-block;">
+							<input id="loadfCheck" name="loadfCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
+							checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+							<label for="loadfCheck">Load Factor</label>
+						</div>
+
+						<div style="width:200px;float:left;display:inline-block;">
+							<input id="vehicleCheck" name="vehicleCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
+							checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+							<label for="vehicleCheck">Vehicle Age</label>
+						</div>
+
+						<div>
+							<input id="stopAmeCheck" name="stopAmeCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
+							checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+							<label for="stopAmeCheck">Stop Amenities</label>
+						</div>
+					</div>
+					
+					<div>
+						<div style="width:200px;float:left;display:inline-block;">
+							<input id="onTmeCheck" name="onTmeCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
+							checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+							<label for="onTmeCheck">On Time %</label>
+						</div>
+
+						<div style="width:200px;float:left;display:inline-block;">
+							<input id="headAwayCheck" name="headAwayCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
+							checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+							<label for="headAwayCheck">Head Away</label>
+						</div>
+
+						<div>
+							<input id="allPerformCheck" name="allPerformCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
+							checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+							<label for="allPerformCheck">All</label>
+						</div>
+					</div>
+					
+					<div>
+						<button id="nextButton2" data-dojo-type="dijit/form/Button" type="button">
+							<span>Next</span>
+							<script type="dojo/on" data-dojo-event="click">
+							console.log("I was clicked");
+							alert("I was clicked");
+							</script>
+						</button>
+					</div>
 				</div>
 
-				<div data-dojo-type="dijit/layout/ContentPane" title="This too">
-					Hi how are you? .....Great, thx
+				<div data-dojo-type="dijit/layout/ContentPane" title="Select Demographic Groups">
+					<div>
+						Select Demografic Groups below:
+					</div>
 				</div>
-
+				
+				<div data-dojo-type="dijit/layout/ContentPane" title="Select Demographic Spatial Unit">
+					<div>
+						Select Demografic Spatial Unit below:
+					</div>
+				</div>
+				
+				<div data-dojo-type="dijit/layout/ContentPane" title="Select Buffer Distance">
+					<div>
+						Select Buffer Distance below:
+					</div>
+				</div>
 				
 			</div>
 		</div>
