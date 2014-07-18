@@ -34,6 +34,25 @@
 							registry.byId("shorelineCheck").set("checked", false );
 						}
 					}, true);
+					
+					registry.byId("allPerformCheck").on("change", function(){
+						if(registry.byId("allPerformCheck").get("checked") == true){
+							
+							registry.byId("loadfCheck").set("checked", true );
+							registry.byId("vehicleCheck").set("checked", true );
+							registry.byId("stopAmeCheck").set("checked", true );
+							registry.byId("onTimeCheck").set("checked", true );
+							registry.byId("headAwayCheck").set("checked", true );
+						}
+						if(registry.byId("allPerformCheck").get("checked") == false){
+							
+							registry.byId("loadfCheck").set("checked", false );
+							registry.byId("vehicleCheck").set("checked", false );
+							registry.byId("stopAmeCheck").set("checked", false );
+							registry.byId("onTimeCheck").set("checked", false );
+							registry.byId("headAwayCheck").set("checked", false );
+						}
+					}, true);
 				});
 			});
 			
@@ -176,8 +195,8 @@
 					
 					<div>
 						<div style="width:200px;float:left;display:inline-block;">
-							<input id="onTmeCheck" name="onTmeCheck" data-dojo-type="dijit/form/CheckBox" value="onTime" checked= "false" />
-							<label for="onTmeCheck">On Time %</label>
+							<input id="onTimeCheck" name="onTimeCheck" data-dojo-type="dijit/form/CheckBox" value="onTime" checked= "false" />
+							<label for="onTimeCheck">On Time %</label>
 						</div>
 
 						<div style="width:200px;float:left;display:inline-block;">
