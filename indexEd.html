@@ -9,7 +9,6 @@
 		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.9.3/dojo/dojo.js" data-dojo-config="async: true"></script>
 		<script>
 			require(["dojo/parser", "dijit/layout/AccordionContainer", "dijit/layout/ContentPane"]);
-			
 			require(["dijit/form/CheckBox", "dojo/on", "dijit/registry", "dojo/parser", "dojo/ready"], function(CheckBox, on, registry, parser, ready) {
 				// create function to the checkboxes
 				ready(function(){
@@ -116,7 +115,9 @@
 					}
 				}, "nextButton6").startup();
 			});
+			
 		</script>
+		
 	</head>
 	
 	<body class="claro">
@@ -158,40 +159,34 @@
 					
 					<div>
 						<div style="width:200px;float:left;display:inline-block;">
-							<input id="loadfCheck" name="loadfCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
-							checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+							<input id="loadfCheck" name="loadfCheck" data-dojo-type="dijit/form/CheckBox" value="loadf" checked= "false" />
 							<label for="loadfCheck">Load Factor</label>
 						</div>
 
 						<div style="width:200px;float:left;display:inline-block;">
-							<input id="vehicleCheck" name="vehicleCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
-							checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+							<input id="vehicleCheck" name="vehicleCheck" data-dojo-type="dijit/form/CheckBox" value="vehicle" checked= "false" />
 							<label for="vehicleCheck">Vehicle Age</label>
 						</div>
 
 						<div>
-							<input id="stopAmeCheck" name="stopAmeCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
-							checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+							<input id="stopAmeCheck" name="stopAmeCheck" data-dojo-type="dijit/form/CheckBox" value="stopAme" checked= "false" />
 							<label for="stopAmeCheck">Stop Amenities</label>
 						</div>
 					</div>
 					
 					<div>
 						<div style="width:200px;float:left;display:inline-block;">
-							<input id="onTmeCheck" name="onTmeCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
-							checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+							<input id="onTmeCheck" name="onTmeCheck" data-dojo-type="dijit/form/CheckBox" value="onTime" checked= "false" />
 							<label for="onTmeCheck">On Time %</label>
 						</div>
 
 						<div style="width:200px;float:left;display:inline-block;">
-							<input id="headAwayCheck" name="headAwayCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
-							checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+							<input id="headAwayCheck" name="headAwayCheck" data-dojo-type="dijit/form/CheckBox" value="headAway" checked= "false" />
 							<label for="headAwayCheck">Head Away</label>
 						</div>
 
 						<div>
-							<input id="allPerformCheck" name="allPerformCheck" data-dojo-type="dijit/form/CheckBox" value="agreed" checked= "false"
-							checked onChange="alert('onChange called with parameter = ' + arguments[0] + ', and widget value = ' + this.get('value'))" />
+							<input id="allPerformCheck" name="allPerformCheck" data-dojo-type="dijit/form/CheckBox" value="allPerform" checked= "false" />
 							<label for="allPerformCheck">All</label>
 						</div>
 					</div>
@@ -205,7 +200,37 @@
 
 				<div id="cpane3" data-dojo-type="dijit/layout/ContentPane" title="Select Demographic Groups" selected="false">
 					<div>
-						Select Demografic Groups below:
+						<div style="width:200px;float:left;display:inline-block;">
+							<input id="minorityCheck" name="minorityCheck" data-dojo-type="dijit/form/CheckBox" value="minority" checked= "false"/>
+							<label for="minorityCheck">Minority</label>
+						</div>
+
+						<div style="width:200px;float:left;display:inline-block;">
+							<input id="nonMinoCheck" name="nonMinoCheck" data-dojo-type="dijit/form/CheckBox" value="nonMino" checked= "false" />
+							<label for="nonMinoCheck">Non-Minority</label>
+						</div>
+
+						<div>
+							<input id="lowIncomeCheck" name="lowIncomeCheck" data-dojo-type="dijit/form/CheckBox" value="lowIncome" checked= "false" />
+							<label for="lowIncomeCheck">Low-Income</label>
+						</div>
+					</div>
+					
+					<div>
+						<div style="width:200px;float:left;display:inline-block;">
+							<input id="nonLowInCheck" name="nonLowInCheck" data-dojo-type="dijit/form/CheckBox" value="nonLowIn" checked= "false" />
+							<label for="nonLowInCheck">Non Low-Income</label>
+						</div>
+
+						<div style="width:200px;float:left;display:inline-block;">
+							<input id="LEPCheck" name="LEPCheck" data-dojo-type="dijit/form/CheckBox" value="lep" checked= "false" />
+							<label for="LEPCheck">LEP</label>
+						</div>
+
+						<div>
+							<input id="allDemoGrCheck" name="allDemoGrCheck" data-dojo-type="dijit/form/CheckBox" value="allDemoGr" checked= "false" />
+							<label for="allDemoGrCheck">All</label>
+						</div>
 					</div>
 					
 					<div style="float:right">
@@ -216,7 +241,15 @@
 				
 				<div id="cpane4" data-dojo-type="dijit/layout/ContentPane" title="Select Demographic Spatial Unit" selected="false">
 					<div>
-						Select Demografic Spatial Unit below:
+						<div style="width:200px;float:left;display:inline-block;">
+							<input id="blockGrCheck" name="blockGrCheck" data-dojo-type="dijit/form/CheckBox" value="blockGroup" checked= "false"/>
+							<label for="blockGrCheck">Block Group</label>
+						</div>
+
+						<div>
+							<input id="censusTrCheck" name="censusTrCheck" data-dojo-type="dijit/form/CheckBox" value="censusTrack" checked= "false" />
+							<label for="censusTrCheck">Census Track</label>
+						</div>
 					</div>
 					
 					<div style="float:right">
@@ -226,18 +259,40 @@
 				</div>
 				
 				<div id="cpane5" data-dojo-type="dijit/layout/ContentPane" title="Select Buffer Distance" selected="false">
-					<div>
-						Select Buffer Distance below:
-					</div>
-					<div style="float:right">
+					<table style="margin:5px;">
+						<tr>
+							<td> 
+								<div>local bus</div>
+								<div>
+									<input type="text" style="width:150px"/>
+								</div>
+							</td>
+							<td>
+								<div>express bus</div>
+								<div>
+									<input type="text" style="width:150px"/>
+								</div>
+							</td>							
+						</tr>
+						
+						<tr>
+							<td> 
+								<div>rail service</div>
+								<div>
+									<input type="text" style="width:150px"/>
+								</div>
+							</td>							
+						</tr>						
+					</table>
+				</div>
+				
+			</div>
+			<div style="float:left">
 						<button id="nextButton5" data-dojo-type="dijit/form/Button" type="button">
 						</button>
 						<button id="nextButton6" data-dojo-type="dijit/form/Button" type="button">
 						</button>
 					</div>
-				</div>
-				
-			</div>
 		</div>
 		
 		
