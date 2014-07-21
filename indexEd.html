@@ -4,14 +4,14 @@
 		<title>tHUB Web App Accordion Container</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.9.3/dijit/themes/claro/claro.css">
-		<script>dojoConfig = {parseOnLoad : true}</script>
+		<script>dojoConfig = {parseOnLoad : true};</script>
 		
 		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.9.3/dojo/dojo.js" data-dojo-config="async: true"></script>
 		<script>
 			require(["dojo/parser", "dijit/layout/AccordionContainer", "dijit/layout/ContentPane"]);
 			
 			require(["dijit/form/CheckBox", "dojo/domReady!"], function(CheckBox){
-				// create programmatic checkbox
+				// create programmatic checkboxes
 					var box11 = new CheckBox({ 
 						name: "hartfordCheck",checked: false },"hartfordCheck").startup();
 					var box12 = new CheckBox({ 
@@ -66,6 +66,7 @@
 						name: "express3/4mile",checked: false},"express3/4mile").startup();
 				
 			});
+			
 			require(["dijit/form/CheckBox", "dojo/on", "dijit/registry", "dojo/parser", "dojo/ready"], function(CheckBox, on, registry, parser, ready) {
 				// create function to the checkboxes
 				ready(function(){
@@ -220,8 +221,7 @@
 				}, "generateRepButton").startup();
 			});
 			
-		</script>
-		
+		</script>		
 	</head>
 	
 	<body class="claro">
@@ -255,13 +255,12 @@
 					</div>
 
 					<div style="float:right">
-						<button id="nextButton1" type="button">
-						</button>
+						<button id="nextButton1" type="button"></button>
 					</div>
 				</div>
 
 				<div id="cpane2" data-dojo-type="dijit/layout/ContentPane" title="Select Performance Measures" selected="false">
-					
+
 					<div>
 						<div style="width:140px;float:left;display:inline-block;">
 							<input id="loadfCheck">
@@ -278,7 +277,7 @@
 							<label for="stopAmeCheck">Stop Amenities</label>
 						</div>
 					</div>
-					
+
 					<div>
 						<div style="width:140px;float:left;display:inline-block;clear:both;">
 							<input id="onTimeCheck">
@@ -295,12 +294,11 @@
 							<label for="allPerformCheck">All</label>
 						</div>
 					</div>
-					
+
 					<div style="float:right">
-						<button id="nextButton2" type="button">
-						</button>
+						<button id="nextButton2" type="button"></button>
 					</div>
-						
+
 				</div>
 
 				<div id="cpane3" data-dojo-type="dijit/layout/ContentPane" title="Select Demographic Groups" selected="false">
@@ -320,7 +318,7 @@
 							<label for="lowIncomeCheck">Low-Income</label>
 						</div>
 					</div>
-					
+
 					<div>
 						<div style="width:140px;float:left;display:inline-block;clear:both;">
 							<input id="nonLowInCheck">
@@ -337,13 +335,12 @@
 							<label for="allDemoGrCheck">All</label>
 						</div>
 					</div>
-					
+
 					<div style="float:right">
-						<button id="nextButton3" type="button">
-						</button>
+						<button id="nextButton3" type="button"></button>
 					</div>
 				</div>
-				
+
 				<div id="cpane4" data-dojo-type="dijit/layout/ContentPane" title="Select Demographic Spatial Unit" selected="false">
 					<div>
 						<div style="width:140px;float:left;display:inline-block;">
@@ -356,17 +353,18 @@
 							<label for="censusTrCheck">Census Track</label>
 						</div>
 					</div>
-					
+
 					<div style="float:right">
-						<button id="nextButton4" type="button">
-						</button>
+						<button id="nextButton4" type="button"></button>
 					</div>
 				</div>
-				
+
 				<div id="cpane5" data-dojo-type="dijit/layout/ContentPane" title="Select Buffer Distance" selected="false">
-					
+
 					<div style="width:250px;float:left;display:inline-block;">
-						<div style="float:left;"> Select Local Bus</div>
+						<div style="float:left;">
+							Select distance to Local Bus
+						</div>
 						<div style="width:80px;float:left;display:inline-block;clear:both;">
 							<input id="local1/4mile">
 							<label for="local1/4mile">1/4 mile</label>
@@ -376,15 +374,17 @@
 							<input id="local1/2mile">
 							<label for="local1/2mile">1/2 mile</label>
 						</div>
-						
+
 						<div style="width:80px;margin-left:5px;float:left;display:inline-block;">
 							<input id="local3/4mile">
 							<label for="local3/4mile">3/4 mile</label>
 						</div>
 					</div>
-					
+
 					<div style="width:250px;margin-left:80px;float:left;display:inline-block;">
-						<div style="float:left;"> Select express Bus</div>
+						<div style="float:left;">
+							Select distance to Express Bus
+						</div>
 						<div style="width:80px;float:left;display:inline-block;clear:both;">
 							<input id="express1/4mile">
 							<label for="express1/4mile">1/4 mile</label>
@@ -394,15 +394,17 @@
 							<input id="express1/2mile">
 							<label for="express1/2mile">1/2 mile</label>
 						</div>
-						
+
 						<div style="width:80px;margin-left:5px;float:left;display:inline-block;">
 							<input id="express3/4mile">
 							<label for="express3/4mile">3/4 mile</label>
 						</div>
 					</div>
-					
+
 					<div style="width:250px;float:left;display:inline-block;clear:both">
-						<div style="float:left;"> Select Rail Service</div>
+						<div style="float:left;">
+							Select distnace to Rail Service
+						</div>
 						<div style="width:80px;float:left;display:inline-block;clear:both;">
 							<input id="rail1/4mile">
 							<label for="rail1/4mile">1/4 mile</label>
@@ -412,25 +414,21 @@
 							<input id="rail1/2mile">
 							<label for="rail1/2mile">1/2 mile</label>
 						</div>
-						
+
 						<div style="width:80px;margin-left:5px;float:left;display:inline-block;">
 							<input id="rail3/4mile">
 							<label for="rail3/4mile">3/4 mile</label>
 						</div>
 					</div>
-					
-					
+
 				</div>
-				
+
 			</div>
 			<div style="float:left">
-						<button id="startOverButton" data-dojo-type="dijit/form/Button" type="button">
-						</button>
-						<button id="generateRepButton" data-dojo-type="dijit/form/Button" type="button">
-						</button>
-					</div>
+				<button id="startOverButton" type="button"></button>
+				<button id="generateRepButton" type="button"></button>
+			</div>
 		</div>
-		
-		
+
 	</body>
 </html>
