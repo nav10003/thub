@@ -9,26 +9,77 @@
 		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.9.3/dojo/dojo.js" data-dojo-config="async: true"></script>
 		<script>
 			require(["dojo/parser", "dijit/layout/AccordionContainer", "dijit/layout/ContentPane"]);
+			
+			require(["dijit/form/CheckBox", "dojo/domReady!"], function(CheckBox){
+				// create programmatic checkbox
+					var box11 = new CheckBox({ 
+						name: "hartfordCheck",checked: false },"hartfordCheck").startup();
+					var box12 = new CheckBox({ 
+						name: "newhavenCheck" ,checked: false },"newhavenCheck").startup();
+					var box13 = new CheckBox({ 
+						name: "shorelineCheck",checked: false },"shorelineCheck").startup();;
+					var box14 = new CheckBox({ 
+						name: "allTranSysCheck",checked: false },"allTranSysCheck").startup();;
+					
+					var box21 = new CheckBox({
+						name: "loadfCheck",checked: false},"loadfCheck").startup();;
+					var box22 = new CheckBox({
+						name: "vehicleCheck",checked: false},"vehicleCheck").startup();;
+					var box23 = new CheckBox({
+						name: "stopAmeCheck",checked: false},"stopAmeCheck").startup();;
+					var box24 = new CheckBox({
+						name: "onTimeCheck",checked: false},"onTimeCheck").startup();;
+					var box25 = new CheckBox({
+						name: "headAwayCheck",checked: false},"headAwayCheck").startup();;
+					var box26 = new CheckBox({
+						name: "allPerformCheck",checked: false},"allPerformCheck").startup();;
+					
+					var box31 = new CheckBox({
+						name: "minorityCheck",checked: false},"minorityCheck").startup();;
+					var box32 = new CheckBox({
+						name: "nonMinoCheck",checked: false},"nonMinoCheck").startup();;
+					var box33 = new CheckBox({
+						name: "lowIncomeCheck",checked: false},"lowIncomeCheck").startup();;
+					var box34 = new CheckBox({
+						name: "nonLowInCheck",checked: false},"nonLowInCheck").startup();;
+					var box35 = new CheckBox({
+						name: "LEPCheck",checked: false},"LEPCheck").startup();;
+					var box36 = new CheckBox({
+						name: "allDemoGrCheck",checked: false},"allDemoGrCheck").startup();;
+					
+					var box41 = new CheckBox({
+						name: "blockGrCheck",checked: false},"blockGrCheck").startup();;
+					var box42 = new CheckBox({
+						name: "censusTrCheck",checked: false},"censusTrCheck").startup();;
+						
+					var box5loc1 = new CheckBox({
+						name: "local1/4mile",checked: false},"local1/4mile").startup();
+					var box5loc2 = new CheckBox({
+						name: "local1/2mile",checked: false},"local1/2mile").startup();
+					var box5loc3 = new CheckBox({
+						name: "local3/4mile",checked: false},"local3/4mile").startup();
+					var box5exp1 = new CheckBox({
+						name: "express1/4mile",checked: false},"express1/4mile").startup();
+					var box5exp2 = new CheckBox({
+						name: "express1/2mile",checked: false},"express1/2mile").startup();
+					var box5exp3 = new CheckBox({
+						name: "express3/4mile",checked: false},"express3/4mile").startup();
+				
+			});
 			require(["dijit/form/CheckBox", "dojo/on", "dijit/registry", "dojo/parser", "dojo/ready"], function(CheckBox, on, registry, parser, ready) {
 				// create function to the checkboxes
 				ready(function(){
-					parser.parse();
-					
-					// create programmatic checkbox
-					/*var box1 = new CheckBox({
-						connectId : ["hartfordCheck"],
-						checked: false
-					});*/
+					parser.parse();					
 					
 					registry.byId("allTranSysCheck").on("change", function(){
 						if(registry.byId("allTranSysCheck").get("checked") == true){
-							
+							// Select All
 							registry.byId("hartfordCheck").set("checked", true );
 							registry.byId("newhavenCheck").set("checked", true );
 							registry.byId("shorelineCheck").set("checked", true );
 						}
 						if(registry.byId("allTranSysCheck").get("checked") == false){
-							
+							// Unselect All
 							registry.byId("hartfordCheck").set("checked", false );
 							registry.byId("newhavenCheck").set("checked", false );
 							registry.byId("shorelineCheck").set("checked", false );
@@ -37,7 +88,7 @@
 					
 					registry.byId("allPerformCheck").on("change", function(){
 						if(registry.byId("allPerformCheck").get("checked") == true){
-							
+							// Select All
 							registry.byId("loadfCheck").set("checked", true );
 							registry.byId("vehicleCheck").set("checked", true );
 							registry.byId("stopAmeCheck").set("checked", true );
@@ -45,7 +96,7 @@
 							registry.byId("headAwayCheck").set("checked", true );
 						}
 						if(registry.byId("allPerformCheck").get("checked") == false){
-							
+							// Unselect All
 							registry.byId("loadfCheck").set("checked", false );
 							registry.byId("vehicleCheck").set("checked", false );
 							registry.byId("stopAmeCheck").set("checked", false );
@@ -53,36 +104,68 @@
 							registry.byId("headAwayCheck").set("checked", false );
 						}
 					}, true);
+					
+					registry.byId("allDemoGrCheck").on("change", function(){
+						if(registry.byId("allDemoGrCheck").get("checked") == true){
+							// Select All
+							registry.byId("minorityCheck").set("checked", true );
+							registry.byId("nonMinoCheck").set("checked", true );
+							registry.byId("lowIncomeCheck").set("checked", true );
+							registry.byId("nonLowInCheck").set("checked", true );
+							registry.byId("LEPCheck").set("checked", true );
+						}
+						if(registry.byId("allDemoGrCheck").get("checked") == false){
+							// Unselect All
+							registry.byId("minorityCheck").set("checked", false );
+							registry.byId("nonMinoCheck").set("checked", false );
+							registry.byId("lowIncomeCheck").set("checked", false );
+							registry.byId("nonLowInCheck").set("checked", false );
+							registry.byId("LEPCheck").set("checked", false );
+						}
+					}, true);
+					
+					registry.byId("startOverButton").on("click", function(){						
+							// Select All
+							registry.byId("allTranSysCheck").set("checked", true );
+							registry.byId("allPerformCheck").set("checked", true );
+							registry.byId("allDemoGrCheck").set("checked", true );
+							// Unselect All
+							registry.byId("allTranSysCheck").set("checked", false );
+							registry.byId("allPerformCheck").set("checked", false );
+							registry.byId("allDemoGrCheck").set("checked", false );
+							registry.byId("blockGrCheck").set("checked", false );
+							registry.byId("censusTrCheck").set("checked", false );
+						
+					}, true);
 				});
 			});
 			
 			require(["dijit/Tooltip", "dojo/domReady!"], function(Tooltip) {
 				// create a new Tooltip and connect it
 				new Tooltip({
-					connectId : ["hartford"],
+					connectId : ["hartfordDiv"],
 					label : "this is the tooltip of hartford"
 				});
 				// create a new Tooltip and connect it
 				new Tooltip({
-					connectId : ["newhaven"],
+					connectId : ["newhavenDiv"],
 					label : "this is the tooltip of new haven"
 				});
 				// create a new Tooltip and connect it
 				new Tooltip({
-					connectId : ["shoreline"],
+					connectId : ["shorelineDiv"],
 					label : "this is the tooltip of shoreline"
 				});
 				// create a new Tooltip and connect it
 				new Tooltip({
-					connectId : ["allTranSys"],
+					connectId : ["allTranSysDiv"],
 					label : "this is the tooltip of allTranSys"
 				});
 			});
 			require(["dijit/form/Button", "dojo/dom", "dijit/registry", "dojo/domReady!"], function(Button, registry, dom) {
 				// Create a button programmatically:
 				var myButton1 = new Button({
-					label : "Next",
-					
+					label : "Next",					
 					onClick : function() {
 						// Do something:						
     					var container = dijit.byId("accorContainer");
@@ -122,17 +205,19 @@
 					label : "Start Over",
 					onClick : function() {
 						// Do something:
-						alert("I was clicked");
+						var container = dijit.byId("accorContainer");
+						container.selectChild("cpane1", true); 
 					}
-				}, "nextButton5").startup();
+				}, "startOverButton").startup();
+				
 				// Create a button programmatically:
 				var myButton6 = new Button({
 					label : "Generate Report",
 					onClick : function() {
 						// Do something:
-						alert("I was clicked");
+						alert("I was clicked: Generate Report");
 					}
-				}, "nextButton6").startup();
+				}, "generateRepButton").startup();
 			});
 			
 		</script>
@@ -144,32 +229,33 @@
 			<div id="accorContainer" data-dojo-type="dijit/layout/AccordionContainer" style="height:wrap;">
 
 				<div id="cpane1" data-dojo-type="dijit/layout/ContentPane" title="Select Transit System" selected="false">
-					
-					<div style="width:600px;margin-top:10px">
-						<div id="hartfordDiv" style="margin-left:50px;float:left;display:inline-block;">
-							<input id="hartfordCheck" data-dojo-type="dijit/form/CheckBox" value="hartford" checked= "false"/>
+
+					<div>
+						<div id="hartfordDiv" style="width:140px;float:left;display:inline-block;">
+							<input id="hartfordCheck"/>
 							<label for="hartfordCheck">Hartford</label>
 						</div>
 
-						<div id="newhavenDiv" style="margin-left:100px;float:left;display:inline-block;">
-							<input id="newhavenCheck" data-dojo-type="dijit/form/CheckBox" value="newhaven" checked= "false"/>
+						<div id="newhavenDiv" style="width:140px;margin-left:50px;float:left;display:inline-block;">
+							<input id="newhavenCheck"/>
 							<label for="newhavenCheck">New Haven</label>
 						</div>
 
-						<div id="shorelineDiv" style="margin-left:100px;float:left;">
-							<input id="shorelineCheck" data-dojo-type="dijit/form/CheckBox" value="shoreline" checked= "false"/>
+						<div id="shorelineDiv" style="width:140px;margin-left:50px;float:left;display:inline-block;">
+							<input id="shorelineCheck"/>
 							<label for="shorelineCheck">Shore Line East</label>
 						</div>
 					</div>
-					
-					<div style="width:600px;">
-						<div id="allTranSysDiv" style="margin-left:50px;float:left;display:inline-block;">
-							<input id="allTranSysCheck" data-dojo-type="dijit/form/CheckBox" value="allTranSys" checked= "false"/>
+
+					<div>
+						<div id="allTranSysDiv" style="width:140px;float:left;display:inline-block;clear:both;">
+							<input id="allTranSysCheck"/>
 							<label for="allTranSysCheck">All</label>
-						</div>						
+						</div>
 					</div>
+
 					<div style="float:right">
-						<button id="nextButton1" data-dojo-type="dijit/form/Button" type="button">
+						<button id="nextButton1" type="button">
 						</button>
 					</div>
 				</div>
@@ -177,41 +263,41 @@
 				<div id="cpane2" data-dojo-type="dijit/layout/ContentPane" title="Select Performance Measures" selected="false">
 					
 					<div>
-						<div style="width:200px;float:left;display:inline-block;">
-							<input id="loadfCheck" name="loadfCheck" data-dojo-type="dijit/form/CheckBox" value="loadf" checked= "false" />
+						<div style="width:140px;float:left;display:inline-block;">
+							<input id="loadfCheck">
 							<label for="loadfCheck">Load Factor</label>
 						</div>
 
-						<div style="width:200px;float:left;display:inline-block;">
-							<input id="vehicleCheck" name="vehicleCheck" data-dojo-type="dijit/form/CheckBox" value="vehicle" checked= "false" />
+						<div style="width:140px;margin-left:50px;float:left;display:inline-block;">
+							<input id="vehicleCheck">
 							<label for="vehicleCheck">Vehicle Age</label>
 						</div>
 
-						<div>
-							<input id="stopAmeCheck" name="stopAmeCheck" data-dojo-type="dijit/form/CheckBox" value="stopAme" checked= "false" />
+						<div style="width:140px;margin-left:50px;float:left;display:inline-block;">
+							<input id="stopAmeCheck">
 							<label for="stopAmeCheck">Stop Amenities</label>
 						</div>
 					</div>
 					
 					<div>
-						<div style="width:200px;float:left;display:inline-block;">
-							<input id="onTimeCheck" name="onTimeCheck" data-dojo-type="dijit/form/CheckBox" value="onTime" checked= "false" />
+						<div style="width:140px;float:left;display:inline-block;clear:both;">
+							<input id="onTimeCheck">
 							<label for="onTimeCheck">On Time %</label>
 						</div>
 
-						<div style="width:200px;float:left;display:inline-block;">
-							<input id="headAwayCheck" name="headAwayCheck" data-dojo-type="dijit/form/CheckBox" value="headAway" checked= "false" />
+						<div style="width:140px;margin-left:50px;float:left;display:inline-block;">
+							<input id="headAwayCheck">
 							<label for="headAwayCheck">Head Away</label>
 						</div>
 
-						<div>
-							<input id="allPerformCheck" name="allPerformCheck" data-dojo-type="dijit/form/CheckBox" value="allPerform" checked= "false" />
+						<div style="width:140px;margin-left:50px;float:left;display:inline-block;">
+							<input id="allPerformCheck">
 							<label for="allPerformCheck">All</label>
 						</div>
 					</div>
 					
 					<div style="float:right">
-						<button id="nextButton2" data-dojo-type="dijit/form/Button" type="button">
+						<button id="nextButton2" type="button">
 						</button>
 					</div>
 						
@@ -219,97 +305,128 @@
 
 				<div id="cpane3" data-dojo-type="dijit/layout/ContentPane" title="Select Demographic Groups" selected="false">
 					<div>
-						<div style="width:200px;float:left;display:inline-block;">
-							<input id="minorityCheck" name="minorityCheck" data-dojo-type="dijit/form/CheckBox" value="minority" checked= "false"/>
+						<div style="width:140px;float:left;display:inline-block;">
+							<input id="minorityCheck">
 							<label for="minorityCheck">Minority</label>
 						</div>
 
-						<div style="width:200px;float:left;display:inline-block;">
-							<input id="nonMinoCheck" name="nonMinoCheck" data-dojo-type="dijit/form/CheckBox" value="nonMino" checked= "false" />
+						<div style="width:140px;margin-left:50px;float:left;display:inline-block;">
+							<input id="nonMinoCheck">
 							<label for="nonMinoCheck">Non-Minority</label>
 						</div>
 
-						<div>
-							<input id="lowIncomeCheck" name="lowIncomeCheck" data-dojo-type="dijit/form/CheckBox" value="lowIncome" checked= "false" />
+						<div style="width:140px;margin-left:50px;float:left;display:inline-block;">
+							<input id="lowIncomeCheck">
 							<label for="lowIncomeCheck">Low-Income</label>
 						</div>
 					</div>
 					
 					<div>
-						<div style="width:200px;float:left;display:inline-block;">
-							<input id="nonLowInCheck" name="nonLowInCheck" data-dojo-type="dijit/form/CheckBox" value="nonLowIn" checked= "false" />
+						<div style="width:140px;float:left;display:inline-block;clear:both;">
+							<input id="nonLowInCheck">
 							<label for="nonLowInCheck">Non Low-Income</label>
 						</div>
 
-						<div style="width:200px;float:left;display:inline-block;">
-							<input id="LEPCheck" name="LEPCheck" data-dojo-type="dijit/form/CheckBox" value="lep" checked= "false" />
+						<div style="width:140px;margin-left:50px;float:left;display:inline-block;">
+							<input id="LEPCheck">
 							<label for="LEPCheck">LEP</label>
 						</div>
 
-						<div>
-							<input id="allDemoGrCheck" name="allDemoGrCheck" data-dojo-type="dijit/form/CheckBox" value="allDemoGr" checked= "false" />
+						<div style="width:140px;margin-left:50px;float:left;display:inline-block;">
+							<input id="allDemoGrCheck">
 							<label for="allDemoGrCheck">All</label>
 						</div>
 					</div>
 					
 					<div style="float:right">
-						<button id="nextButton3" data-dojo-type="dijit/form/Button" type="button">
+						<button id="nextButton3" type="button">
 						</button>
 					</div>
 				</div>
 				
 				<div id="cpane4" data-dojo-type="dijit/layout/ContentPane" title="Select Demographic Spatial Unit" selected="false">
 					<div>
-						<div style="width:200px;float:left;display:inline-block;">
-							<input id="blockGrCheck" name="blockGrCheck" data-dojo-type="dijit/form/CheckBox" value="blockGroup" checked= "false"/>
+						<div style="width:140px;float:left;display:inline-block;">
+							<input id="blockGrCheck">
 							<label for="blockGrCheck">Block Group</label>
 						</div>
 
-						<div>
-							<input id="censusTrCheck" name="censusTrCheck" data-dojo-type="dijit/form/CheckBox" value="censusTrack" checked= "false" />
+						<div style="width:140px;margin-left:50px;float:left;display:inline-block;">
+							<input id="censusTrCheck">
 							<label for="censusTrCheck">Census Track</label>
 						</div>
 					</div>
 					
 					<div style="float:right">
-						<button id="nextButton4" data-dojo-type="dijit/form/Button" type="button">
+						<button id="nextButton4" type="button">
 						</button>
 					</div>
 				</div>
 				
 				<div id="cpane5" data-dojo-type="dijit/layout/ContentPane" title="Select Buffer Distance" selected="false">
-					<table style="margin:5px;">
-						<tr>
-							<td> 
-								<div>local bus</div>
-								<div>
-									<input type="text" style="width:150px"/>
-								</div>
-							</td>
-							<td>
-								<div>express bus</div>
-								<div>
-									<input type="text" style="width:150px"/>
-								</div>
-							</td>							
-						</tr>
+					
+					<div style="width:250px;float:left;display:inline-block;">
+						<div style="float:left;"> Select Local Bus</div>
+						<div style="width:80px;float:left;display:inline-block;clear:both;">
+							<input id="local1/4mile">
+							<label for="local1/4mile">1/4 mile</label>
+						</div>
+
+						<div style="width:80px;margin-left:5px;float:left;display:inline-block;">
+							<input id="local1/2mile">
+							<label for="local1/2mile">1/2 mile</label>
+						</div>
 						
-						<tr>
-							<td> 
-								<div>rail service</div>
-								<div>
-									<input type="text" style="width:150px"/>
-								</div>
-							</td>							
-						</tr>						
-					</table>
+						<div style="width:80px;margin-left:5px;float:left;display:inline-block;">
+							<input id="local3/4mile">
+							<label for="local3/4mile">3/4 mile</label>
+						</div>
+					</div>
+					
+					<div style="width:250px;margin-left:80px;float:left;display:inline-block;">
+						<div style="float:left;"> Select express Bus</div>
+						<div style="width:80px;float:left;display:inline-block;clear:both;">
+							<input id="express1/4mile">
+							<label for="express1/4mile">1/4 mile</label>
+						</div>
+
+						<div style="width:80px;margin-left:5px;float:left;display:inline-block;">
+							<input id="express1/2mile">
+							<label for="express1/2mile">1/2 mile</label>
+						</div>
+						
+						<div style="width:80px;margin-left:5px;float:left;display:inline-block;">
+							<input id="express3/4mile">
+							<label for="express3/4mile">3/4 mile</label>
+						</div>
+					</div>
+					
+					<div style="width:250px;float:left;display:inline-block;clear:both">
+						<div style="float:left;"> Select Rail Service</div>
+						<div style="width:80px;float:left;display:inline-block;clear:both;">
+							<input id="rail1/4mile">
+							<label for="rail1/4mile">1/4 mile</label>
+						</div>
+
+						<div style="width:80px;margin-left:5px;float:left;display:inline-block;">
+							<input id="rail1/2mile">
+							<label for="rail1/2mile">1/2 mile</label>
+						</div>
+						
+						<div style="width:80px;margin-left:5px;float:left;display:inline-block;">
+							<input id="rail3/4mile">
+							<label for="rail3/4mile">3/4 mile</label>
+						</div>
+					</div>
+					
+					
 				</div>
 				
 			</div>
 			<div style="float:left">
-						<button id="nextButton5" data-dojo-type="dijit/form/Button" type="button">
+						<button id="startOverButton" data-dojo-type="dijit/form/Button" type="button">
 						</button>
-						<button id="nextButton6" data-dojo-type="dijit/form/Button" type="button">
+						<button id="generateRepButton" data-dojo-type="dijit/form/Button" type="button">
 						</button>
 					</div>
 		</div>
