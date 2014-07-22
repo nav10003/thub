@@ -4,9 +4,8 @@ import cgitb, cgi, json
 cgitb.enable()
 
 form  = cgi.FieldStorage()
-name = 'Default'
-if form.has_key('name'): name = form['name']
+name,age = form.getvalue('name', 'default'),form.getvalue('age','default')
 
-print 'Content-type: text/html\n\n'
-print json.dumps({'name':name, 'value': 101 }, sort_keys=True,
-                 indent=4,seperators=(',',': '))
+print 'Content-type: application/json\n\n'
+print json.dumps({'name': name, 'age': age ,'headers': form.headers}, sort_keys=True,
+                 indent=4,separators=(',',': '))
