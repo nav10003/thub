@@ -1,23 +1,18 @@
-dojo.require("dojo._base");
-dojo.require("dojo.xhrGet");
-require(["dijit/form/Button", "dojo/dom", "dojo/domReady!"], function(Button, dom){
+require(["dijit/form/Button", "dojo/dom", "dojo/domReady!", "dojo/dom-construct","dojo/request","dojo/dom-form","dojo/json"], 
+  function(Button, dom, ready, con, request, form, json){
     // Create a button programmatically:
     var myButton = new Button({
         label: "test cgi",
         onClick: function(){
-          dojo.xhrGet({
-            url: 'test.cgi',
-            load: helloCallback,
-            error: helloError,
-            content: {name: dom.byId('name').value }
-          });
+          con.place("<p>Requesting...</p>","result");
+          request.get('cgi-bin/test.cgi',{
+            data: dom.byId("name").value,
+            handleAs: 'json'
+            }).then(function(data){
+              con.place("<p>response: <code>" + json.stringify(data) +"</code></p>","result");
+            }, function(err){
+              domConst.place("<p>error: <p>" + err.response.text + "</p></p>", "result");
+            });
         }
-    }, "test").startup();
+      }, "test").startup();
 });
-
-function helloCallback(data, ioArgs){
-  alert(data);
-}
-function helloError(data, ioArgs){
-  alert('Error when retrieving data from the server!');
-}
