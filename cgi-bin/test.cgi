@@ -2,12 +2,15 @@
 
 import cgitb
 import cgi
-
 cgitb.enable()
 
 def printall(text):
     text = text.split('\n')
     for i in text: print i
+
+form  = cgi.FieldStorage()
+name = 'Default'
+if form.has_key('name'): name = form['name']
 
 text="""Content-type: text/html
 
@@ -16,10 +19,10 @@ text="""Content-type: text/html
     <title>CGI 101</title>
   </head>
   <body>
-  <h1>A First CGI Python example</h1>
-  <p>Hello CGI World!</p>
   </body>
 </html>
 """
+
+text = text.replace('<body>\n</body>','<body>\n'+name+'</body>')
 
 printall(text)
