@@ -116,5 +116,42 @@ require(["dijit/form/CheckBox", "dojo/domReady!"], function(CheckBox) {
 		name : "express3/4mile",
 		checked : false
 	}, "express3/4mile").startup();
+	var box5exp4 = new CheckBox({
+		name : "express1mile",
+		checked : false
+	}, "express1mile").startup();
+	var box5exp5 = new CheckBox({
+		name : "express2mile",
+		checked : false
+	}, "express2mile").startup();
+	var box5exp6 = new CheckBox({
+		name : "express5mile",
+		checked : false
+	}, "express5mile").startup();
+	var box5rail1 = new CheckBox({
+		name : "rail1/4mile",
+		checked : false
+	}, "rail1/4mile").startup();
+	var box5rail2 = new CheckBox({
+		name : "rail1/2mile",
+		checked : false
+	}, "rail1/2mile").startup();
+	var box5rail3 = new CheckBox({
+		name : "rail3/4mile",
+		checked : false
+	}, "rail3/4mile").startup();
+	var box5rail4 = new CheckBox({
+		name : "rail1mile",
+		checked : false
+	}, "rail1mile").startup();
+	var box5rail5 = new CheckBox({
+		name : "rail2mile",
+		checked : false
+	}, "rail2mile").startup();
+	var box5rail6 = new CheckBox({
+		name : "rail5mile",
+		checked : false
+	}, "rail5mile").startup();
+
 
 }); 

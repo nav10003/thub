@@ -20,10 +20,10 @@
 	</head>
 	
 	<body class="claro">
-		<div style="height:500px">
-			<div id="accorContainer" data-dojo-type="dijit/layout/AccordionContainer" style="height:wrap;">
+		<div style="height:250px">
+			<div id="accorContainer" data-dojo-type="dijit/layout/AccordionContainer" >
 
-				<div id="cpane1" data-dojo-type="dijit/layout/ContentPane" title="Select Transit System" selected="false">
+				<div id="cpane1" data-dojo-type="dijit/layout/ContentPane" title="Select Transit System" selected="false" style="height: 100px;">
 
 					<div>
 						<div id="hartfordDiv" style="width:140px;float:left;display:inline-block;">
@@ -31,12 +31,12 @@
 							<label for="hartfordCheck">Hartford</label>
 						</div>
 
-						<div id="newhavenDiv" style="width:140px;margin-left:50px;float:left;display:inline-block;">
+						<div id="newhavenDiv" style="width:140px;margin-left:20px;float:left;display:inline-block;">
 							<input id="newhavenCheck"/>
 							<label for="newhavenCheck">New Haven</label>
 						</div>
 
-						<div id="shorelineDiv" style="width:140px;margin-left:50px;float:left;display:inline-block;">
+						<div id="shorelineDiv" style="width:140px;margin-left:20px;float:left;display:inline-block;">
 							<input id="shorelineCheck"/>
 							<label for="shorelineCheck">Shore Line East</label>
 						</div>
@@ -57,34 +57,34 @@
 				<div id="cpane2" data-dojo-type="dijit/layout/ContentPane" title="Select Performance Measures" selected="false">
 
 					<div>
-						<div style="width:140px;float:left;display:inline-block;">
+						<div id="loadfDiv" style="width:140px;float:left;display:inline-block;">
 							<input id="loadfCheck">
 							<label for="loadfCheck">Load Factor</label>
 						</div>
 
-						<div style="width:140px;margin-left:50px;float:left;display:inline-block;">
+						<div id="vehicleDiv" style="width:140px;margin-left:20px;float:left;display:inline-block;">
 							<input id="vehicleCheck">
 							<label for="vehicleCheck">Vehicle Age</label>
 						</div>
 
-						<div style="width:140px;margin-left:50px;float:left;display:inline-block;">
+						<div  id="stopAmeDiv" style="width:140px;margin-left:20px;float:left;display:inline-block;">
 							<input id="stopAmeCheck">
 							<label for="stopAmeCheck">Stop Amenities</label>
 						</div>
 					</div>
 
 					<div>
-						<div style="width:140px;float:left;display:inline-block;clear:both;">
+						<div id="onTimeDiv" style="width:140px;float:left;display:inline-block;clear:both;">
 							<input id="onTimeCheck">
 							<label for="onTimeCheck">On Time %</label>
 						</div>
 
-						<div style="width:140px;margin-left:50px;float:left;display:inline-block;">
+						<div id="headAwayDiv" style="width:140px;margin-left:20px;float:left;display:inline-block;">
 							<input id="headAwayCheck">
 							<label for="headAwayCheck">Head Away</label>
 						</div>
 
-						<div style="width:140px;margin-left:50px;float:left;display:inline-block;">
+						<div id="allPerformDiv" style="width:140px;margin-left:20px;float:left;display:inline-block;">
 							<input id="allPerformCheck">
 							<label for="allPerformCheck">All</label>
 						</div>
@@ -98,34 +98,34 @@
 
 				<div id="cpane3" data-dojo-type="dijit/layout/ContentPane" title="Select Demographic Groups" selected="false">
 					<div>
-						<div style="width:140px;float:left;display:inline-block;">
+						<div id="minorityDiv" style="width:140px;float:left;display:inline-block;">
 							<input id="minorityCheck">
 							<label for="minorityCheck">Minority</label>
 						</div>
 
-						<div style="width:140px;margin-left:50px;float:left;display:inline-block;">
+						<div id="nonMinoDiv" style="width:140px;margin-left:20px;float:left;display:inline-block;">
 							<input id="nonMinoCheck">
 							<label for="nonMinoCheck">Non-Minority</label>
 						</div>
 
-						<div style="width:140px;margin-left:50px;float:left;display:inline-block;">
+						<div id="lowIncomeDiv" style="width:140px;margin-left:20px;float:left;display:inline-block;">
 							<input id="lowIncomeCheck">
 							<label for="lowIncomeCheck">Low-Income</label>
 						</div>
 					</div>
 
 					<div>
-						<div style="width:140px;float:left;display:inline-block;clear:both;">
+						<div id="nonLowInDiv" style="width:140px;float:left;display:inline-block;clear:both;">
 							<input id="nonLowInCheck">
 							<label for="nonLowInCheck">Non Low-Income</label>
 						</div>
 
-						<div style="width:140px;margin-left:50px;float:left;display:inline-block;">
+						<div id="LEPDiv" style="width:140px;margin-left:20px;float:left;display:inline-block;">
 							<input id="LEPCheck">
 							<label for="LEPCheck">LEP</label>
 						</div>
 
-						<div style="width:140px;margin-left:50px;float:left;display:inline-block;">
+						<div id="allDemoGrDiv" style="width:140px;margin-left:20px;float:left;display:inline-block;">
 							<input id="allDemoGrCheck">
 							<label for="allDemoGrCheck">All</label>
 						</div>
@@ -138,12 +138,12 @@
 
 				<div id="cpane4" data-dojo-type="dijit/layout/ContentPane" title="Select Demographic Spatial Unit" selected="false">
 					<div>
-						<div style="width:140px;float:left;display:inline-block;">
+						<div id="blockGrDiv" style="width:140px;float:left;display:inline-block;">
 							<input id="blockGrCheck">
 							<label for="blockGrCheck">Block Group</label>
 						</div>
 
-						<div style="width:140px;margin-left:50px;float:left;display:inline-block;">
+						<div id="censusTrDiv" style="width:140px;margin-left:20px;float:left;display:inline-block;">
 							<input id="censusTrCheck">
 							<label for="censusTrCheck">Census Track</label>
 						</div>
@@ -156,63 +156,93 @@
 
 				<div id="cpane5" data-dojo-type="dijit/layout/ContentPane" title="Select Buffer Distance" selected="false">
 
-					<div style="width:250px;float:left;display:inline-block;">
-						<div style="float:left;">
+					<div style="float:left;display:inline-block;">
+						<div id="selectLocalDiv" style="float:left;">
 							Select distance to Local Bus
 						</div>
-						<div style="width:80px;float:left;display:inline-block;clear:both;">
+						<div style="width:70px;float:left;display:inline-block;clear:both;">
 							<input id="local1/4mile">
-							<label for="local1/4mile">1/4 mile</label>
+							<label for="local1/4mile" style="font-size: 10pt">1/4 mile</label>
 						</div>
 
-						<div style="width:80px;margin-left:5px;float:left;display:inline-block;">
+						<div style="width:70px;float:left;display:inline-block;">
 							<input id="local1/2mile">
-							<label for="local1/2mile">1/2 mile</label>
+							<label for="local1/2mile" style="font-size: 10pt">1/2 mile</label>
 						</div>
 
-						<div style="width:80px;margin-left:5px;float:left;display:inline-block;">
+						<div style="width:70px;float:left;display:inline-block;">
 							<input id="local3/4mile">
-							<label for="local3/4mile">3/4 mile</label>
+							<label for="local3/4mile" style="font-size: 10pt">3/4 mile</label>
 						</div>
 					</div>
 
-					<div style="width:250px;margin-left:80px;float:left;display:inline-block;">
-						<div style="float:left;">
+					<div style="margin-left:30px;float:left;display:inline-block;">
+						<div id="selectExpressDiv" style="float:left;">
 							Select distance to Express Bus
 						</div>
-						<div style="width:80px;float:left;display:inline-block;clear:both;">
+						<div style="width:70px;float:left;display:inline-block;clear:both;">
 							<input id="express1/4mile">
-							<label for="express1/4mile">1/4 mile</label>
+							<label for="express1/4mile" style="font-size: 10pt">1/4 mile</label>
 						</div>
 
-						<div style="width:80px;margin-left:5px;float:left;display:inline-block;">
+						<div style="width:70px;float:left;display:inline-block;">
 							<input id="express1/2mile">
-							<label for="express1/2mile">1/2 mile</label>
+							<label for="express1/2mile" style="font-size: 10pt">1/2 mile</label>
 						</div>
 
-						<div style="width:80px;margin-left:5px;float:left;display:inline-block;">
+						<div style="width:70px;float:left;display:inline-block;">
 							<input id="express3/4mile">
-							<label for="express3/4mile">3/4 mile</label>
+							<label for="express3/4mile" style="font-size: 10pt">3/4 mile</label>
+						</div>
+						
+						<div style="width:70px;float:left;display:inline-block;clear:both;">
+							<input id="express1mile">
+							<label for="express1mile" style="font-size: 10pt">1 mile</label>
+						</div>
+
+						<div style="width:70px;float:left;display:inline-block;">
+							<input id="express2mile">
+							<label for="express2mile" style="font-size: 10pt">2 miles</label>
+						</div>
+
+						<div style="width:70px;float:left;display:inline-block;">
+							<input id="express5mile">
+							<label for="express5mile" style="font-size: 10pt">5 miles</label>
 						</div>
 					</div>
 
-					<div style="width:250px;float:left;display:inline-block;clear:both">
-						<div style="float:left;">
-							Select distnace to Rail Service
+					<div style="float:left;display:inline-block;clear:both">
+						<div id="selectRailDiv" style="float:left;">
+							Select distance to Rail Service
 						</div>
-						<div style="width:80px;float:left;display:inline-block;clear:both;">
+						<div style="width:70px;float:left;display:inline-block;clear:both;">
 							<input id="rail1/4mile">
-							<label for="rail1/4mile">1/4 mile</label>
+							<label for="rail1/4mile" style="font-size: 10pt">1/4 mile</label>
 						</div>
 
-						<div style="width:80px;margin-left:5px;float:left;display:inline-block;">
+						<div style="width:70px;float:left;display:inline-block;">
 							<input id="rail1/2mile">
-							<label for="rail1/2mile">1/2 mile</label>
+							<label for="rail1/2mile" style="font-size: 10pt">1/2 mile</label>
 						</div>
 
-						<div style="width:80px;margin-left:5px;float:left;display:inline-block;">
+						<div style="width:70px;float:left;display:inline-block;">
 							<input id="rail3/4mile">
-							<label for="rail3/4mile">3/4 mile</label>
+							<label for="rail3/4mile" style="font-size: 10pt">3/4 mile</label>
+						</div>
+						
+						<div style="width:70px;float:left;display:inline-block;">
+							<input id="rail1mile">
+							<label for="rail1mile" style="font-size: 10pt">1 mile</label>
+						</div>
+
+						<div style="width:70px;float:left;display:inline-block;">
+							<input id="rail2mile">
+							<label for="rail2mile" style="font-size: 10pt">2 miles</label>
+						</div>
+
+						<div style="width:70px;float:left;display:inline-block;">
+							<input id="rail5mile">
+							<label for="rail5mile" style="font-size: 10pt">5 miles</label>
 						</div>
 					</div>
 
