@@ -8,11 +8,9 @@ require(["dijit/form/Button", "dojo/dom", "dojo/domReady!", "dojo/dom-construct"
           // prevent the page from navigating after submit
           n = dom.byId("name").value
           a = dom.byId("age").value
-          console.log(n);
-          console.log(a);
           
-          //evt.stopPropagation();
-          //evt.preventDefault();
+          evt.stopPropagation();
+          evt.preventDefault();
           
           request.post('cgi-bin/test.cgi',{
             // Send the username and password
