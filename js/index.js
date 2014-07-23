@@ -6,15 +6,15 @@ require(["dijit/form/Button", "dojo/dom", "dojo/domReady!", "dojo/dom-construct"
         onClick: function(evt){
           con.place("<p>Requesting...</p>","result");
           // prevent the page from navigating after submit
-          n = dom.byId("name").value
-          a = dom.byId("age").value
+          u = dom.byId("name").value
+          p = dom.byId("age").value
           
           evt.stopPropagation();
           evt.preventDefault();
           
           request.post('cgi-bin/test.cgi',{
             // Send the username and password
-            data: {name:n, age: a},
+            data: {uid:u, pwd: p},
             handleAs: 'json',
             // Wait 2 seconds for a response
             timeout: 2000

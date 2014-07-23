@@ -18,7 +18,7 @@ if uid=='test' and pwd=='db': #will replace with some basic user authentication 
         response = my_mssql.query(sql,v,True)
         for r in response:
             l = list(r)
-            if len(l)>0 and not db_response.has_key(l[0]): d[l0]]=l[1:]
+            if len(l)>0 and not db_response.has_key(l[0]): db_response[l[0]]=l[1:]
 
 print 'Content-type: application/json\n\n'
 print json.dumps(db_response, sort_keys=True,
