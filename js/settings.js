@@ -80,8 +80,6 @@ function(AccordionContainer, ContentPane) {
 	});
 	aContainer.addChild(Pane6);
 	
-	
-	
 	aContainer.startup();
 	
 	domConstruct.create("button", {
