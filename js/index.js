@@ -6,8 +6,8 @@ require(["dijit/form/Button", "dojo/dom", "dojo/domReady!", "dojo/dom-construct"
         onClick: function(evt){
           con.place("<p>Requesting...</p>","result");
           // prevent the page from navigating after submit
-          u = dom.byId("name").value
-          p = dom.byId("age").value
+          u = dom.byId("uid").value
+          p = dom.byId("pwd").value
           
           evt.stopPropagation();
           evt.preventDefault();
