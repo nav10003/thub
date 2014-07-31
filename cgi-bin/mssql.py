@@ -28,8 +28,9 @@ class MSSQL:
         return self
 
     def __exit__(self, type, value, traceback):
-        with open(os.path.dirname(os.path.abspath(__file__))+'\\'+'errors.txt', 'a') as f:
-            f.write(self.errors)
+        #figure out error reports cgi permissions are currently blocking this
+        #with open(os.path.dirname(os.path.abspath(__file__))+'\\'+'errors.txt', 'a') as f:
+        #    f.write(self.errors)
         #close up the connection
         try: self.conn.close()
         except RuntimeError:
