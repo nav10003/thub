@@ -12,7 +12,7 @@ require(["dijit/form/Button", "dojo/dom", "dojo/domReady!", "dojo/dom-construct"
           evt.stopPropagation();
           evt.preventDefault();
           
-          request.post('cgi-bin/test.cgi',{
+          request.post('cgi-bin/test.py',{
             // Send the username and password
             data: {uid:u, pwd: p},
             handleAs: 'json',
