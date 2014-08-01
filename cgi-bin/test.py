@@ -1,5 +1,4 @@
 #!/usr/bin/python
-
 import cgitb, cgi, json, sys
 cgitb.enable()
 #local ref modules and classes attahc path variable here

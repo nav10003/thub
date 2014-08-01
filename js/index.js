@@ -1,7 +1,7 @@
 require(["dijit/form/Button", "dojo/dom", "dojo/domReady!", "dojo/dom-construct",
-         "dojo/request","dojo/dom-form","dojo/json"],
-         //"dgrid/Grid"], 
-  function(Button, dom, ready, con, request, domform, json){//}, Grid){
+         "dojo/request","dojo/dom-form","dojo/json",
+         "dgrid/Grid","dojo/number"], 
+  function(Button, dom, ready, con, request, domform, json, Grid, dojoNum){
     // Create a button programmatically:
     var myButton = new Button({
         label: "test cgi",
@@ -20,17 +20,22 @@ require(["dijit/form/Button", "dojo/dom", "dojo/domReady!", "dojo/dom-construct"
             handleAs: 'json',
             // Wait 2 seconds for a response
             timeout: 2000
-          }).then(function(data){/*
+          }).then(function(data){
             con.place('<div id="grid">Grid Test</div>',"result");
+            var table = []
+            for(e in data){ table.push(data[e]); }
+
             var grid = new Grid({
+              bufferRows: Infinity,
               columns: {
-                geoid:"geoid",
-                median:"median",
-                total:"total"
+                "geoid":"geoid",
+                "median":{"label":"median","formatter":dojoNum.format},
+                "total":{"label":"total", "formatter":dojoNum.format}
               }
             },"grid");
-            grid.renderArray(data);*/
-            con.place("<p>response: <code>" + json.stringify(data) +"</code></p>","result");
+            grid.renderArray(table);
+            
+            //con.place("<p>response: <code>" + json.stringify(data) +"</code></p>","result");
           });      
         }
     }, "test").startup();
