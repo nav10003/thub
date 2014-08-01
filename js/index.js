@@ -21,10 +21,9 @@ require(["dijit/form/Button", "dojo/dom", "dojo/domReady!", "dojo/dom-construct"
             // Wait 2 seconds for a response
             timeout: 2000
           }).then(function(data){
-            con.place('<div id="grid">Grid Test</div>',"result");
+            con.place('<div id="grid"></div>',"result");
             var table = []
             for(e in data){ table.push(data[e]); }
-
             var grid = new Grid({
               bufferRows: Infinity,
               columns: {
