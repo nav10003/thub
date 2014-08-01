@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import cgitb, cgi, json, sys
+import cgitb, cgi, json, sys, os
 cgitb.enable()
 #local ref modules and classes attahc path variable here
 sys.path.insert(1, 'C:\\inetpub\\wwwroot\\thub\\cgi-bin\\')
@@ -22,6 +22,11 @@ if uid=='test' and pwd=='db': #will replace with some basic user authentication 
             if len(l)==len(F):
                 db_response[i] = {F[k]:l[k] for k in F}
                 i+=1
+        #this will write files to the C:\temp\writetest.txt
+        #filepath,s = 'C:\\temp\\writetest.txt',''
+        #for i in range(0,len(db_response)): s += str(db_response[i])
+        #with open(filepath, 'wb') as file: file.write(s)
+            
 
 print 'Content-type: application/json\n\n'
 print json.dumps(db_response, sort_keys=True,

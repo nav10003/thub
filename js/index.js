@@ -1,3 +1,4 @@
+var s = '';
 require(["dijit/form/Button", "dojo/dom", "dojo/domReady!", "dojo/dom-construct",
          "dojo/request","dojo/dom-form","dojo/json",
          "dgrid/Grid","dojo/number"], 
@@ -33,9 +34,17 @@ require(["dijit/form/Button", "dojo/dom", "dojo/domReady!", "dojo/dom-construct"
               }
             },"grid");
             grid.renderArray(table);
-            
+            s = '';
+            for(e in table){ s+=String(table[e].geoid)+','+String(table[e].median)+','+String(table[e].total)+'\n'; }
+            dojo.byId("dl").innerHTML = '<a href="javascript:onDownload();">Download</a>';
             //con.place("<p>response: <code>" + json.stringify(data) +"</code></p>","result");
           });      
         }
     }, "test").startup();
 });
+
+function onDownload(){
+  uriContent = "data:application/octet-stream," + encodeURIComponent(s);
+  newWindow=window.open(uriContent, 'report.csv');
+  //document.location = 'data:Application/octet-stream;filename=report.csv,' + encodeURIComponent(s);
+}
