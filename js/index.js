@@ -36,15 +36,13 @@ require(["dijit/form/Button", "dojo/dom", "dojo/domReady!", "dojo/dom-construct"
             grid.renderArray(table);
             s = '';
             for(e in table){ s+=String(table[e].geoid)+','+String(table[e].median)+','+String(table[e].total)+'\n'; }
-            dojo.byId("dl").innerHTML = '<a href="javascript:onDownload();">Download</a>';
+            dojo.byId("dl").innerHTML = '<a id="link" href="#">Download</a>';
+            $("a").on("click", function () {
+              var d = new Date().toISOString().slice(0, 19).replace(/-/g, "");
+              $(this).attr("href", "data:application/octet-stream," + encodeURIComponent(s)).attr("download", "file-" + d + ".csv");
+            });
             //con.place("<p>response: <code>" + json.stringify(data) +"</code></p>","result");
           });      
         }
     }, "test").startup();
 });
-
-function onDownload(){
-  uriContent = "data:application/octet-stream," + encodeURIComponent(s);
-  newWindow=window.open(uriContent, 'report.csv');
-  //document.location = 'data:Application/octet-stream;filename=report.csv,' + encodeURIComponent(s);
-}
