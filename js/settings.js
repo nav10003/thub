@@ -77,8 +77,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var cPane6 = new ContentPane({
 		title : "Select Buffer Distance",
-		id : "bufferDistancePane",
-		content : "<div id='bufferDistanceDiv'> select local, express, rail </div>"
+		id : "bufferDistancePane"
 	}).placeAt(aContainer);
 	 
 	// build accordion container
@@ -462,6 +461,34 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	cPane5.addChild(labe52);
 	
 	
+	// create forms and labels for cPane6
+	var form61 = new dijit.form.Form({
+		id : "form61",
+		style : "display: inline-block; width:260px"
+	});
+	var form62 = new dijit.form.Form({
+		id : "form62",
+		style : "display: inline-block; width:260px"
+	});
+	var form621 = new dijit.form.Form({
+		id : "form621",
+		style : "display:block"
+	});
+	var form622 = new dijit.form.Form({
+		id : "form622",
+		style : "display:block"
+	});
+	var labelForm61 = new dijit.form.Form({
+		id : "labelForm61",
+		innerHTML : "Select stop buffer size for Local Bus",
+		style : "display: block"
+	});
+	var labelForm62 = new dijit.form.Form({
+		id : "labelForm62",
+		innerHTML : "Select stop buffer size for Express Bus",
+		style : "display: block"
+	});
+	
 	// create checkboxes and labels for cPane6
 	var checkBox61 = new dijit.form.CheckBox({
 		id : "61Check",
@@ -472,7 +499,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	var labe61 = new dijit.form.Form({
 		id : "61Label",
 		innerHTML : "1/4 mile",
-		style : "display: inline-block"
+		style : "display: inline-block; font-size: 10pt"
 	});
 	
 	var checkBox62 = new dijit.form.CheckBox({
@@ -484,7 +511,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	var labe62 = new dijit.form.Form({
 		id : "62Label",
 		innerHTML : "1/2 mile",
-		style: "display:inline-block"
+		style: "display:inline-block; font-size: 10pt"
 	});
 	
 	var checkBox63 = new dijit.form.CheckBox({
@@ -494,23 +521,25 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	});
 	var labe63 = new dijit.form.Form({
 		id : "63Label",
-		innerHTML : "1 mile",
+		innerHTML : "3/4 mile",
 		style: "display:inline-block"
 	});
 	
-	var form61 = new dijit.form.Form({
-		id : "form61",
-		innerHTML : "new block",
-		style : "display:block;clear:both"
-	});
 	
-	// add children to cPane1
-	cPane6.addChild(checkBox61);
-	cPane6.addChild(labe61);
-	cPane6.addChild(checkBox62);
-	cPane6.addChild(labe62);
-	cPane6.addChild(checkBox63);
-	cPane6.addChild(labe63);
+	
+	// add children to cPane6
+	labelForm61.placeAt("form61");
+	checkBox61.placeAt("form61");
+	labe61.placeAt("form61");
+	checkBox62.placeAt("form61");
+	labe62.placeAt("form61");
+	checkBox63.placeAt("form61");
+	labe63.placeAt("form61");
+	
+	labelForm62.placeAt("form62");
+	
+	cPane6.addChild(form61);
+	cPane6.addChild(form62);
 	
 	
 	
