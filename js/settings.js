@@ -95,26 +95,27 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		innerHTML : "Hartford",
 		style : {
 			fontWeight : "bold",
-			display: "inline-block"
+			display: "inline-block",
+			width: "70px"
 		}
 	});
 	
 	var checkBox12 = new dijit.form.CheckBox({
 		id : "newhavenCheck",
 		checked : false,
-		style : "display:inline-block; margin-left: 20px"
+		style : "display:inline-block; margin-left: 80px"
 	});
 	
 	var labe12 = new dijit.form.Form({
 		id : "newhavenLabel",
 		innerHTML : "New Haven",
-		style: "display:inline-block"
+		style: "display:inline-block; width:80px"
 	});
 	
 	var checkBox13 = new dijit.form.CheckBox({
 		id : "allTransitSysCheck",
 		checked : false,
-		style : "margin-left: 20px",
+		style : "display:inline-block; margin-left: 70px",
 		onClick : function() {
 			// Do something:
 			
@@ -154,25 +155,25 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	var labe21 = new dijit.form.Form({
 		id : "weekdayLabel",
 		innerHTML : "Weekday",
-		style: "display:inline-block"
+		style: "display:inline-block; width:70px"
 	});
 	
 	var checkBox22 = new dijit.form.CheckBox({
 		id : "weekendCheck",
 		checked : false,
-		style : "display:inline-block; margin-left: 20px",
+		style : "display:inline-block; margin-left: 80px",
 	});
 	
 	var labe22 = new dijit.form.Form({
 		id : "weekendLabel",
 		innerHTML : "Weekend",
-		style: "display:inline-block",
+		style: "display:inline-block; width:70px",
 	});
 	
 	var checkBox23 = new dijit.form.CheckBox({
 		id : "allDayOfWeekCheck",
 		checked : false,
-		style : "margin-left: 20px",
+		style : "display:inline-block; margin-left: 80px",
 		onClick : function() {
 			// Do something:
 			
@@ -464,11 +465,11 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	// create forms and labels for cPane6
 	var form61 = new dijit.form.Form({
 		id : "form61",
-		style : "display: inline-block; width:260px"
+		style : "display: inline-block; width:260px; vertical-align: top;"
 	});
 	var form62 = new dijit.form.Form({
 		id : "form62",
-		style : "display: inline-block; width:260px"
+		style : "display: inline-block; width:260px; vertical-align: top;"
 	});
 	var form621 = new dijit.form.Form({
 		id : "form621",
@@ -499,19 +500,19 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	var labe61 = new dijit.form.Form({
 		id : "61Label",
 		innerHTML : "1/4 mile",
-		style : "display: inline-block; font-size: 10pt"
+		style : "display:inline-block; font-size:10pt; width:45px"
 	});
 	
 	var checkBox62 = new dijit.form.CheckBox({
 		id : "62Check",
 		checked : false,
-		style : "display:inline-block; margin-left: 20px"
+		style : "display:inline-block; margin-left:20px"
 	});
 	
 	var labe62 = new dijit.form.Form({
 		id : "62Label",
 		innerHTML : "1/2 mile",
-		style: "display:inline-block; font-size: 10pt"
+		style: "display:inline-block; font-size:10pt; width:45px"
 	});
 	
 	var checkBox63 = new dijit.form.CheckBox({
@@ -519,13 +520,83 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		checked : false,
 		style : "margin-left: 20px"
 	});
+	
 	var labe63 = new dijit.form.Form({
 		id : "63Label",
 		innerHTML : "3/4 mile",
+		style: "display:inline-block; font-size:10pt; width:45px"
+	});
+	
+	var checkBox64 = new dijit.form.CheckBox({
+		id : "64Check",
+		checked : false,
 		style: "display:inline-block"
 	});
 	
+	var labe64 = new dijit.form.Form({
+		id : "64Label",
+		innerHTML : "1/4 mile",
+		style : "display:inline-block; font-size:10pt; width:45px"
+	});
 	
+	var checkBox65 = new dijit.form.CheckBox({
+		id : "65Check",
+		checked : false,
+		style : "display:inline-block; margin-left:20px"
+	});
+	
+	var labe65 = new dijit.form.Form({
+		id : "65Label",
+		innerHTML : "1/2 mile",
+		style: "display:inline-block; font-size:10pt; width:45px"
+	});
+	
+	var checkBox66 = new dijit.form.CheckBox({
+		id : "66Check",
+		checked : false,
+		style : "margin-left:20px"
+	});
+	var labe66 = new dijit.form.Form({
+		id : "66Label",
+		innerHTML : "3/4 mile",
+		style: "display:inline-block; font-size:10pt; width:45px"
+	});
+	
+	var checkBox67 = new dijit.form.CheckBox({
+		id : "67Check",
+		checked : false,
+		style: "display:inline-block"
+	});
+	
+	var labe67 = new dijit.form.Form({
+		id : "67Label",
+		innerHTML : "1 mile",
+		style : "display:inline-block; font-size:10pt; width:45px"
+	});
+	
+	var checkBox68 = new dijit.form.CheckBox({
+		id : "68Check",
+		checked : false,
+		style : "display:inline-block; margin-left:20px"
+	});
+	
+	var labe68 = new dijit.form.Form({
+		id : "68Label",
+		innerHTML : "2 miles",
+		style: "display:inline-block; font-size:10pt; width:45px"
+	});
+	
+	var checkBox69 = new dijit.form.CheckBox({
+		id : "69Check",
+		checked : false,
+		style : "margin-left:20px"
+	});
+	
+	var labe69 = new dijit.form.Form({
+		id : "69Label",
+		innerHTML : "5 miles",
+		style: "display:inline-block; font-size:10pt; width:45px"
+	});
 	
 	// add children to cPane6
 	labelForm61.placeAt("form61");
@@ -536,7 +607,23 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	checkBox63.placeAt("form61");
 	labe63.placeAt("form61");
 	
-	labelForm62.placeAt("form62");
+	form621.placeAt("form62");
+	labelForm62.placeAt("form621");
+	checkBox64.placeAt("form621");
+	labe64.placeAt("form621");
+	checkBox65.placeAt("form621");
+	labe65.placeAt("form621");
+	checkBox66.placeAt("form621");
+	labe66.placeAt("form621");
+	
+	form622.placeAt("form62");
+	checkBox67.placeAt("form622");
+	labe67.placeAt("form622");
+	checkBox68.placeAt("form622");
+	labe68.placeAt("form622");
+	checkBox69.placeAt("form622");
+	labe69.placeAt("form622");
+	
 	
 	cPane6.addChild(form61);
 	cPane6.addChild(form62);
@@ -596,10 +683,14 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	cPane4.addChild(nextButton4);
 	cPane5.addChild(nextButton5);
  
-
 	// create a new Tooltip and connect it to...
     var tooltip1 = new dijit.Tooltip({
       connectId: ["hartfordLabel"],
+      label: "this is a tooltip for ..."
+    });
+    
+    var tooltip3 = new dijit.Tooltip({
+      connectId: ["allTransitSysLabel"],
       label: "this is a tooltip for ..."
     });
     //cPane1.addChild(tooltip1);
