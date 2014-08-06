@@ -40,10 +40,10 @@ function(dom, domConstruct) {
 
 
 require(["dijit/layout/AccordionContainer", "dijit/layout/ContentPane", "dojo/domReady!","dijit/form/Form","dijit/form/Textarea",
- "dojo/dom", "dojo/dom-construct", "dijit/form/CheckBox", "dijit/registry", "dijit/form/TextBox",
+ "dojo/dom", "dojo/dom-construct", "dijit/form/CheckBox", "dijit/registry", "dijit/form/TextBox","dijit/Tooltip",
  "dijit/form/Button", "dojo/query", "dojo/dom-construct", "dijit/_Widget", "dijit/_Templated"], 
 
-function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, query, registry, TextBox, Form, Textarea, document) {
+function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, query, registry, TextBox, Form, Textarea, document, Tooltip) {
 	var aContainer = new AccordionContainer({
 		id : "accorContainer",
 		style : "height: 250px"
@@ -542,7 +542,6 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	cPane6.addChild(form62);
 	
 	
-	
 	// create buttons ////////////////////////////////////////////////////
 	var nextButton1 = new dijit.form.Button({
 		style : "float:right",
@@ -596,15 +595,21 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	cPane3.addChild(nextButton3);
 	cPane4.addChild(nextButton4);
 	cPane5.addChild(nextButton5);
-}); 
+ 
 
-
-
+	// create a new Tooltip and connect it to...
+    var tooltip1 = new dijit.Tooltip({
+      connectId: ["hartfordLabel"],
+      label: "this is a tooltip for ..."
+    });
+    //cPane1.addChild(tooltip1);
+    //var node = dijit.byId("hartfordLabel");
+  	//Tooltip.show("I am a tooltip", node);
+  	
+});
 require(["dijit/form/Button", "dojo/dom", "dijit/registry", "dojo/domReady!"], 
-
 function(Button, registry, dom) {
 	// Create a button programmatically:
-	var divSample = dijit.byId("RestartGenerateDiv");
 
 	var startOverButton = new Button({
 		label : "Start Over",
@@ -622,13 +627,16 @@ function(Button, registry, dom) {
 			alert("I was clicked: Generate Report");
 		}
 	},"generateButton");
-	
-	var Button4 = new Button({
-		label : "new button",
-		onClick : function() {
-			// Do something:
-			alert("I was clicked: Generate Report");
-		}
-	}).placeAt("transitSysPane");
 
+});
+
+require(["dijit/Tooltip", "dojo/dom", "dijit/registry", "dojo/domReady!"], 
+function(Tooltip,registry, dom){
+	
+    var ttip1 = new dijit.Tooltip({
+        connectId: ["newhavenLabel"],
+        label: "the text for the tooltip"
+    });
+    var node = registry.byId("transitSysPane");
+    node.addChild(ttip1);
 });
