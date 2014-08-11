@@ -3,19 +3,6 @@ require(["dojo/dom", "dojo/dom-construct", "dojo/domReady!"],
 function(dom, domConstruct) {
 	// get the Body id and create a variable
 	var Body = dom.byId("mainBody");	
-	// create a node "div" inside body (sample)
-	/*domConstruct.create("div", {
-		id : "sampleDiv",		
-		className : "sample",
-		innerHTML : "Detail Reporting",
-		style : {
-			fontWeight : "bold",
-			marginBottom : "30px",
-			marginLeft : "50px",
-			fontSize : "20pt",
-			color : "green"
-		}
-	}, Body);*/
 	
 	// create div for Accordion Container	
 	domConstruct.create("div", {
@@ -40,10 +27,10 @@ function(dom, domConstruct) {
 
 
 require(["dijit/layout/AccordionContainer", "dijit/layout/ContentPane", "dojo/domReady!","dijit/form/Form","dijit/form/Textarea",
- "dojo/dom", "dojo/dom-construct", "dijit/form/CheckBox", "dijit/registry", "dijit/form/TextBox","dijit/Tooltip",
+ "dojo/dom", "dojo/dom-construct", "dijit/form/CheckBox", "dijit/registry", "dijit/form/TextBox","dijit/Tooltip", "dijit/form/RadioButton",
  "dijit/form/Button", "dojo/query", "dojo/dom-construct", "dijit/_Widget", "dijit/_Templated"], 
 
-function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, query, registry, TextBox, Form, Textarea, document, Tooltip) {
+function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, query, registry, TextBox, Form, Textarea, document, Tooltip, RadioButton) {
 	var aContainer = new AccordionContainer({
 		id : "accorContainer",
 		style : "height: 250px"
@@ -84,7 +71,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	aContainer.startup();
 	
 	// create checkboxes and labels for cPane1
-	var checkBox11 = new dijit.form.CheckBox({
+	var checkBox11 = new dijit.form.RadioButton({
 		id : "hartfordCheck",
 		checked : false,
 		style: "display:inline-block"
@@ -94,13 +81,13 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		id : "hartfordLabel",
 		innerHTML : "Hartford",
 		style : {
-			fontWeight : "bold",
+			//fontWeight : "bold",
 			display: "inline-block",
 			width: "70px"
 		}
 	});
 	
-	var checkBox12 = new dijit.form.CheckBox({
+	var checkBox12 = new dijit.form.RadioButton({
 		id : "newhavenCheck",
 		checked : false,
 		style : "display:inline-block; margin-left: 80px"
@@ -142,8 +129,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	cPane1.addChild(labe11);
 	cPane1.addChild(checkBox12);
 	cPane1.addChild(labe12);
-	cPane1.addChild(checkBox13);
-	cPane1.addChild(labe13);
+	//cPane1.addChild(checkBox13);
+	//cPane1.addChild(labe13);
 	
 	// create checkboxes and labels for cPane2
 	var checkBox21 = new dijit.form.CheckBox({
@@ -207,73 +194,80 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	// create forms for cPane3
 	var form31 = new dijit.form.Form({
 		id : "form31",
-		style : "display: block"
+		name : "group3",
+		style : "display: inline-block; width:460px;"
 	});
 	var form32 = new dijit.form.Form({
 		id : "form32",
-		style : "display: block"
+		name : "group3",
+		style : "display: inline-block"
 	});
 	
 	// create checkboxes and labels for cPane3
-	var checkBox31 = new dijit.form.CheckBox({
+	var checkBox31 = new dijit.form.RadioButton({
 		id : "loadFactorCheck",
+		name : "group3",
 		checked : false,
 		style: "display:inline-block"
-	});
+	}).placeAt("form31");
 	
 	var labe31 = new dijit.form.Form({
 		id : "loadFactorLabel",
 		innerHTML : "Load Factor",
 		style: "display:inline-block; width:90px"
-	});
+	}).placeAt("form31");
 	
-	var checkBox32 = new dijit.form.CheckBox({
+	var checkBox32 = new dijit.form.RadioButton({
 		id : "vehicleCheck",
+		name : "group3",
 		checked : false,
 		style : "display:inline-block; margin-left: 60px"
-	});
+	}).placeAt("form31");
 	
 	var labe32 = new dijit.form.Form({
 		id : "vehicleLabel",
 		innerHTML : "Vehicle Age",
 		style: "display:inline-block; width:90px"
-	});
+	}).placeAt("form31");
 	
-	var checkBox33 = new dijit.form.CheckBox({
+	var checkBox33 = new dijit.form.RadioButton({
 		id : "stopAmeniCheck",
+		name : "group3",
 		checked : false,
 		style: "display:inline-block; margin-left: 60px"
-	});
+	}).placeAt("form31");
 	
 	var labe33 = new dijit.form.Form({
 		id : "stopAmeniLabel",
-		innerHTML : "Stop Amenities",
-		style: "display:inline-block; width:110px"
-	});
+		innerHTML : "Stop Amenities <br>",
+		style: "display:inline; width:200px"
+	}).placeAt("form31");
 	
-	var checkBox34 = new dijit.form.CheckBox({
+	var checkBox34 = new dijit.form.RadioButton({
 		id : "onTimeCheck",
+		name : "group3",
 		checked : false,
 		style : "display:inline-block"
-	});
+	}).placeAt("form31");
 	
 	var labe34 = new dijit.form.Form({
 		id : "onTimeLabel",
 		innerHTML : "On-Time %",
 		style: "display:inline-block; width:90px"
-	});
+	}).placeAt("form31");
 	
-	var checkBox35 = new dijit.form.CheckBox({
+	var checkBox35 = new dijit.form.RadioButton({
 		id : "headwayCheck",
+		name : "group3",
 		checked : false,
 		style: "display:inline-block; margin-left:60px"
-	});
+	}).placeAt("form31");
 	
 	var labe35 = new dijit.form.Form({
 		id : "headwayLabel",
 		innerHTML : "Headway",
 		style: "display:inline-block; width:70px"
-	});
+	}).placeAt("form31");
 	
 	var checkBox36 = new dijit.form.CheckBox({
 		id : "allPerformanceCheck",
@@ -307,7 +301,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	});
 
 	
-	// place at form31 and form32
+	/*// place at form31 and form32
 	checkBox31.placeAt("form31");
 	labe31.placeAt("form31");
 	checkBox32.placeAt("form31");
@@ -320,7 +314,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	checkBox35.placeAt("form32");
 	labe35.placeAt("form32");
 	checkBox36.placeAt("form32");
-	labe36.placeAt("form32");
+	labe36.placeAt("form32");*/
 	
 	// add children to cPane3
 	cPane3.addChild(form31);
@@ -337,7 +331,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	});
 	var form43 = new dijit.form.Form({
 		id : "form43",
-		style : "display: block; margin-left:180px"
+		style : "display: inline-block; margin-left:180px"
 	});
 	
     // create checkboxes and labels for cPane4
@@ -520,7 +514,6 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	cPane5.addChild(labe51);
 	cPane5.addChild(checkBox52);
 	cPane5.addChild(labe52);
-	
 	
 	// create forms and labels for cPane6
 	var form61 = new dijit.form.Form({
