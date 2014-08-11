@@ -4,7 +4,7 @@ function(dom, domConstruct) {
 	// get the Body id and create a variable
 	var Body = dom.byId("mainBody");	
 	// create a node "div" inside body (sample)
-	domConstruct.create("div", {
+	/*domConstruct.create("div", {
 		id : "sampleDiv",		
 		className : "sample",
 		innerHTML : "Detail Reporting",
@@ -15,7 +15,7 @@ function(dom, domConstruct) {
 			fontSize : "20pt",
 			color : "green"
 		}
-	}, Body);
+	}, Body);*/
 	
 	// create div for Accordion Container	
 	domConstruct.create("div", {
@@ -203,6 +203,17 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	cPane2.addChild(checkBox23);
 	cPane2.addChild(labe23);
 	
+	
+	// create forms for cPane3
+	var form31 = new dijit.form.Form({
+		id : "form31",
+		style : "display: block"
+	});
+	var form32 = new dijit.form.Form({
+		id : "form32",
+		style : "display: block"
+	});
+	
 	// create checkboxes and labels for cPane3
 	var checkBox31 = new dijit.form.CheckBox({
 		id : "loadFactorCheck",
@@ -213,61 +224,61 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	var labe31 = new dijit.form.Form({
 		id : "loadFactorLabel",
 		innerHTML : "Load Factor",
-		style: "display:inline-block"
+		style: "display:inline-block; width:90px"
 	});
 	
 	var checkBox32 = new dijit.form.CheckBox({
 		id : "vehicleCheck",
 		checked : false,
-		style : "display:inline-block; margin-left: 20px"
+		style : "display:inline-block; margin-left: 60px"
 	});
 	
 	var labe32 = new dijit.form.Form({
 		id : "vehicleLabel",
 		innerHTML : "Vehicle Age",
-		style: "display:inline"
+		style: "display:inline-block; width:90px"
 	});
 	
 	var checkBox33 = new dijit.form.CheckBox({
 		id : "stopAmeniCheck",
 		checked : false,
-		style: "display:inline-block; margin-left: 20px"
+		style: "display:inline-block; margin-left: 60px"
 	});
 	
 	var labe33 = new dijit.form.Form({
 		id : "stopAmeniLabel",
 		innerHTML : "Stop Amenities",
-		style: "display:inline-block"
+		style: "display:inline-block; width:110px"
 	});
 	
 	var checkBox34 = new dijit.form.CheckBox({
 		id : "onTimeCheck",
 		checked : false,
-		style : "display:inline-block; margin-left: 20px"
+		style : "display:inline-block"
 	});
 	
 	var labe34 = new dijit.form.Form({
 		id : "onTimeLabel",
 		innerHTML : "On-Time %",
-		style: "display:inline-block;"
+		style: "display:inline-block; width:90px"
 	});
 	
 	var checkBox35 = new dijit.form.CheckBox({
 		id : "headwayCheck",
 		checked : false,
-		style: "display:inline-block; margin-left:20px"
+		style: "display:inline-block; margin-left:60px"
 	});
 	
 	var labe35 = new dijit.form.Form({
 		id : "headwayLabel",
 		innerHTML : "Headway",
-		style: "display:inline-block"
+		style: "display:inline-block; width:70px"
 	});
 	
 	var checkBox36 = new dijit.form.CheckBox({
 		id : "allPerformanceCheck",
 		checked : false,
-		style : "display:inline-block; margin-left: 20px",
+		style : "display:inline-block; margin-left: 80px",
 		onClick : function() {
 			// Do something:
 			
@@ -294,30 +305,42 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		innerHTML : "All",
 		style: "display:inline-block"
 	});
+
 	
-	/*var form31 = new dijit.form.Form({
-		id : "form1",
-		innerHTML : "new block",
-		style : "display:block;clear:both"
-	});*/
+	// place at form31 and form32
+	checkBox31.placeAt("form31");
+	labe31.placeAt("form31");
+	checkBox32.placeAt("form31");
+	labe32.placeAt("form31");
+	checkBox33.placeAt("form31");
+	labe33.placeAt("form31");
+	
+	checkBox34.placeAt("form32");
+	labe34.placeAt("form32");
+	checkBox35.placeAt("form32");
+	labe35.placeAt("form32");
+	checkBox36.placeAt("form32");
+	labe36.placeAt("form32");
 	
 	// add children to cPane3
-	cPane3.addChild(checkBox31);
-	cPane3.addChild(labe31);
-	cPane3.addChild(checkBox32);
-	cPane3.addChild(labe32);
-	cPane3.addChild(checkBox33);
-	cPane3.addChild(labe33);
-	//cPane3.addChild(form31);
-	cPane3.addChild(checkBox34);
-	cPane3.addChild(labe34);
-	cPane3.addChild(checkBox35);
-	cPane3.addChild(labe35);
-	cPane3.addChild(checkBox36);
-	cPane3.addChild(labe36);
+	cPane3.addChild(form31);
+	cPane3.addChild(form32);
 
-
-// create checkboxes and labels for cPane4
+	// create forms for cPane4
+	var form41 = new dijit.form.Form({
+		id : "form41",
+		style : "display: block"
+	});
+	var form42 = new dijit.form.Form({
+		id : "form42",
+		style : "display: block"
+	});
+	var form43 = new dijit.form.Form({
+		id : "form43",
+		style : "display: block; margin-left:180px"
+	});
+	
+    // create checkboxes and labels for cPane4
 	var checkBox41 = new dijit.form.CheckBox({
 		id : "minorityCheck",
 		checked : false,
@@ -327,25 +350,25 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	var labe41 = new dijit.form.Form({
 		id : "minorityLabel",
 		innerHTML : "Minority",
-		style: "display:inline-block"
+		style: "display:inline-block; width:70px"
 	});
 	
 	var checkBox42 = new dijit.form.CheckBox({
 		id : "nonMinorityCheck",
 		checked : false,
-		style : "display:inline-block; margin-left: 20px"
+		style : "display:inline-block; margin-left: 80px"
 	});
 	
 	var labe42 = new dijit.form.Form({
 		id : "nonMinorityLabel",
 		innerHTML : "Non-minority",
-		style: "display:inline"
+		style: "display:inline-block; width:80px"
 	});
 	
 	var checkBox43 = new dijit.form.CheckBox({
 		id : "lowIncomeCheck",
 		checked : false,
-		style: "display:inline-block; margin-left: 20px"
+		style: "display:inline-block; margin-left: 70px"
 	});
 	
 	var labe43 = new dijit.form.Form({
@@ -357,31 +380,31 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	var checkBox44 = new dijit.form.CheckBox({
 		id : "nonLowIncomeCheck",
 		checked : false,
-		style : "display:inline-block; margin-left: 20px"
+		style : "display:inline-block"
 	});
 	
 	var labe44 = new dijit.form.Form({
 		id : "nonLowIncomeLabel",
 		innerHTML : "Non low-income",
-		style: "display:inline-block;"
+		style: "display:inline-block; width:110px"
 	});
 	
 	var checkBox45 = new dijit.form.CheckBox({
 		id : "lepCheck",
 		checked : false,
-		style: "display:inline-block; margin-left:20px"
+		style: "display:inline-block; margin-left:40px"
 	});
 	
 	var labe45 = new dijit.form.Form({
 		id : "lepLabel",
 		innerHTML : "LEP",
-		style: "display:inline-block"
+		style: "display:inline-block; width:60px"
 	});
 	
 	var checkBox46 = new dijit.form.CheckBox({
 		id : "allDemoReportCheck",
 		checked : false,
-		style : "display:inline-block; margin-left: 20px",
+		style : "display:inline-block; margin-left: 90px",
 		onClick : function() {
 			// Do something:
 			
@@ -408,27 +431,64 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		innerHTML : "All",
 		style: "display:inline-block"
 	});
+	var checkBox47 = new dijit.form.CheckBox({
+		id : "italtianCheck",
+		checked : false,
+		style: "display:inline-block"
+	});
+	var labe47 = new dijit.form.Form({
+		id : "italianLabel",
+		innerHTML : "Italian",
+		style: "display:inline-block"
+	});
+	var checkBox48 = new dijit.form.CheckBox({
+		id : "spanishCheck",
+		checked : false,
+		style: "display:inline-block; margin-left:20px"
+	});
+	var labe48 = new dijit.form.Form({
+		id : "spanishLabel",
+		innerHTML : "Spanish",
+		style: "display:inline-block"
+	});
+	var checkBox49 = new dijit.form.CheckBox({
+		id : "polishCheck",
+		checked : false,
+		style: "display:inline-block; margin-left:20px"
+	});
+	var labe49 = new dijit.form.Form({
+		id : "polishLabel",
+		innerHTML : "Polish",
+		style: "display:inline-block"
+	});
 	
-	/*var form41 = new dijit.form.Form({
-		id : "form1",
-		innerHTML : "new block",
-		style : "display:block;clear:both"
-	});*/
+	// place at form41 and form42
+	checkBox41.placeAt("form41");
+	labe41.placeAt("form41");
+	checkBox42.placeAt("form41");
+	labe42.placeAt("form41");
+	checkBox43.placeAt("form41");
+	labe43.placeAt("form41");
+	
+	checkBox44.placeAt("form42");
+	labe44.placeAt("form42");
+	checkBox45.placeAt("form42");
+	labe45.placeAt("form42");
+	checkBox46.placeAt("form42");
+	labe46.placeAt("form42");
+	
+	// place at form43
+	checkBox47.placeAt("form43");
+	labe47.placeAt("form43");
+	checkBox48.placeAt("form43");
+	labe48.placeAt("form43");
+	checkBox49.placeAt("form43");
+	labe49.placeAt("form43");
 	
 	// add children to cPane4
-	cPane4.addChild(checkBox41);
-	cPane4.addChild(labe41);
-	cPane4.addChild(checkBox42);
-	cPane4.addChild(labe42);
-	cPane4.addChild(checkBox43);
-	cPane4.addChild(labe43);
-	//cPane4.addChild(form41);
-	cPane4.addChild(checkBox44);
-	cPane4.addChild(labe44);
-	cPane4.addChild(checkBox45);
-	cPane4.addChild(labe45);
-	cPane4.addChild(checkBox46);
-	cPane4.addChild(labe46);
+	cPane4.addChild(form41);
+	cPane4.addChild(form42);
+	cPane4.addChild(form43);
 	
 	// create checkboxes and labels for cPane5
 	var checkBox51 = new dijit.form.CheckBox({
@@ -440,13 +500,13 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	var labe51 = new dijit.form.Form({
 		id : "blockGroupLabel",
 		innerHTML : "Block Group",
-		style: "display:inline-block"
+		style: "display:inline-block;width: 90px"		
 	});
 	
 	var checkBox52 = new dijit.form.CheckBox({
 		id : "censusTrackCheck",
 		checked : false,
-		style : "display:inline-block; margin-left: 20px",
+		style : "display:inline-block; margin-left: 60px",
 	});
 	
 	var labe52 = new dijit.form.Form({
