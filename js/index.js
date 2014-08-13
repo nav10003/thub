@@ -23,15 +23,33 @@ require(["dijit/form/Button", "dojo/dom", "dojo/domReady!", "dojo/dom-construct"
           }).then(function(data){  // then is the area where you have an answer and can display results, etc
             //example of what you can do after you get a table back...
             con.place('<div id="grid"></div>',"result");  //make a new div called grid
-            var table = []                                //empty array
-            for(e in data){ table.push(data[e]); }        //fill the array with rows
+            
+            var table = []
+            //var fields = data[0];
+            var f = data[0];                             //get the field names
+            var fields = [];
+            fields.push('#');
+            for(e in f){ fields.push(f[e]); }
+            delete data[0];                              //delete for easy iteration
+            var i = 1;
+            for(e in data){
+                row = data[e];
+                row['#'] = i;
+                table.push(row);
+                i++; 
+            }        //fill the array with rows
+            
+            cols = {};
+            for(var i = 0; i < fields.length; i++){ cols[fields[i]] = fields[i]; }
+            console.log(fields);
             var grid = new Grid({                                                 //dgrid example like excel
               bufferRows: Infinity,                                               //have to construct
-              columns: {                                                          //data as an array
-                "geoid":"geoid",                                                  //and specify the names
-                "median":{"label":"median","formatter":dojoNum.format},           //of the columns to display
-                "total":{"label":"total", "formatter":dojoNum.format}             //and format the data if needed
-              }                                                                   //
+              columns: cols
+              //columns: {                                                          //data as an array
+              //  "geoid":"geoid",                                                  //and specify the names
+              //  "median":{"label":"median","formatter":dojoNum.format},           //of the columns to display
+              //  "total":{"label":"total", "formatter":dojoNum.format}             //and format the data if needed
+              //}                                                                   //
             },"grid");                                                            //attach to the grid div
             grid.renderArray(table);                                              //load the data in from the array
             
