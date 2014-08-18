@@ -21,10 +21,7 @@ function(dom, domConstruct) {
 		id : "generateButton"		
 	}, Body);
 	
-	
-	
 });
-
 
 require(["dijit/layout/AccordionContainer", "dijit/layout/ContentPane", "dojo/domReady!","dijit/form/Form","dijit/form/Textarea",
  "dojo/dom", "dojo/dom-construct", "dijit/form/CheckBox", "dijit/registry", "dijit/form/TextBox","dijit/Tooltip", "dijit/form/RadioButton",
@@ -33,17 +30,17 @@ require(["dijit/layout/AccordionContainer", "dijit/layout/ContentPane", "dojo/do
 function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, query, registry, TextBox, Form, Textarea, document, Tooltip, RadioButton) {
 	var aContainer = new AccordionContainer({
 		id : "accorContainer",
-		style : "height: 270px"
+		style : "height: 275px"
 	}, "accorContainerDiv");
 	
 	var cPane1 = new ContentPane({
-		title : "Select Transit System",
+		title : "Transit System",
 		id : "transitSysPane",
 		orientation: "vertical"
 	}).placeAt(aContainer);
 	
 	var cPane2 = new ContentPane({
-		title : "Select Day of Week",
+		title : "Day of Week",
 		id : "dayOfWeekPane"
 	}).placeAt(aContainer); 
 	
@@ -53,17 +50,17 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	}).placeAt(aContainer);
 	
 	var cPane4 = new ContentPane({
-		title : "Select Demographic Reports",
+		title : "Demographic Reports",
 		id : "demoGroupPane"
 	}).placeAt(aContainer);
 	
 	var cPane5 = new ContentPane({
-		title : "Select Demographic Spatial Unit",
+		title : "Demographic Spatial Unit",
 		id : "demoSpatialUnitPane"
 	}).placeAt(aContainer);
 	
 	var cPane6 = new ContentPane({
-		title : "Select Buffer Distance",
+		title : "Buffer Distance",
 		id : "bufferDistancePane"
 	}).placeAt(aContainer);
 	 
@@ -149,8 +146,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		checked : false,
 		style : "display:inline-block; margin-left: 80px",
 		onClick : function() {
-			// Do something:
-			
+			// Do something:			
 			if (dijit.byId("allDayOfWeekCheck").get("checked") == true) {
 				// Select All
 				dijit.byId("weekdayCheck").set("checked", true);
@@ -163,6 +159,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 			}
 		} 
 	}).placeAt("form21");
+	
 	var labe23 = new dijit.form.Form({
 		id : "allDayOfWeekLabel",
 		innerHTML : "All",
@@ -252,12 +249,12 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	var form41 = new dijit.form.Form({
 		id : "form41",
 		name : "group4",
-		style : "display:inline-block; width:460px"
+		style : "display:block; width:460px"
 	});
 	var form42 = new dijit.form.Form({
 		id : "form42",
 		name : "group4",
-		style : "display:inline-block: width:460px"
+		style : "display:block: width:460px"
 	});
 	
     // create checkboxes and labels for cPane4
@@ -481,17 +478,13 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	cPane5.addChild(form51);
 	
 	// create forms and labels for cPane6
-	var form60 = new dijit.form.Form({
-		id : "form60",
-		style : "display:inline-block; width:100px; vertical-align:top"
-	});
 	var form61 = new dijit.form.Form({
 		id : "form61",
-		style : "display:inline-block; width:260px; vertical-align:top"
+		style : "display:block; width:320px "
 	});
 	var form62 = new dijit.form.Form({
 		id : "form62",
-		style : "display:inline-block; width:260px; vertical-align:top"
+		style : "display:block; width:320px; margin-top:10px "
 	});
 	var labe6select = new dijit.form.Form({
 		id : "6selectLabel",
@@ -500,45 +493,26 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	}).placeAt("bufferDistancePane");
 	
 	// create checkboxes and labels for cPane6
-	var checkBox6local = new dijit.form.RadioButton({
+	var checkBox6local = new dijit.form.CheckBox({
 		id : "6localCheck",
-		checked : true,
+		checked : false,
 		style: "display:inline-block",
 		onClick : function() {
-			// Do something:
-			cPane6.removeChild(form62);
-			cPane6.addChild(form61);			
+			// Do something:			
 		} 
-	}).placeAt("form60");
+	}).placeAt("form61");
 	
 	var labe6local = new dijit.form.Form({
 		id : "6localLabel",
-		innerHTML : "Local <br>",
-		style : "display:inline; width:60px",
+		innerHTML : "Local",
+		style : "display:inline; width:40px",
 		
-	}).placeAt("form60");
-	
-	var checkBox6express = new dijit.form.RadioButton({
-		id : "6expressCheck",
-		checked : false,
-		style : "display:inline-block",
-		onClick : function() {
-			// Do something:
-			cPane6.removeChild(form61);
-			cPane6.addChild(form62);			
-		} 
-	}).placeAt("form60");
-	
-	var labe6express = new dijit.form.Form({
-		id : "6expressLabel",
-		innerHTML : "Express",
-		style: "display:inline; width:60px"
-	}).placeAt("form60");
+	}).placeAt("form61");
 	
 	var checkBox61 = new dijit.form.RadioButton({
 		id : "61Check",
 		checked : false,
-		style: "display:inline-block"
+		style: "display:inline-block; margin-left:35px"
 	}).placeAt("form61");
 	
 	var labe61 = new dijit.form.Form({
@@ -571,10 +545,25 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		style: "display:inline-block; font-size:10pt; width:45px"
 	}).placeAt("form61");
 	
+	var checkBox6express = new dijit.form.CheckBox({
+		id : "6expressCheck",
+		checked : false,
+		style : "display:inline-block",
+		onClick : function() {
+			// Do something:			
+		} 
+	}).placeAt("form62");
+	
+	var labe6express = new dijit.form.Form({
+		id : "6expressLabel",
+		innerHTML : "Express",
+		style: "display:inline; width:60px"
+	}).placeAt("form62");
+	
 	var checkBox64 = new dijit.form.RadioButton({
 		id : "64Check",
 		checked : false,
-		style: "display:inline-block"
+		style: "display:inline-block; margin-left:20px"
 	}).placeAt("form62");
 	
 	var labe64 = new dijit.form.Form({
@@ -610,7 +599,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	var checkBox67 = new dijit.form.RadioButton({
 		id : "67Check",
 		checked : false,
-		style: "display:inline-block"
+		style: "display:inline-block; margin-left:88px"
 	}).placeAt("form62");	
 	
 	var labe67 = new dijit.form.Form({
@@ -643,9 +632,9 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		style: "display:inline-block; font-size:10pt; width:45px"
 	}).placeAt("form62");
 	
-	// add children to cPane6	
-	cPane6.addChild(form60);
+	// add children to cPane6
 	cPane6.addChild(form61);
+	cPane6.addChild(form62);
 		
 	// create buttons ////////////////////////////////////////////////////
 	var nextButton1 = new dijit.form.Button({
@@ -716,10 +705,12 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
   	//Tooltip.show("I am a tooltip", node);
   	
 });
+
+
 require(["dijit/form/Button", "dojo/dom", "dijit/registry", "dojo/domReady!"], 
 function(Button, registry, dom) {
-	// Create a button programmatically:
-
+	
+	// Create buttons programmatically:
 	var startOverButton = new Button({
 		label : "Start Over",
 		onClick : function() {
@@ -742,6 +733,7 @@ function(Button, registry, dom) {
 require(["dijit/Tooltip", "dojo/dom", "dijit/registry", "dojo/domReady!"], 
 function(Tooltip,registry, dom){
 	
+	// create tootips programmatically:
     var ttip1 = new dijit.Tooltip({
         connectId: ["newhavenLabel"],
         label: "the text for the tooltip"
