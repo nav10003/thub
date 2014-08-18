@@ -493,6 +493,11 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		id : "form62",
 		style : "display:inline-block; width:260px; vertical-align:top"
 	});
+	var labe6select = new dijit.form.Form({
+		id : "6selectLabel",
+		innerHTML : "Select buffer size:",
+		style : "display:block"
+	}).placeAt("bufferDistancePane");
 	
 	// create checkboxes and labels for cPane6
 	var checkBox6local = new dijit.form.RadioButton({
