@@ -22,7 +22,10 @@ require(["dijit/form/Button", "dojo/dom", "dojo/domReady!", "dojo/dom-construct"
             timeout: 2000          // Wait 2 seconds for a response
           }).then(function(response){  // then is the area where you have an answer and can display results, etc
             if(!("ERROR" in response)){   //no errors, login was good
+                //clear out every thing but the body and go on to report or interactive tool
                 con.empty("body");
+                
+                //some test code showing a report result
                 con.place('<div id="result"></div>',"body");
                 con.place('<div id="dl"></div>',"body");
                 con.place('<div id="grid"></div>',"result");
