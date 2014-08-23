@@ -240,7 +240,6 @@ function map_layer_names(){
     I = ["Hartford_Wkdy_Local_97","Hartford_Wkdy_Local_97_25","Hartford_Wkdy_Local_97_50","Hartford_Wkdy_Local_97_75",
          "New_Haven_Wkday_Local_129","New_Haven_Wkday_Local_129_25","New_Haven_Wkday_Local_129_50","New_Haven_Wkday_Local_129_75"];
     turn_on_layers(I);
-
   }
 }
 
