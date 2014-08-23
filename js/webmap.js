@@ -48,12 +48,30 @@ dojo.require("esri.dijit.Legend");        //needed for a side legenend, not impl
 dojo.require("esri.dijit.Popup");         //needed to get the basic popup functionality working
 dojo.require("esri.dijit.Scalebar");      //needed to make an auto-sizing scale bar (with km/mi)
 
-var map, geocoder, scalebar, navbar, sel_button, layers, layer_id, lay_button, lay_boxes, next_query, by, m;
+var map, geocoder, scalebar, navbar, sel_button, layers, layer_id, name_keys, lay_button, lay_boxes, next_query, by, m;
+var services_ready = 0; //snchronize independant events
+var names = {};  //given the layer_name string returns the integer 1 to n
+var codes = {};  //given the integer 1 to n return the layer name string
+require(["dojo/request/xhr","dojo/json"], function(xhr, json){
+  xhr("json/codes2layernames.json", {
+    handleAs: "json"
+}).then(function(response){
+  for(e in response){
+    var i = parseInt(e);
+    codes[i] = response[e];
+    names[codes[i]] = i;
+  }
+  dojo.ready(pageReady); //imposes strict order loading json first...
+  //console.log(names);
+  }, function(err){
+    console.log("error loading");
+  });
+});
 
 function pageReady() {
   //map object bound to a customized Info popup
   map = new esri.Map("mapDiv", {
-    basemap: "streets",
+    basemap: "gray",
     center: [-72.6856,41.7636],
     zoom: 12
   });
@@ -83,37 +101,34 @@ function pageReady() {
     attachTo: "bottom-left"
   });
   
-  //Selection and Viewing Tools-------------------------------------------------------------------------------------------
+  //DEMO OF BINDING ONE MAP SERVICE AND CONTROLLING ITS LAYERS VISIBILITY------------------------------------------------
   //Takes a Map Service URL (AKA GIS server)
+  layers = {}; //use this to keep all the map services thub_census, thub_HA, thub_NH
+  //attach all three map services, controls hve to wait to read the layerInfos from the service
+  //which is delayed, so we wait for all three to complete and then build a map and read the json file
+  //to finilaize the name and code mappings so that they can toggle layers by name
+  services_ready = 0;
+  var gis_CE = "http://gis-srv.ad.engr.uconn.edu:6080/arcgis/rest/services/thub_census/MapServer";
+  layers['Census'] = new esri.layers.ArcGISDynamicMapServiceLayer(gis_CE);
+  layers['Census'].setVisibleLayers([-1]); //[-1] means show no layers
+  layers['Census'].on('load',map_layer_names); //attach ajax call that waits for all three
+  map.addLayer(layers['Census']);
+  
   var gis_HA = "http://gis-srv.ad.engr.uconn.edu:6080/arcgis/rest/services/thub_HA/MapServer";
-  var HALayer = new esri.layers.ArcGISDynamicMapServiceLayer(gis_HA);
-  HALayer.setVisibleLayers([0,1,2,3,4,5,6,7,8,9,10]); //make a few of the codes visible
+  layers['Hartford'] = new esri.layers.ArcGISDynamicMapServiceLayer(gis_HA);
+  layers['Hartford'].setVisibleLayers([-1]); //[-1] means show no layers
+  layers['Hartford'].on('load',map_layer_names); //attach ajax call that waits for all three
+  map.addLayer(layers['Hartford']);
   
-  //add the layer controller
-  var codes = {};  //array container that holds all layer objects which contain parameters for controlling the map
-  require(["dojo/request/xhr","dojo/json"], function(xhr, json){
-    xhr("json/layernames_codes.json", {
-      handleAs: "json"
-    }).then(function(response){
-        codes = response; //save the data for looking at further
-      // Do something with the handled data
-    }, function(err){
-      // Handle the error condition
-    }, function(evt){
-      // Handle a progress event from the request if XHR2
-    });
-  });
-  console.log(codes);
-  map.addLayer(HALayer);
+  var gis_NH = "http://gis-srv.ad.engr.uconn.edu:6080/arcgis/rest/services/thub_NH/MapServer";
+  layers['New Haven'] = new esri.layers.ArcGISDynamicMapServiceLayer(gis_NH);
+  layers['New Haven'].setVisibleLayers([-1]); //[-1] means show no layers
+  layers['New Haven'].on('load',map_layer_names); //attach ajax call that waits for all three
+  map.addLayer(layers['New Haven']);
 
-  
- //example code here       XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  //var gis_srv = "http://gis-srv.ad.engr.uconn.edu:6080/arcgis/rest/services/cas/MapServer";
-  //var crashLayer = new esri.layers.ArcGISDynamicMapServiceLayer(gis_srv,{opacity:0.5,id:"crash"});
-  //Takes a URL to a non cached map service.
-  //crashLayer.setVisibility(false); //command for changing visibility
-  //map.addLayer(crashLayer)
-  //example code ends hereXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  //HERE is the magic once it is setup
+  //layers['Hartford'].setVisibleLayers([names['Hartford_Stops']]); //use the code to tun on layers by name...
+  //DEMO OF BINDING ONE MAP SERVICE AND CONTROLLING ITS LAYERS VISIBILITY------------------------------------------------
    
   // add the navigation tool bar
   navbar = new esri.toolbars.Navigation(map);
@@ -196,11 +211,75 @@ function pageReady() {
   //var urlobject = dojo.queryToObject(dojo.doc.location.search.substr((dojo.doc.location.search[0] === "?" ? 1 : 0)));
 
 }
+
+//waits until all 3 layers and the json file have loaded before
+//building the mapping one time to resolve layers by name
+function map_layer_names(){
+  services_ready++;
+  //attach ajax call that waits for all four items to be read
+  if(services_ready >= 3){ //we need all three services and the json code file to be ready
+    var fkeys = {};
+    var rkeys = {};
+    for(e in layers){
+        fkeys[e] = {};
+        rkeys[e] = {};
+        var infos = layers[e].layerInfos;
+        for(i in infos){
+            var j = parseInt(i);
+            var name = parseInt(infos[i]['name']);           //leave out group layer roots
+            if(!isNaN(name)){
+                fkeys[e][name] = j;
+                rkeys[e][j] = name;
+            } //so only int values map
+        }
+    }
+    name_keys = fkeys;
+    //console.log(name_keys);
     
-dojo.ready(pageReady); //makes a function call to pageReady()?
+    //test out a layer code from two different services...
+    I = ["Hartford_Wkdy_Local_97","Hartford_Wkdy_Local_97_25","Hartford_Wkdy_Local_97_50","Hartford_Wkdy_Local_97_75",
+         "New_Haven_Wkday_Local_129","New_Haven_Wkday_Local_129_25","New_Haven_Wkday_Local_129_50","New_Haven_Wkday_Local_129_75"];
+    turn_on_layers(I);
 
+  }
+}
 
+//give the string, get back the service and index into it
+function get_index(s){
+    var i = names[s]; //test out s = 'Hartford_Saturday_Local_10'
+    var l = ''; //the service index that matches
+    //find which service the layer in in...
+    for(e in layers){
+        if(i in name_keys[e]){ l = e; }
+    }
+    return {'service':l, 'index':name_keys[l][i]};
+}
 
+//returns an array of service/index objects used to display layers
+function index_list(S){ //S is an array of name strings you want to see...
+    var A = [];
+    for(var i = 0; i < S.length; i++){ A.push(get_index(S[i])); }
+    return A;
+}
+
+//turns on the layers named in array S
+//builds a map called services that will have all
+//indexes good to go to minimize toggling drawing etc...
+function turn_on_layers(S){
+    var services = {};
+    var E = index_list(S);
+    for(e in E){
+        var s = E[e]['service'];
+        var i = E[e]['index'];
+        if(s in services){ services[s].push(i); }
+        else{ services[s] = [i]; }
+    }
+    //main side effect here that turns off and on layers by name
+    for(e in layers){
+        if(e in services){ layers[e].setVisibleLayers(services[e]); } //turn on if selected
+        else{              layers[e].setVisibleLayers([-1]); }        //turn off if not needed
+    }
+}
 
 
 
