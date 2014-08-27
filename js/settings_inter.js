@@ -124,6 +124,14 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		name : "group2",
 		checked : false,
 		style: "display:inline-block",
+		onClick : function() {
+			// Do something:			
+			if (dijit.byId("allDayOfWeekCheck").get("checked") == true &&
+				dijit.byId("weekdayCheck").set("checked", false)) {
+					
+				dijit.byId("allDayOfWeekCheck").set("checked", false);
+			}
+		} 
 	}).placeAt("form21");
 	
 	var labe21 = new dijit.form.Form({
@@ -138,6 +146,14 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		name : "group2",
 		checked : false,
 		style : "display:inline-block; margin-left: 80px",
+		onClick : function() {
+			// Do something:			
+			if (dijit.byId("allDayOfWeekCheck").get("checked") == true &&
+				dijit.byId("weekendCheck").set("checked", false)) {
+					
+				dijit.byId("allDayOfWeekCheck").set("checked", false);
+			}
+		} 
 	}).placeAt("form21");
 	
 	var labe22 = new dijit.form.Form({
@@ -542,7 +558,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	var form62 = new dijit.form.Form({
 		id : "form62",
 		name : "group6",
-		style : "display:block; width:320px; margin-top:10px "
+		style : "display:block; width:600px; margin-top:10px "
 	});
 	var labe6select = new dijit.form.Form({
 		id : "6selectLabel",
@@ -559,7 +575,18 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		checked : false,
 		style: "display:inline-block",
 		onClick : function() {
-			// Do something:			
+			// Do something:		
+			if (dijit.byId("localCheck").get("checked") == true){
+				dijit.byId("local1Check").set("disabled", false);
+				dijit.byId("local2Check").set("disabled", false);
+				dijit.byId("local3Check").set("disabled", false);
+			}	
+			if (dijit.byId("localCheck").get("checked") == false){
+				unCheck("form61");
+				dijit.byId("local1Check").set("disabled", true);
+				dijit.byId("local2Check").set("disabled", true);
+				dijit.byId("local3Check").set("disabled", true);
+			}	
 		} 
 	}).placeAt("form61");
 	
@@ -567,8 +594,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		id : "localLabel",
 		name : "group6",
 		innerHTML : "Local",
-		style : "display:inline; width:40px",
-		
+		style : "display:inline-block; width:40px"		
 	}).placeAt("form61");
 	
 	var checkBox1Local = new dijit.form.RadioButton({
@@ -576,7 +602,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		value : "611",
 		name : "group6Local",
 		checked : false,
-		style: "display:inline-block; margin-left:35px"
+		disabled : true,
+		style: "display:inline-block; margin-left:30px"
 	}).placeAt("form61");
 	
 	var labe1Local = new dijit.form.Form({
@@ -591,6 +618,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		value : "612",
 		name : "group6Local",
 		checked : false,
+		disabled : true,
 		style : "display:inline-block; margin-left:20px"
 	}).placeAt("form61");
 	
@@ -606,7 +634,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		value : "613",
 		name : "group6Local",
 		checked : false,
-		style : "margin-left: 20px"
+		disabled : true,
+		style : "display:inline-block; margin-left: 20px"
 	}).placeAt("form61");
 	
 	var labe3Local = new dijit.form.Form({
@@ -623,7 +652,24 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		checked : false,
 		style : "display:inline-block",
 		onClick : function() {
-			// Do something:			
+			// Do something:
+			if (dijit.byId("expressCheck").get("checked") == true){
+				dijit.byId("exp1Check").set("disabled", false);
+				dijit.byId("exp2Check").set("disabled", false);
+				dijit.byId("exp3Check").set("disabled", false);
+				dijit.byId("exp4Check").set("disabled", false);
+				dijit.byId("exp5Check").set("disabled", false);
+				dijit.byId("exp6Check").set("disabled", false);
+			}		
+			if (dijit.byId("expressCheck").get("checked") == false){
+				unCheck("form62");
+				dijit.byId("exp1Check").set("disabled", true);
+				dijit.byId("exp2Check").set("disabled", true);
+				dijit.byId("exp3Check").set("disabled", true);
+				dijit.byId("exp4Check").set("disabled", true);
+				dijit.byId("exp5Check").set("disabled", true);
+				dijit.byId("exp6Check").set("disabled", true);
+			}				
 		} 
 	}).placeAt("form62");
 	
@@ -631,7 +677,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		id : "expressLabel",
 		name : "group6",
 		innerHTML : "Express",
-		style: "display:inline; width:60px"
+		style: "display:inline-block; width:50px"
 	}).placeAt("form62");
 	
 	var checkBox1Exp = new dijit.form.RadioButton({
@@ -639,6 +685,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		value : "621",
 		name : "group6Exp",
 		checked : false,
+		disabled : true,
 		style: "display:inline-block; margin-left:20px"
 	}).placeAt("form62");
 	
@@ -654,6 +701,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		value : "622",
 		name : "group6Exp",
 		checked : false,
+		disabled : true,
 		style : "display:inline-block; margin-left:20px"
 	}).placeAt("form62");
 	
@@ -669,14 +717,15 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		value : "623",
 		name : "group6Exp",
 		checked : false,
+		disabled : true,
 		style : "margin-left:20px"
 	}).placeAt("form62");
 	
 	var labe3Exp = new dijit.form.Form({
 		id : "exp3Label",
 		name : "group6Exp",
-		innerHTML : "3/4 mile <br>",
-		style: "display:inline; font-size:10pt; width:45px"
+		innerHTML : "3/4 mile",
+		style: "display:inline-block; font-size:10pt; width:45px"
 	}).placeAt("form62");
 	
 	var checkBox4Exp = new dijit.form.RadioButton({
@@ -684,7 +733,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		value : "624",
 		name : "group6Exp",
 		checked : false,
-		style: "display:inline-block; margin-left:88px"
+		disabled : true,
+		style: "display:inline-block; margin-left:20px"
 	}).placeAt("form62");	
 	
 	var labe4Exp = new dijit.form.Form({
@@ -699,6 +749,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		value : "625",
 		name : "group6Exp",
 		checked : false,
+		disabled : true,
 		style : "display:inline-block; margin-left:20px"
 	}).placeAt("form62");
 	
@@ -714,6 +765,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		value : "626",
 		name : "group6Exp",
 		checked : false,
+		disabled : true,
 		style : "margin-left:20px"
 	}).placeAt("form62");
 	
@@ -745,7 +797,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		onClick : function() {
 			// Do something:
 			var container = dijit.byId("accorContainer");
-			container.selectChild("performancePane", true);
+			container.selectChild("analysisPane", true);
 		}
 	});
 	
@@ -802,6 +854,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	//cPane4.addChild(nextButton4);
 	cPane5.addChild(nextButton5);
   	
+  	///////////////////////////////////
+  	// functions:
   	
   	// reset type of analysis form
   	var resetLEP = function() {	
@@ -848,6 +902,15 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 						aDijits[i].set("disabled", false);
 						cPane3.removeChild(form32);
 				}				
+				dijit.byId("local1Check").set("disabled", true);
+				dijit.byId("local2Check").set("disabled", true);
+				dijit.byId("local3Check").set("disabled", true);
+				dijit.byId("exp1Check").set("disabled", true);
+				dijit.byId("exp2Check").set("disabled", true);
+				dijit.byId("exp3Check").set("disabled", true);
+				dijit.byId("exp4Check").set("disabled", true);
+				dijit.byId("exp5Check").set("disabled", true);
+				dijit.byId("exp6Check").set("disabled", true);
 			}
 		}
 	};
@@ -876,7 +939,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 									dijit.byId("vietnameseCheck").get("checked") == false)){
 										alert("Please select a LEP language");
 										var container = dijit.byId("accorContainer");
-										container.selectChild("demoReportsPane", true);
+										container.selectChild("analysisPane", true);
 										return 0;									
 								}			
 								if (dijit.byId("localCheck").get("checked") == true && 
@@ -914,9 +977,9 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	var startOverButton = new dijit.form.Button({
 		label : "Start Over",
 		onClick : function() {
-			// Do something:
 			// uncheck all 
 			unCheckAll("accorContainer");
+						
 			// go to first container pane
 			var container = dijit.byId("accorContainer");
 			container.selectChild("transitSysPane", true);
@@ -927,7 +990,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		label : "Generate Report",
 		onClick : function() {
 			// Do something:
-			alert("....Generating Report");
+			// alert("....Generating Report");
 			getCheckValues("accorContainer");
 		}
 	},"generateButton");
