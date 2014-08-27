@@ -2,7 +2,7 @@ require(["dojo/dom", "dojo/dom-construct", "dojo/domReady!"],
 
 function(dom, domConstruct) {
 	// get the Body id and create a variable
-	var Body = dom.byId("mainBody");	
+	var Body = dom.byId("mainBodyInter");	
 	
 	// create div for Accordion Container	
 	domConstruct.create("div", {
@@ -47,14 +47,14 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	}).placeAt(aContainer); 
 	
 	var cPane3 = new ContentPane({
-		title : "Performance Measures",
-		id : "performancePane"
+		title : "Type of Analysis",
+		id : "analysisPane"
 	}).placeAt(aContainer);
 	
-	var cPane4 = new ContentPane({
+	/*var cPane4 = new ContentPane({
 		title : "Demographic Reports",
 		id : "demoReportsPane"
-	}).placeAt(aContainer);
+	}).placeAt(aContainer);*/
 	
 	var cPane5 = new ContentPane({
 		title : "Demographic Spatial Unit",
@@ -180,317 +180,318 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	var form31 = new dijit.form.Form({
 		id : "form31",
 		name : "group3",
-		style : "display: inline-block; width:460px;"
+		style : "display: inline-block; width:680px"
+	});
+	var form32 = new dijit.form.Form({
+		id : "form32",
+		name : "group3",
+		style : "display:block; width:680px"
 	});
 	
 	// create checkboxes and labels for cPane3
-	var checkBox31 = new dijit.form.RadioButton({
-		id : "loadFactorCheck",
-		value : "31",
-		name : "group3",
-		checked : false,
-		style: "display:inline-block"
+	var labe31 = new dijit.form.Form({
+		innerHTML : "Performance Measures",
+		style: "display:block; font-size:10pt"
 	}).placeAt("form31");
 	
-	var labe31 = new dijit.form.Form({
+	var checkBox311 = new dijit.form.RadioButton({
+		id : "loadFactorCheck",
+		value : "311",
+		name : "group3",
+		checked : false,
+		style: "display:inline-block",
+		onClick : function() {
+			// Do something:
+			resetLEP();			
+		} 
+	}).placeAt("form31");
+	
+	var labe311 = new dijit.form.Form({
 		id : "loadFactorLabel",
 		innerHTML : "Load Factor",
 		style: "display:inline-block; width:90px"
 	}).placeAt("form31");
 	
-	var checkBox32 = new dijit.form.RadioButton({
+	var checkBox312 = new dijit.form.RadioButton({
 		id : "vehicleCheck",
-		value : "32",
+		value : "312",
 		name : "group3",
 		checked : false,
-		style : "display:inline-block; margin-left: 60px"
+		style : "display:inline-block; margin-left: 40px",
+		onClick : function() {
+			// Do something:
+			resetLEP();			
+		} 
 	}).placeAt("form31");
 	
-	var labe32 = new dijit.form.Form({
+	var labe312 = new dijit.form.Form({
 		id : "vehicleLabel",
 		innerHTML : "Vehicle Age",
 		style: "display:inline-block; width:90px"
 	}).placeAt("form31");
 	
-	var checkBox33 = new dijit.form.RadioButton({
+	var checkBox313 = new dijit.form.RadioButton({
 		id : "stopAmeniCheck",
-		value : "33",
+		value : "313",
 		name : "group3",
 		checked : false,
-		style: "display:inline-block; margin-left: 60px"
+		style: "display:inline-block; margin-left:40px",
+		onClick : function() {
+			// Do something:
+			resetLEP();			
+		} 
 	}).placeAt("form31");
 	
-	var labe33 = new dijit.form.Form({
+	var labe313 = new dijit.form.Form({
 		id : "stopAmeniLabel",
-		innerHTML : "Stop Amenities <br>",
-		style: "display:inline; width:120px"
+		innerHTML : "Stop Amenities",
+		style: "display:inline-block; width:100px"
 	}).placeAt("form31");
 	
-	var checkBox34 = new dijit.form.RadioButton({
+	var checkBox314 = new dijit.form.RadioButton({
 		id : "onTimeCheck",
-		value : "34",
+		value : "314",
 		name : "group3",
 		checked : false,
-		style : "display:inline-block"
+		style : "display:inline-block; margin-left:30px",
+		onClick : function() {
+			// Do something:
+			resetLEP();			
+		} 
 	}).placeAt("form31");
 	
-	var labe34 = new dijit.form.Form({
+	var labe314 = new dijit.form.Form({
 		id : "onTimeLabel",		
 		innerHTML : "On-Time %",
 		style: "display:inline-block; width:90px"
 	}).placeAt("form31");
 	
-	var checkBox35 = new dijit.form.RadioButton({
+	var checkBox315 = new dijit.form.RadioButton({
 		id : "headwayCheck",
-		value : "35",
+		value : "315",
 		name : "group3",
 		checked : false,
-		style: "display:inline-block; margin-left:60px"
+		style: "display:inline-block; margin-left:40px",
+		onClick : function() {
+			// Do something:
+			resetLEP();			
+		} 
 	}).placeAt("form31");
 	
-	var labe35 = new dijit.form.Form({
+	var labe315 = new dijit.form.Form({
 		id : "headwayLabel",
 		innerHTML : "Headway",
 		style: "display:inline-block; width:70px"
 	}).placeAt("form31");
 	
-	// add children to cPane3
-	cPane3.addChild(form31);
-
-	// create forms for cPane4
-	var form41 = new dijit.form.Form({
-		id : "form41",		
-		name : "group4",
-		style : "display:block; width:460px"
-	});
-	var form42 = new dijit.form.Form({
-		id : "form42",
-		name : "group4",
-		style : "display:block: width:460px"
-	});
+	///////////////////////
 	
-    // create checkboxes and labels for cPane4
-	var checkBox41 = new dijit.form.RadioButton({
+	var labe32 = new dijit.form.Form({
+		innerHTML : "Demographic Reports",
+		style: "display:block; font-size:10pt; margin-top:7px"
+	}).placeAt("form31");
+	
+	var checkBox321 = new dijit.form.RadioButton({
 		id : "minorityCheck",
-		value : "41",
-		name : "group4",
+		value : "321",
+		name : "group3",
 		checked : false,
 		style: "display:inline-block",
 		onClick : function() {
 			// Do something:
-			unCheck(form42);
-			cPane4.removeChild(form42);
-			// uncheck census tract and enable block group check
-			dijit.byId("blockGroupCheck").set("disabled", false);
-			dijit.byId("blockGroupCheck").set("checked", false);
-			dijit.byId("censusTractCheck").set("checked", false);
+			resetLEP();			
 		} 
-	}).placeAt("form41");
+	}).placeAt("form31");
 	
-	var labe41 = new dijit.form.Form({
+	var labe321 = new dijit.form.Form({
 		id : "minorityLabel",
 		innerHTML : "Minority",
 		style: "display:inline-block; width:70px"
-	}).placeAt("form41");
+	}).placeAt("form31");
 	
-	var checkBox42 = new dijit.form.RadioButton({
+	var checkBox322 = new dijit.form.RadioButton({
 		id : "nonMinorityCheck",
-		value : "42",
-		name : "group4",
+		value : "322",
+		name : "group3",
 		checked : false,
-		style : "display:inline-block; margin-left: 80px",
+		style : "display:inline-block; margin-left: 60px",
 		onClick : function() {
 			// Do something:
-			unCheck(form42);
-			cPane4.removeChild(form42);
-			// uncheck census tract and enable block group check
-			dijit.byId("blockGroupCheck").set("disabled", false);
-			dijit.byId("blockGroupCheck").set("checked", false);
-			dijit.byId("censusTractCheck").set("checked", false);
+			resetLEP();			
 		} 
-	}).placeAt("form41");
+	}).placeAt("form31");
 	
-	var labe42 = new dijit.form.Form({
+	var labe322 = new dijit.form.Form({
 		id : "nonMinorityLabel",
 		innerHTML : "Non-minority",
 		style: "display:inline-block; width:80px"
-	}).placeAt("form41");
+	}).placeAt("form31");
 	
-	var checkBox43 = new dijit.form.RadioButton({
+	var checkBox323 = new dijit.form.RadioButton({
 		id : "lowIncomeCheck",
-		value : "43",
-		name : "group4",
+		value : "323",
+		name : "group3",
 		checked : false,
-		style: "display:inline-block; margin-left: 70px",
+		style: "display:inline-block; margin-left:50px",
 		onClick : function() {
 			// Do something:
-			unCheck(form42);
-			cPane4.removeChild(form42);
-			// check census tract and disable block group check
-			dijit.byId("blockGroupCheck").set("checked", false);
-			dijit.byId("blockGroupCheck").set("disabled", true);
-			dijit.byId("censusTractCheck").set("checked", true);
+			resetLEPsetDemo();			
 		} 
-	}).placeAt("form41");
+	}).placeAt("form31");
 	
-	var labe43 = new dijit.form.Form({
+	var labe323 = new dijit.form.Form({
 		id : "lowIncomeLabel",
-		innerHTML : "Low-income <br>",
-		style: "display:inline"
-	}).placeAt("form41");
+		innerHTML : "Low-income",
+		style: "display:inline-block; width:90px"
+	}).placeAt("form31");
 	
-	var checkBox44 = new dijit.form.RadioButton({
+	var checkBox324 = new dijit.form.RadioButton({
 		id : "nonLowIncomeCheck",
-		value : "44",
-		name : "group4",
+		value : "324",
+		name : "group3",
 		checked : false,
-		style : "display:inline-block",
+		style : "display:inline-block; margin-left:40px",
 		onClick : function() {
 			// Do something:
-			unCheck(form42);
-			cPane4.removeChild(form42);
-			// check census tract and disable block group check
-			dijit.byId("blockGroupCheck").set("checked", false);
-			dijit.byId("blockGroupCheck").set("disabled", true);
-			dijit.byId("censusTractCheck").set("checked", true);
-			// reset LEP radio buttons
-			
-			
+			resetLEPsetDemo();			
 		} 
-	}).placeAt("form41");
+	}).placeAt("form31");
 	
-	var labe44 = new dijit.form.Form({
+	var labe324 = new dijit.form.Form({
 		id : "nonLowIncomeLabel",
 		innerHTML : "Non low-income",
 		style: "display:inline-block; width:110px"
-	}).placeAt("form41");
+	}).placeAt("form31");
 	
-	var checkBox45 = new dijit.form.RadioButton({
+	var checkBox325 = new dijit.form.RadioButton({
 		id : "lepCheck",
-		value : "45",
-		name : "group4",
+		value : "325",
+		name : "group3",
 		checked : false,
-		style: "display:inline-block; margin-left:40px",
+		style: "display:inline-block; margin-left:20px",
 		onClick : function() {
 			// Do something:
 			// add and display LEP form
-			cPane4.addChild(form42);
+			cPane3.addChild(form32);
 			// check census tract and disable block group check
 			dijit.byId("blockGroupCheck").set("checked", false);
 			dijit.byId("blockGroupCheck").set("disabled", true);
 			dijit.byId("censusTractCheck").set("checked", true);			
 		} 
-	}).placeAt("form41");
+	}).placeAt("form31");
 	
-	var labe45 = new dijit.form.Form({
+	var labe325 = new dijit.form.Form({
 		id : "lepLabel",
 		innerHTML : "LEP",
 		style: "display:inline-block; width:40px",
-	}).placeAt("form41");
+	}).placeAt("form31");
 	
-	// create RadioButtons in form42
+	// create RadioButtons in form32
 	var checkBox1LEP = new dijit.form.RadioButton({
 		id : "frenchCheck",
-		value : "451",
-		name : "group4LEP",
+		value : "3251",
+		name : "group3LEP",
 		checked : false,
 		//disabled : true,
-		style : "display:inline-block; margin-left:180px",
-	}).placeAt("form42");
+		style : "display:inline-block; margin-left:400px",
+	}).placeAt("form32");
 	
 	var labe1LEP = new dijit.form.Form({
 		id : "frenchLabel",
 		innerHTML : "French",
 		style: "display:inline-block; font-size:10pt"
-	}).placeAt("form42");
+	}).placeAt("form32");
 	
 	var checkBox2LEP = new dijit.form.RadioButton({
 		id : "italianCheck",
-		value : "452",
+		value : "3252",
 		name : "group4LEP",
 		checked : false,
 		//disabled : true,
 		style: "display:inline-block; margin-left:10px"
-	}).placeAt("form42");
+	}).placeAt("form32");
 	
 	var labe2LEP = new dijit.form.Form({
 		id : "italianLabel",
 		innerHTML : "Italian",
 		style: "display:inline-block; font-size:10pt"
-	}).placeAt("form42");
+	}).placeAt("form32");
 	
 	var checkBox3LEP = new dijit.form.RadioButton({
 		id : "russianCheck",
-		value : "453",
+		value : "3253",
 		name : "group4LEP",
 		checked : false,
 		style: "display:inline-block; margin-left:10px"
-	}).placeAt("form42");
+	}).placeAt("form32");
 	
 	var labe3LEP = new dijit.form.Form({
 		id : "russianLabel",
 		innerHTML : "Russian",
 		style: "display:inline-block; font-size:10pt"
-	}).placeAt("form42");
+	}).placeAt("form32");
 	
 	var checkBox4LEP = new dijit.form.RadioButton({
 		id : "spanishCheck",
-		value : "454",
+		value : "3254",
 		name : "group4LEP",
 		checked : false,
 		style: "display:inline-block; margin-left:10px"
-	}).placeAt("form42");
+	}).placeAt("form32");
 	
 	var labe4LEP = new dijit.form.Form({
 		id : "spanishLabel",
 		innerHTML : "Spanish <br>",
 		style: "display:inline; font-size:10pt; width:45px"
-	}).placeAt("form42");
+	}).placeAt("form32");
 	
 	var checkBox5LEP = new dijit.form.RadioButton({
 		id : "frenchCreoleCheck",
-		value : "455",
+		value : "3255",
 		name : "group4LEP",
 		checked : false,
-		style: "display:inline-block; margin-left:180px"
-	}).placeAt("form42");
+		style: "display:inline-block; margin-left:400px"
+	}).placeAt("form32");
 	
 	var labe5LEP = new dijit.form.Form({
 		id : "frenchCreoleLabel",
 		innerHTML : "French-Creole",
 		style: "display:inline-block; font-size:10pt"
-	}).placeAt("form42");
+	}).placeAt("form32");
 	
 	var checkBox6LEP = new dijit.form.RadioButton({
 		id : "polishCheck",
-		value : "456",
+		value : "3256",
 		name : "group4LEP",
 		checked : false,
 		style: "display:inline-block; margin-left:10px"
-	}).placeAt("form42");
+	}).placeAt("form32");
 	
 	var labe6LEP = new dijit.form.Form({
 		id : "polishLabel",
 		innerHTML : "Polish",
 		style: "display:inline-block; font-size:10pt"
-	}).placeAt("form42");	
+	}).placeAt("form32");	
 	
 	var checkBox7LEP = new dijit.form.RadioButton({
 		id : "vietnameseCheck",
-		value : "457",
+		value : "3257",
 		name : "group4LEP",
 		checked : false,
 		style: "display:inline-block; margin-left:10px"
-	}).placeAt("form42");
+	}).placeAt("form32");
 	
 	var labe7LEP = new dijit.form.Form({
 		id : "vietnameseLabel",
 		innerHTML : "Vietnamese",
 		style: "display:inline-block; font-size:10pt"
-	}).placeAt("form42");
+	}).placeAt("form32");
 	
-	// add children to cPane4
-	cPane4.addChild(form41);
+	// add children to cPane3
+	cPane3.addChild(form31);
+	
+	/////////////////////////////////
+	// cPane4 was merged with cPane3
 	
 	// create forms for cPane5
 	var form51 = new dijit.form.Form({
@@ -737,6 +738,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 			container.selectChild("dayOfWeekPane", true);
 		}
 	});
+	
 	var nextButton2 = new dijit.form.Button({
 		style : "float:right",
 		label : "Next",
@@ -746,7 +748,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 			container.selectChild("performancePane", true);
 		}
 	});
-	var nextButton3 = new dijit.form.Button({
+	
+	/*var nextButton3 = new dijit.form.Button({
 		style : "float:right",
 		label : "Next",
 		onClick : function() {
@@ -754,7 +757,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 			var container = dijit.byId("accorContainer");
 			container.selectChild("demoReportsPane", true);
 		}
-	});
+	});*/
 	
 	var nextButton4 = new dijit.form.Button({
 		style : "float:right",
@@ -771,7 +774,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 				dijit.byId("vietnameseCheck").get("checked") == false)) {
 					
 					var container = dijit.byId("accorContainer");
-					container.selectChild("demoReportsPane", true);
+					container.selectChild("analysisPane", true);
 					alert("please select a language");
 			}
 			else{
@@ -795,10 +798,29 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	// add buttons to each cPane
 	cPane1.addChild(nextButton1);
 	cPane2.addChild(nextButton2);
-	cPane3.addChild(nextButton3);
-	cPane4.addChild(nextButton4);
+	cPane3.addChild(nextButton4);
+	//cPane4.addChild(nextButton4);
 	cPane5.addChild(nextButton5);
   	
+  	
+  	// reset type of analysis form
+  	var resetLEP = function() {	
+		unCheck(form32);
+		cPane3.removeChild(form32);
+		// uncheck census tract and enable block group check
+		dijit.byId("blockGroupCheck").set("disabled", false);
+		dijit.byId("blockGroupCheck").set("checked", false);
+		dijit.byId("censusTractCheck").set("checked", false);
+	};  			
+  	
+	var resetLEPsetDemo = function() {	
+		unCheck(form32);
+		cPane3.removeChild(form32);
+		// check census tract and disable block group check
+		dijit.byId("blockGroupCheck").set("checked", false);
+		dijit.byId("blockGroupCheck").set("disabled", true);
+		dijit.byId("censusTractCheck").set("checked", true);
+	};
   	// uncheck inside form
 	var unCheck = function(formID) {		
 		var dijitForm = dijit.byId(formID);
@@ -824,7 +846,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 						// uncheck and enable each checkbox or radio button 
 						aDijits[i].set("checked", false);
 						aDijits[i].set("disabled", false);
-						cPane4.removeChild(form42);
+						cPane3.removeChild(form32);
 				}				
 			}
 		}
