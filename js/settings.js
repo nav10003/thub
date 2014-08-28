@@ -445,7 +445,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	var labe42 = new dijit.form.Form({
 		id : "nonMinorityLabel",
 		innerHTML : "Non-minority",
-		style: "display:inline-block; width:80px"
+		style: "display:inline-block; width:90px"
 	}).placeAt("form41");
 	
 	var checkBox43 = new dijit.form.CheckBox({
@@ -453,7 +453,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		value : "43",
 		name : "group4",
 		checked : false,
-		style: "display:inline-block; margin-left: 70px",
+		style: "display:inline-block; margin-left: 60px",
 		onChange : function() {
 			// Do something:
 			if (dijit.byId("allDemoGroupsCheck").get("checked") == true &&

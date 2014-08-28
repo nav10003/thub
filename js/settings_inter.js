@@ -340,7 +340,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	var labe322 = new dijit.form.Form({
 		id : "nonMinorityLabel",
 		innerHTML : "Non-minority",
-		style: "display:inline-block; width:80px"
+		style: "display:inline-block; width:90px"
 	}).placeAt("form31");
 	
 	var checkBox323 = new dijit.form.RadioButton({
@@ -348,7 +348,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		value : "323",
 		name : "group3",
 		checked : false,
-		style: "display:inline-block; margin-left:50px",
+		style: "display:inline-block; margin-left:40px",
 		onClick : function() {
 			// Do something:
 			resetLEPsetDemo();			
