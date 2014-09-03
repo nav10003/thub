@@ -27,9 +27,9 @@ function(dom, domConstruct) {
 
 require(["dijit/layout/AccordionContainer", "dijit/layout/ContentPane", "dojo/domReady!","dijit/form/Form","dijit/form/Textarea",
  "dojo/dom", "dojo/dom-construct", "dijit/form/CheckBox", "dijit/registry", "dijit/form/TextBox","dijit/Tooltip", "dijit/form/RadioButton",
- "dijit/form/Button", "dojo/query", "dojo/dom-construct", "dijit/_Widget", "dijit/_Templated"], 
+ "dijit/form/Button", "dojo/query", "dojo/dom-construct", "dijit/_Widget", "dijit/_Templated","dijit/form/Select"], 
 
-function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, query, registry, TextBox, Form, Textarea, document, Tooltip, RadioButton) {
+function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, query, registry, TextBox, Form, Textarea, document, Tooltip, RadioButton, Select) {
 	var aContainer = new AccordionContainer({
 		id : "accorContainer",
 		style : "height: 275px"
@@ -196,12 +196,12 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	var form31 = new dijit.form.Form({
 		id : "form31",
 		name : "group3",
-		style : "display: inline-block; width:680px"
+		style : "display: inline-block; width:780px"
 	});
 	var form32 = new dijit.form.Form({
 		id : "form32",
 		name : "group3",
-		style : "display:block; width:680px"
+		style : "display:block; width:780px"
 	});
 	
 	// create checkboxes and labels for cPane3
@@ -216,16 +216,32 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		name : "group3",
 		checked : false,
 		style: "display:inline-block",
-		onClick : function() {
+		onChange : function() {
 			// Do something:
+			
 			resetLEP();			
+			dijit.byId("loadFactorSelect").set("disabled", false);	
 		} 
 	}).placeAt("form31");
 	
 	var labe311 = new dijit.form.Form({
 		id : "loadFactorLabel",
 		innerHTML : "Load Factor",
-		style: "display:inline-block; width:90px"
+		style: "display:inline-block; width:85px"
+	}).placeAt("form31");
+	
+	var select311 = new dijit.form.Select({
+		id : "loadFactorSelect",
+		name : "group3",
+		disabled : true,
+		style:"display:inline-block;font-size:10pt",
+		options: [
+			{ label: "AM", selected: true, value: "3_1_1_1"},
+			{ label: "MID", value: "3_1_1_2"},
+			{ label: "PM", value: "3_1_1_3"},
+			{ label: "Off", value: "3_1_1_4"},
+			{ label: "Total", value: "3_1_1_5"},
+		]
 	}).placeAt("form31");
 	
 	var checkBox312 = new dijit.form.RadioButton({
@@ -233,7 +249,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		value : "312",
 		name : "group3",
 		checked : false,
-		style : "display:inline-block; margin-left: 40px",
+		style : "display:inline-block; margin-left: 20px",
 		onClick : function() {
 			// Do something:
 			resetLEP();			
@@ -251,7 +267,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		value : "313",
 		name : "group3",
 		checked : false,
-		style: "display:inline-block; margin-left:40px",
+		style: "display:inline-block; margin-left:30px",
 		onClick : function() {
 			// Do something:
 			resetLEP();			
@@ -269,7 +285,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		value : "314",
 		name : "group3",
 		checked : false,
-		style : "display:inline-block; margin-left:30px",
+		style : "display:inline-block; margin-left:40px",
 		onClick : function() {
 			// Do something:
 			resetLEP();			
@@ -279,7 +295,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	var labe314 = new dijit.form.Form({
 		id : "onTimeLabel",		
 		innerHTML : "On-Time %",
-		style: "display:inline-block; width:90px"
+		style: "display:inline-block; width:80px"
 	}).placeAt("form31");
 	
 	var checkBox315 = new dijit.form.RadioButton({
@@ -291,13 +307,26 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		onClick : function() {
 			// Do something:
 			resetLEP();			
+			dijit.byId("headwaySelect").set("disabled", false);	
 		} 
 	}).placeAt("form31");
 	
 	var labe315 = new dijit.form.Form({
 		id : "headwayLabel",
 		innerHTML : "Headway",
-		style: "display:inline-block; width:70px"
+		style: "display:inline-block; width:65px"
+	}).placeAt("form31");
+	
+	var select315 = new dijit.form.Select({
+		id : "headwaySelect",
+		name : "group3",
+		disabled : true,
+		style:"display:inline-block;font-size:10pt",
+		options: [
+			{ label: "AM",  value: "3_1_5_1"},
+			{ label: "MID", value: "3_1_5_2"},
+			{ label: "PM",  value: "3_1_5_3"},
+		]
 	}).placeAt("form31");
 	
 	///////////////////////
@@ -330,7 +359,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		value : "322",
 		name : "group3",
 		checked : false,
-		style : "display:inline-block; margin-left: 60px",
+		style : "display:inline-block; margin-left: 40px",
 		onClick : function() {
 			// Do something:
 			resetLEP();			
@@ -384,7 +413,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		value : "325",
 		name : "group3",
 		checked : false,
-		style: "display:inline-block; margin-left:20px",
+		style: "display:inline-block; margin-left:40px",
 		onClick : function() {
 			// Do something:
 			// add and display LEP form
@@ -392,7 +421,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 			// check census tract and disable block group check
 			dijit.byId("blockGroupCheck").set("checked", false);
 			dijit.byId("blockGroupCheck").set("disabled", true);
-			dijit.byId("censusTractCheck").set("checked", true);			
+			dijit.byId("censusTractCheck").set("checked", true);
+			dijit.byId("lepSelect").set("disabled", false);			
 		} 
 	}).placeAt("form31");
 	
@@ -400,6 +430,23 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		id : "lepLabel",
 		innerHTML : "LEP",
 		style: "display:inline-block; width:40px",
+	}).placeAt("form31");
+	
+	var select325 = new dijit.form.Select({
+		id : "lepSelect",
+		name : "group3",
+		disabled : true,
+		style:"display:inline-block;font-size:10pt",
+		options: [
+			{ label: "Select Language", value: "3_2_5_0", selected: true},
+			{ label: "French",  value: "3_2_5_1"},
+			{ label: "French-Creole", value: "3_2_5_2"},
+			{ label: "Italian",  value: "3_2_5_3"},
+			{ label: "Polish",  value: "3_2_5_4"},
+			{ label: "Russian",  value: "3_2_5_5"},
+			{ label: "Spanish",  value: "3_2_5_6"},
+			{ label: "Vietnamese",  value: "3_2_5_7"},
+		]
 	}).placeAt("form31");
 	
 	// create RadioButtons in form32
@@ -987,7 +1034,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	},"restartButton");
 
 	var generateRepButton = new dijit.form.Button({
-		label : "Generate Report",
+		label : "Set Parameters",
 		onClick : function() {
 			// Do something:
 			// alert("....Generating Report");
