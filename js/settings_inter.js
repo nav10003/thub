@@ -79,6 +79,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	// create checkboxes and labels for cPane1
 	var checkBox11 = new dijit.form.RadioButton({
 		id : "hartfordCheck",
+		name : "group1",
 		value : "1_1",
 		checked : false,
 		style: "display:inline-block"
@@ -96,6 +97,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox12 = new dijit.form.RadioButton({
 		id : "newhavenCheck",
+		name : "group1",
 		value : "1_2",
 		checked : false,
 		style : "display:inline-block; margin-left: 80px"
@@ -127,9 +129,14 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		onClick : function() {
 			// Do something:			
 			if (dijit.byId("allDayOfWeekCheck").get("checked") == true &&
-				dijit.byId("weekdayCheck").set("checked", false)) {
+				dijit.byId("weekdayCheck").get("checked") == false) {
 					
 				dijit.byId("allDayOfWeekCheck").set("checked", false);
+			}
+			if (dijit.byId("weekendCheck").get("checked") == true &&
+				dijit.byId("weekdayCheck").get("checked") == true) {
+					
+				dijit.byId("allDayOfWeekCheck").set("checked", true);
 			}
 		} 
 	}).placeAt("form21");
@@ -149,9 +156,14 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		onClick : function() {
 			// Do something:			
 			if (dijit.byId("allDayOfWeekCheck").get("checked") == true &&
-				dijit.byId("weekendCheck").set("checked", false)) {
+				dijit.byId("weekendCheck").get("checked") == false) {
 					
 				dijit.byId("allDayOfWeekCheck").set("checked", false);
+			}
+			if (dijit.byId("weekendCheck").get("checked") == true &&
+				dijit.byId("weekdayCheck").get("checked") == true) {
+					
+				dijit.byId("allDayOfWeekCheck").set("checked", true);
 			}
 		} 
 	}).placeAt("form21");
@@ -969,7 +981,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	};
 	// this function get values to all descendants 
 	var getCheckValues = function(formID) {		
-		var allValues = [];
+		//var allValues = [];
+		var allValues = new Array();
 		var dijitChecks = dijit.byId(formID);
 		checkDijits = dijitChecks.getDescendants();
 		Max = checkDijits.length;
@@ -1011,15 +1024,15 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 										var container = dijit.byId("accorContainer");
 										container.selectChild("bufferDistancePane", true);
 										return 0;									
-								}				
-								
-								
-								allValues.push(checkDijits[j].get("value"));
+								}									
+								//allValues.push(checkDijits[j].get("value"));
+								allValues.push(new Array(checkDijits[j].get("name") ,checkDijits[j].get("value")));
 						}
 				}				
 			}
 		}
 		alert("The Selected Values are : " + allValues.join(", "));
+		//submitInteractiveAnalysisSettings(allValues);
 	};
 	
 	// Create buttons programmatically:
