@@ -79,7 +79,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	// create checkboxes and labels for cPane1
 	var checkBox11 = new dijit.form.RadioButton({
 		id : "hartfordCheck",
-		value : "11",
+		value : "1_1",
 		checked : false,
 		style: "display:inline-block"
 	}).placeAt("form11");
@@ -96,7 +96,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox12 = new dijit.form.RadioButton({
 		id : "newhavenCheck",
-		value : "12",
+		value : "1_2",
 		checked : false,
 		style : "display:inline-block; margin-left: 80px"
 	}).placeAt("form11");
@@ -120,7 +120,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	// create checkboxes and labels for cPane2
 	var checkBox21 = new dijit.form.CheckBox({
 		id : "weekdayCheck",
-		value : "21",
+		value : "2_1",
 		name : "group2",
 		checked : false,
 		style: "display:inline-block",
@@ -142,7 +142,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox22 = new dijit.form.CheckBox({
 		id : "weekendCheck",
-		value : "22",
+		value : "2_2",
 		name : "group2",
 		checked : false,
 		style : "display:inline-block; margin-left: 80px",
@@ -164,7 +164,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox23 = new dijit.form.CheckBox({
 		id : "allDayOfWeekCheck",
-		value : "23",
+		value : "2_3",
 		name : "group2",
 		checked : false,
 		style : "display:inline-block; margin-left: 80px",
@@ -212,16 +212,22 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox311 = new dijit.form.RadioButton({
 		id : "loadFactorCheck",
-		value : "311",
+		value : "3_1_1",
 		name : "group3",
 		checked : false,
 		style: "display:inline-block",
 		onChange : function() {
 			// Do something:
-			
-			resetLEP();			
-			dijit.byId("loadFactorSelect").set("disabled", false);	
-		} 
+			if (dijit.byId("loadFactorCheck").get("checked") == true){
+				dijit.byId("loadFactorSelect").set("disabled", false);
+			}
+			if (dijit.byId("loadFactorCheck").get("checked") == false){
+				dijit.byId("loadFactorSelect").set("disabled", true);
+			}
+		},
+		onClick : function() {
+			resetLEP();
+		}
 	}).placeAt("form31");
 	
 	var labe311 = new dijit.form.Form({
@@ -246,7 +252,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox312 = new dijit.form.RadioButton({
 		id : "vehicleCheck",
-		value : "312",
+		value : "3_1_2",
 		name : "group3",
 		checked : false,
 		style : "display:inline-block; margin-left: 20px",
@@ -264,7 +270,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox313 = new dijit.form.RadioButton({
 		id : "stopAmeniCheck",
-		value : "313",
+		value : "3_1_3",
 		name : "group3",
 		checked : false,
 		style: "display:inline-block; margin-left:30px",
@@ -282,7 +288,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox314 = new dijit.form.RadioButton({
 		id : "onTimeCheck",
-		value : "314",
+		value : "3_1_4",
 		name : "group3",
 		checked : false,
 		style : "display:inline-block; margin-left:40px",
@@ -300,15 +306,22 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox315 = new dijit.form.RadioButton({
 		id : "headwayCheck",
-		value : "315",
+		value : "3_1_5",
 		name : "group3",
 		checked : false,
 		style: "display:inline-block; margin-left:40px",
-		onClick : function() {
+		onChange : function() {
 			// Do something:
-			resetLEP();			
-			dijit.byId("headwaySelect").set("disabled", false);	
-		} 
+			if (dijit.byId("headwayCheck").get("checked") == true){
+				dijit.byId("headwaySelect").set("disabled", false);
+			}
+			if (dijit.byId("headwayCheck").get("checked") == false){
+				dijit.byId("headwaySelect").set("disabled", true);
+			}
+		},
+		onClick : function() {
+			resetLEP();
+		}
 	}).placeAt("form31");
 	
 	var labe315 = new dijit.form.Form({
@@ -338,7 +351,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox321 = new dijit.form.RadioButton({
 		id : "minorityCheck",
-		value : "321",
+		value : "3_2_1",
 		name : "group3",
 		checked : false,
 		style: "display:inline-block",
@@ -356,7 +369,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox322 = new dijit.form.RadioButton({
 		id : "nonMinorityCheck",
-		value : "322",
+		value : "3_2_2",
 		name : "group3",
 		checked : false,
 		style : "display:inline-block; margin-left: 40px",
@@ -374,13 +387,13 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox323 = new dijit.form.RadioButton({
 		id : "lowIncomeCheck",
-		value : "323",
+		value : "3_2_3",
 		name : "group3",
 		checked : false,
 		style: "display:inline-block; margin-left:40px",
 		onClick : function() {
 			// Do something:
-			resetLEPsetDemo();			
+				resetLEPsetDemo();
 		} 
 	}).placeAt("form31");
 	
@@ -392,13 +405,13 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox324 = new dijit.form.RadioButton({
 		id : "nonLowIncomeCheck",
-		value : "324",
+		value : "3_2_4",
 		name : "group3",
 		checked : false,
 		style : "display:inline-block; margin-left:40px",
 		onClick : function() {
 			// Do something:
-			resetLEPsetDemo();			
+				resetLEPsetDemo();
 		} 
 	}).placeAt("form31");
 	
@@ -410,20 +423,21 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox325 = new dijit.form.RadioButton({
 		id : "lepCheck",
-		value : "325",
+		value : "3_2_5",
 		name : "group3",
 		checked : false,
-		style: "display:inline-block; margin-left:40px",
+		style: "display:inline-block; margin-left:40px",		
+		onChange : function() {
+			if (dijit.byId("lepCheck").get("checked") == true){
+				dijit.byId("lepSelect").set("disabled", false);				
+			}
+			if (dijit.byId("lepCheck").get("checked") == false){
+				dijit.byId("lepSelect").set("disabled", true);
+			}
+		},
 		onClick : function() {
-			// Do something:
-			// add and display LEP form
-			cPane3.addChild(form32);
-			// check census tract and disable block group check
-			dijit.byId("blockGroupCheck").set("checked", false);
-			dijit.byId("blockGroupCheck").set("disabled", true);
-			dijit.byId("censusTractCheck").set("checked", true);
-			dijit.byId("lepSelect").set("disabled", false);			
-		} 
+			resetLEPsetDemo();
+		}
 	}).placeAt("form31");
 	
 	var labe325 = new dijit.form.Form({
@@ -449,6 +463,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		]
 	}).placeAt("form31");
 	
+	/*
 	// create RadioButtons in form32
 	var checkBox1LEP = new dijit.form.RadioButton({
 		id : "frenchCheck",
@@ -549,6 +564,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		innerHTML : "Vietnamese",
 		style: "display:inline-block; font-size:10pt"
 	}).placeAt("form32");
+	*/
+	
 	
 	// add children to cPane3
 	cPane3.addChild(form31);
@@ -565,7 +582,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	// create checkboxes and labels for cPane5
 	var checkBox51 = new dijit.form.RadioButton({
 		id : "blockGroupCheck",
-		value : "51",
+		value : "5_1",
 		name : "group5",
 		checked : false,
 		style: "display:inline-block",
@@ -580,7 +597,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox52 = new dijit.form.RadioButton({
 		id : "censusTractCheck",
-		value : "52",
+		value : "5_2",
 		name : "group5",
 		checked : false,
 		style : "display:inline-block; margin-left: 60px",
@@ -617,11 +634,11 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	// create checkboxes and labels for cPane6
 	var checkBox61 = new dijit.form.CheckBox({
 		id : "localCheck",
-		value : "61",
+		value : "6_1",
 		name : "group6",
 		checked : false,
 		style: "display:inline-block",
-		onClick : function() {
+		onChange : function() {
 			// Do something:		
 			if (dijit.byId("localCheck").get("checked") == true){
 				dijit.byId("local1Check").set("disabled", false);
@@ -646,7 +663,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox1Local = new dijit.form.RadioButton({
 		id : "local1Check",
-		value : "611",
+		value : "6_1_1",
 		name : "group6Local",
 		checked : false,
 		disabled : true,
@@ -662,7 +679,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox2Local = new dijit.form.RadioButton({
 		id : "local2Check",
-		value : "612",
+		value : "6_1_2",
 		name : "group6Local",
 		checked : false,
 		disabled : true,
@@ -678,7 +695,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox3Local = new dijit.form.RadioButton({
 		id : "local3Check",
-		value : "613",
+		value : "6_1_3",
 		name : "group6Local",
 		checked : false,
 		disabled : true,
@@ -694,11 +711,11 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox62 = new dijit.form.CheckBox({
 		id : "expressCheck",
-		value : "62",
+		value : "6_2",
 		name : "group6",
 		checked : false,
 		style : "display:inline-block",
-		onClick : function() {
+		onChange : function() {
 			// Do something:
 			if (dijit.byId("expressCheck").get("checked") == true){
 				dijit.byId("exp1Check").set("disabled", false);
@@ -729,7 +746,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox1Exp = new dijit.form.RadioButton({
 		id : "exp1Check",
-		value : "621",
+		value : "6_2_1",
 		name : "group6Exp",
 		checked : false,
 		disabled : true,
@@ -745,7 +762,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox2Exp = new dijit.form.RadioButton({
 		id : "exp2Check",
-		value : "622",
+		value : "6_2_2",
 		name : "group6Exp",
 		checked : false,
 		disabled : true,
@@ -761,7 +778,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox3Exp = new dijit.form.RadioButton({
 		id : "exp3Check",
-		value : "623",
+		value : "6_2_3",
 		name : "group6Exp",
 		checked : false,
 		disabled : true,
@@ -777,7 +794,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox4Exp = new dijit.form.RadioButton({
 		id : "exp4Check",
-		value : "624",
+		value : "6_2_4",
 		name : "group6Exp",
 		checked : false,
 		disabled : true,
@@ -793,7 +810,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox5Exp = new dijit.form.RadioButton({
 		id : "exp5Check",
-		value : "625",
+		value : "6_2_5",
 		name : "group6Exp",
 		checked : false,
 		disabled : true,
@@ -809,7 +826,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var checkBox6Exp = new dijit.form.RadioButton({
 		id : "exp6Check",
-		value : "626",
+		value : "6_2_6",
 		name : "group6Exp",
 		checked : false,
 		disabled : true,
@@ -864,17 +881,10 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		onClick : function() {
 			// Do something:
 			if (dijit.byId("lepCheck").get("checked") == true && 
-				(dijit.byId("frenchCheck").get("checked") == false && 
-				dijit.byId("italianCheck").get("checked") == false && 
-				dijit.byId("russianCheck").get("checked") == false && 
-				dijit.byId("spanishCheck").get("checked") == false && 
-				dijit.byId("frenchCreoleCheck").get("checked") == false && 
-				dijit.byId("polishCheck").get("checked") == false && 
-				dijit.byId("vietnameseCheck").get("checked") == false)) {
-					
+				dijit.byId("lepSelect").get("value") == "3_2_5_0") {					
 					var container = dijit.byId("accorContainer");
 					container.selectChild("analysisPane", true);
-					alert("please select a language");
+					alert("Please select a Language");
 			}
 			else{
 				var container = dijit.byId("accorContainer");
@@ -906,17 +916,13 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
   	
   	// reset type of analysis form
   	var resetLEP = function() {	
-		unCheck(form32);
-		cPane3.removeChild(form32);
-		// uncheck census tract and enable block group check
-		dijit.byId("blockGroupCheck").set("disabled", false);
+		// uncheck census tract and enable block group check		
 		dijit.byId("blockGroupCheck").set("checked", false);
+		dijit.byId("blockGroupCheck").set("disabled", false);
 		dijit.byId("censusTractCheck").set("checked", false);
 	};  			
   	
 	var resetLEPsetDemo = function() {	
-		unCheck(form32);
-		cPane3.removeChild(form32);
 		// check census tract and disable block group check
 		dijit.byId("blockGroupCheck").set("checked", false);
 		dijit.byId("blockGroupCheck").set("disabled", true);
@@ -943,7 +949,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		if (max > 0) {
 			for ( i = 0; i < max; i++) {
 				if (aDijits[i].get('declaredClass') == 'dijit.form.CheckBox' ||
-					aDijits[i].get('declaredClass') == 'dijit.form.RadioButton'){
+					aDijits[i].get('declaredClass') == 'dijit.form.RadioButton' ){
 						// uncheck and enable each checkbox or radio button 
 						aDijits[i].set("checked", false);
 						aDijits[i].set("disabled", false);
@@ -971,19 +977,15 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		if (Max > 0) {
 			for ( j = 0; j < Max; j++) {
 				if (checkDijits[j].get('declaredClass') == 'dijit.form.CheckBox' ||
-					checkDijits[j].get('declaredClass') == 'dijit.form.RadioButton'){
+					checkDijits[j].get('declaredClass') == 'dijit.form.RadioButton' ||
+					checkDijits[j].get('declaredClass') == 'dijit.form.Select' ){
 						
-						if (checkDijits[j].get("checked") == true &&
-							checkDijits[j].get("value") !== null){	
+						if (checkDijits[j].get("checked") !== false &&
+							checkDijits[j].get("value") !== null &&
+							checkDijits[j].get("disabled") == false){	
 								
 								if (dijit.byId("lepCheck").get("checked") == true && 
-									(dijit.byId("frenchCheck").get("checked") == false &&
-									dijit.byId("italianCheck").get("checked") == false &&
-									dijit.byId("russianCheck").get("checked") == false &&
-									dijit.byId("spanishCheck").get("checked") == false &&
-									dijit.byId("frenchCreoleCheck").get("checked") == false &&
-									dijit.byId("polishCheck").get("checked") == false &&
-									dijit.byId("vietnameseCheck").get("checked") == false)){
+									dijit.byId("lepSelect").get("value") == "3_2_5_0"){
 										alert("Please select a LEP language");
 										var container = dijit.byId("accorContainer");
 										container.selectChild("analysisPane", true);
@@ -1142,7 +1144,5 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
       connectId: ["expressCheck","expressLabel"],
       label: TT_6_62
     });
-
-
   	
 });
