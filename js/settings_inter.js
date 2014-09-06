@@ -1031,7 +1031,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 				}				
 			}
 		}
-		alert("The Selected Values are : " + allValues.join(", "));
+		alert("The Selected Values are : \n" + allValues.join("\n"));
 		//submitInteractiveAnalysisSettings(allValues);
 	};
 	
