@@ -13,13 +13,27 @@ function(dom, domConstruct) {
 	}, Body);
 	
 	// create buttons: start over and generate report	
-	domConstruct.create("button", {
-		id : "restartButton"			
+	domConstruct.create("div", {
+		id : "restarButtonDiv",
+		// add style
+		style : "display:inline; margin-left: 40%"				
 	}, Body);
 	
 	domConstruct.create("button", {
-		id : "generateButton"		
+		id : "restartButton",
+		style : "float: right"			
+	}, "restarButtonDiv");
+	
+	domConstruct.create("div", {
+		id : "generateButtonDiv",
+		// add style
+		style : "display:inline; margin-right: 30%"				
 	}, Body);
+	
+	domConstruct.create("button", {
+		id : "generateButton",
+		style : "float: left"	
+	}, "generateButtonDiv");
 	
 });
 
