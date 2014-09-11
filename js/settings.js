@@ -284,6 +284,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 			// Do something:
 			if (dijit.byId("loadFactorCheck").get("checked") == true){
 				dijit.byId("loadFactorSelect").set("disabled", false);
+				dijit.byId("localCheck").set("checked", false);	
+				dijit.byId("expressCheck").set("checked", false);				
 			}
 			if (dijit.byId("loadFactorCheck").get("checked") == false){
 				dijit.byId("loadFactorSelect").set("disabled", true);
@@ -325,6 +327,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 				dijit.byId("allPerformanceCheck").set("checked", false);
 			}
 			setAllPerform();
+			dijit.byId("localCheck").set("checked", false);	
+			dijit.byId("expressCheck").set("checked", false);
 		} 
 	}).placeAt("form31");
 	
@@ -348,6 +352,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 				dijit.byId("allPerformanceCheck").set("checked", false);
 			}
 			setAllPerform();
+			dijit.byId("localCheck").set("checked", false);	
+			dijit.byId("expressCheck").set("checked", false);
 		} 
 	}).placeAt("form31");
 	
@@ -371,6 +377,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 				dijit.byId("allPerformanceCheck").set("checked", false);
 			}
 			setAllPerform();
+			dijit.byId("localCheck").set("checked", false);	
+			dijit.byId("expressCheck").set("checked", false);
 		} 
 	}).placeAt("form31");
 	
@@ -399,6 +407,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 			// Do something:
 			if (dijit.byId("headwayCheck").get("checked") == true){
 				dijit.byId("headwaySelect").set("disabled", false);
+				dijit.byId("localCheck").set("checked", false);	
+				dijit.byId("expressCheck").set("checked", false);
 			}
 			if (dijit.byId("headwayCheck").get("checked") == false){
 				dijit.byId("headwaySelect").set("disabled", true);
@@ -439,6 +449,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 				dijit.byId("stopAmeniCheck").set("checked", true);
 				dijit.byId("onTimeCheck").set("checked", true);
 				dijit.byId("headwayCheck").set("checked", true);
+				dijit.byId("localCheck").set("checked", false);	
+				dijit.byId("expressCheck").set("checked", false);
 			}
 			if (dijit.byId("allPerformanceCheck").get("checked") == false) {
 				// Unselect All
@@ -487,6 +499,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 				dijit.byId("allDemoGroupsCheck").set("checked", false);
 			}
 			setDemoUnit();
+			dijit.byId("localCheck").set("checked", false);	
+			dijit.byId("expressCheck").set("checked", false);
 		} 
 	}).placeAt("form41");
 	
@@ -510,6 +524,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 				dijit.byId("allDemoGroupsCheck").set("checked", false);
 			}
 			setDemoUnit();
+			dijit.byId("localCheck").set("checked", false);	
+			dijit.byId("expressCheck").set("checked", false);
 		} 
 	}).placeAt("form41");
 	
@@ -533,6 +549,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 				dijit.byId("allDemoGroupsCheck").set("checked", false);
 			}
 			setDemoUnit();
+			dijit.byId("localCheck").set("checked", false);	
+			dijit.byId("expressCheck").set("checked", false);
 		} 
 	}).placeAt("form41");
 	
@@ -556,6 +574,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 				dijit.byId("allDemoGroupsCheck").set("checked", false);
 			}
 			setDemoUnit();	
+			dijit.byId("localCheck").set("checked", false);	
+			dijit.byId("expressCheck").set("checked", false);
 		} 
 	}).placeAt("form41");
 	
@@ -580,6 +600,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 			}			
 			if (dijit.byId("lepCheck").get("checked") == true){
 				dijit.byId("lepSelect").set("disabled", false);
+				dijit.byId("localCheck").set("checked", false);	
+				dijit.byId("expressCheck").set("checked", false);
 				// check census tract and disable block group check
 				setDemoUnit();
 			}
@@ -629,6 +651,8 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 				dijit.byId("lowIncomeCheck").set("checked", true);
 				dijit.byId("nonLowIncomeCheck").set("checked", true);
 				dijit.byId("lepCheck").set("checked", true);
+				dijit.byId("localCheck").set("checked", false);	
+				dijit.byId("expressCheck").set("checked", false);
 			}
 			if (dijit.byId("allDemoGroupsCheck").get("checked") == false) {
 				// Unselect All
@@ -818,10 +842,17 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		name : "group6",
 		checked : false,
 		style: "display:inline-block",
-		onClick : function() {
+		onChange : function() {
 			// Do something:		
-			if (dijit.byId("localCheck").get("checked") == true){
+			if (dijit.byId("localCheck").get("checked") == true &&
+				(dijit.byId("minorityCheck").get("checked") == true ||
+				dijit.byId("nonMinorityCheck").get("checked") == true ||
+				dijit.byId("lowIncomeCheck").get("checked") == true ||
+				dijit.byId("nonLowIncomeCheck").get("checked") == true ||
+				dijit.byId("lepCheck").get("checked") == true )){
+					
 				dijit.byId("local1Check").set("disabled", false);
+				dijit.byId("local1Check").set("checked", true);
 				dijit.byId("local2Check").set("disabled", false);
 				dijit.byId("local3Check").set("disabled", false);
 			}	
@@ -895,11 +926,18 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		name : "group6",
 		checked : false,
 		style : "display:inline-block",
-		onClick : function() {
+		onChange : function() {
 			// Do something:
-			if (dijit.byId("expressCheck").get("checked") == true){
+			if (dijit.byId("expressCheck").get("checked") == true &&
+				(dijit.byId("minorityCheck").get("checked") == true ||
+				dijit.byId("nonMinorityCheck").get("checked") == true ||
+				dijit.byId("lowIncomeCheck").get("checked") == true ||
+				dijit.byId("nonLowIncomeCheck").get("checked") == true ||
+				dijit.byId("lepCheck").get("checked") == true )){
+					
 				dijit.byId("exp1Check").set("disabled", false);
 				dijit.byId("exp2Check").set("disabled", false);
+				dijit.byId("exp2Check").set("checked", true);
 				dijit.byId("exp3Check").set("disabled", false);
 				dijit.byId("exp4Check").set("disabled", false);
 				dijit.byId("exp5Check").set("disabled", false);
@@ -1268,7 +1306,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 						columName = "Veh_Age_Average"
 						break;
 					case "3_3":
-						columName = "Stop_Amenities" /// not sure!
+						columName = "Shelters_Percent"
 						break;
 					case "3_4":
 						columName = "Ontime_Percent"
@@ -1300,10 +1338,10 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 						columName = "Non_Minority_Area_Percent"/// not sure
 						break;
 					case "4_3":
-						columName = "Poverty_Area_Percent" /// not sure
+						columName = "Poverty_Area_Percent" 
 						break;
 					case "4_4":
-						columName = "Non_Poverty_Area_Percent" ///not sure
+						columName = "Non_Poverty_Area_Percent" ///not sure 
 						break;
 					case "4_5_1":
 						columName = "LEP_French"
@@ -1324,7 +1362,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 						columName = "LEP_Spanish"
 						break;
 					case "4_5_7":
-						columName = "LEP_Vietnamese" /// not sure
+						columName = "LEP_Viet" 
 						break;
 					case "4_6":
 						columName = "All_ group4"
