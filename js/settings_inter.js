@@ -222,12 +222,12 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	var form31 = new dijit.form.Form({
 		id : "form31",
 		name : "group3",
-		style : "display: inline-block; width:780px"
+		style : "display: inline-block; width:800px"
 	});
 	var form32 = new dijit.form.Form({
 		id : "form32",
 		name : "group3",
-		style : "display:block; width:780px"
+		style : "display:block; width:800px"
 	});
 	
 	// create checkboxes and labels for cPane3
@@ -270,10 +270,10 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		disabled : true,
 		style:"display:inline-block;font-size:10pt",
 		options: [
-			{ label: "AM", selected: true, value: "3_1_1_1"},
-			{ label: "MID", value: "3_1_1_2"},
-			{ label: "PM", value: "3_1_1_3"},
-			{ label: "Off", value: "3_1_1_4"},
+			{ label: "AM Peak", selected: true, value: "3_1_1_1"},
+			{ label: "Midday", value: "3_1_1_2"},
+			{ label: "PM Peak", value: "3_1_1_3"},
+			{ label: "Off-Peak", value: "3_1_1_4"},
 			{ label: "Total", value: "3_1_1_5"},
 		]
 	}).placeAt("form31");
@@ -372,9 +372,9 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 		disabled : true,
 		style:"display:inline-block;font-size:10pt",
 		options: [
-			{ label: "AM",  value: "3_1_5_1"},
-			{ label: "MID", value: "3_1_5_2"},
-			{ label: "PM",  value: "3_1_5_3"},
+			{ label: "AM Peak",  value: "3_1_5_1"},
+			{ label: "Midday", value: "3_1_5_2"},
+			{ label: "PM Peak",  value: "3_1_5_3"},
 		]
 	}).placeAt("form31");
 	
@@ -439,7 +439,7 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	
 	var labe323 = new dijit.form.Form({
 		id : "lowIncomeLabel",
-		innerHTML : "Low-income",
+		innerHTML : "Low-Income",
 		style: "display:inline-block; width:90px"
 	}).placeAt("form31");
 	
@@ -504,109 +504,6 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 			{ label: "Vietnamese",  value: "3_2_5_7"},
 		]
 	}).placeAt("form31");
-	
-	/*
-	// create RadioButtons in form32
-	var checkBox1LEP = new dijit.form.RadioButton({
-		id : "frenchCheck",
-		value : "3251",
-		name : "group3LEP",
-		checked : false,
-		//disabled : true,
-		style : "display:inline-block; margin-left:400px",
-	}).placeAt("form32");
-	
-	var labe1LEP = new dijit.form.Form({
-		id : "frenchLabel",
-		innerHTML : "French",
-		style: "display:inline-block; font-size:10pt"
-	}).placeAt("form32");
-	
-	var checkBox2LEP = new dijit.form.RadioButton({
-		id : "italianCheck",
-		value : "3252",
-		name : "group4LEP",
-		checked : false,
-		//disabled : true,
-		style: "display:inline-block; margin-left:10px"
-	}).placeAt("form32");
-	
-	var labe2LEP = new dijit.form.Form({
-		id : "italianLabel",
-		innerHTML : "Italian",
-		style: "display:inline-block; font-size:10pt"
-	}).placeAt("form32");
-	
-	var checkBox3LEP = new dijit.form.RadioButton({
-		id : "russianCheck",
-		value : "3253",
-		name : "group4LEP",
-		checked : false,
-		style: "display:inline-block; margin-left:10px"
-	}).placeAt("form32");
-	
-	var labe3LEP = new dijit.form.Form({
-		id : "russianLabel",
-		innerHTML : "Russian",
-		style: "display:inline-block; font-size:10pt"
-	}).placeAt("form32");
-	
-	var checkBox4LEP = new dijit.form.RadioButton({
-		id : "spanishCheck",
-		value : "3254",
-		name : "group4LEP",
-		checked : false,
-		style: "display:inline-block; margin-left:10px"
-	}).placeAt("form32");
-	
-	var labe4LEP = new dijit.form.Form({
-		id : "spanishLabel",
-		innerHTML : "Spanish <br>",
-		style: "display:inline; font-size:10pt; width:45px"
-	}).placeAt("form32");
-	
-	var checkBox5LEP = new dijit.form.RadioButton({
-		id : "frenchCreoleCheck",
-		value : "3255",
-		name : "group4LEP",
-		checked : false,
-		style: "display:inline-block; margin-left:400px"
-	}).placeAt("form32");
-	
-	var labe5LEP = new dijit.form.Form({
-		id : "frenchCreoleLabel",
-		innerHTML : "French-Creole",
-		style: "display:inline-block; font-size:10pt"
-	}).placeAt("form32");
-	
-	var checkBox6LEP = new dijit.form.RadioButton({
-		id : "polishCheck",
-		value : "3256",
-		name : "group4LEP",
-		checked : false,
-		style: "display:inline-block; margin-left:10px"
-	}).placeAt("form32");
-	
-	var labe6LEP = new dijit.form.Form({
-		id : "polishLabel",
-		innerHTML : "Polish",
-		style: "display:inline-block; font-size:10pt"
-	}).placeAt("form32");	
-	
-	var checkBox7LEP = new dijit.form.RadioButton({
-		id : "vietnameseCheck",
-		value : "3257",
-		name : "group4LEP",
-		checked : false,
-		style: "display:inline-block; margin-left:10px"
-	}).placeAt("form32");
-	
-	var labe7LEP = new dijit.form.Form({
-		id : "vietnameseLabel",
-		innerHTML : "Vietnamese",
-		style: "display:inline-block; font-size:10pt"
-	}).placeAt("form32");
-	*/
 	
 	
 	// add children to cPane3
@@ -1042,13 +939,52 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 							checkDijits[j].get("value") !== null &&
 							checkDijits[j].get("disabled") == false){	
 								
+								if (dijit.byId("hartfordCheck").get("checked") == false && 	
+									dijit.byId("newhavenCheck").get("checked") == false ){
+										alert("Please select a transit system");
+										var container = dijit.byId("accorContainer");
+										container.selectChild("transitSysPane", true);
+										return 0;									
+								}	
+								
+								if (dijit.byId("weekdayCheck").get("checked") == false && 	
+									dijit.byId("weekendCheck").get("checked") == false ){
+										alert("Please select a day of week");
+										var container = dijit.byId("accorContainer");
+										container.selectChild("dayOfWeekPane", true);
+										return 0;									
+								}		
+								
+								if (dijit.byId("loadFactorCheck").get("checked") == false &&
+									dijit.byId("vehicleCheck").get("checked") == false &&
+									dijit.byId("stopAmeniCheck").get("checked") == false &&
+									dijit.byId("onTimeCheck").get("checked") == false &&
+									dijit.byId("headwayCheck").get("checked") == false &&
+									(dijit.byId("minorityCheck").get("checked") == false &&
+									 dijit.byId("lowIncomeCheck").get("checked") == false &&
+									 dijit.byId("lepCheck").get("checked") == false)){
+										alert("Please select a type of analysis");
+										var container = dijit.byId("accorContainer");
+										container.selectChild("analysisPane", true);
+										return 0;									
+								}						
+								
 								if (dijit.byId("lepCheck").get("checked") == true && 
 									dijit.byId("lepSelect").get("value") == "3_2_5_0"){
 										alert("Please select a LEP language");
 										var container = dijit.byId("accorContainer");
 										container.selectChild("analysisPane", true);
 										return 0;									
-								}			
+								}	
+								
+								if (dijit.byId("blockGroupCheck").get("checked") == false && 	
+									dijit.byId("censusTractCheck").get("checked") == false ){
+										alert("Please select a demographic spatial unit");
+										var container = dijit.byId("accorContainer");
+										container.selectChild("demoSpatialUnitPane", true);
+										return 0;									
+								}									
+								
 								if (dijit.byId("localCheck").get("checked") == true && 
 									dijit.byId("loadFactorCheck").get("checked") == false &&
 									dijit.byId("vehicleCheck").get("checked") == false &&
@@ -1056,13 +992,14 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 									dijit.byId("onTimeCheck").get("checked") == false &&
 									dijit.byId("headwayCheck").get("checked") == false &&
 									(dijit.byId("local1Check").get("checked") == false &&
-									dijit.byId("local2Check").get("checked") == false &&
-									dijit.byId("local3Check").get("checked") == false)){
+									 dijit.byId("local2Check").get("checked") == false &&
+									 dijit.byId("local3Check").get("checked") == false)){
 										alert("Please select a buffer size for Local");
 										var container = dijit.byId("accorContainer");
 										container.selectChild("bufferDistancePane", true);
 										return 0;									
 								}					
+								
 								if (dijit.byId("expressCheck").get("checked") == true && 
 									dijit.byId("loadFactorCheck").get("checked") == false &&
 									dijit.byId("vehicleCheck").get("checked") == false &&
@@ -1070,11 +1007,11 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 									dijit.byId("onTimeCheck").get("checked") == false &&
 									dijit.byId("headwayCheck").get("checked") == false &&
 									(dijit.byId("exp1Check").get("checked") == false &&
-									dijit.byId("exp2Check").get("checked") == false &&
-									dijit.byId("exp3Check").get("checked") == false &&
-									dijit.byId("exp4Check").get("checked") == false &&
-									dijit.byId("exp5Check").get("checked") == false &&
-									dijit.byId("exp6Check").get("checked") == false)){
+									 dijit.byId("exp2Check").get("checked") == false &&
+									 dijit.byId("exp3Check").get("checked") == false &&
+									 dijit.byId("exp4Check").get("checked") == false &&
+									 dijit.byId("exp5Check").get("checked") == false &&
+									 dijit.byId("exp6Check").get("checked") == false)){
 										alert("Please select a buffer size for Express");
 										var container = dijit.byId("accorContainer");
 										container.selectChild("bufferDistancePane", true);
@@ -1087,141 +1024,370 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 										container.selectChild("bufferDistancePane", true);
 										return 0;									
 								}								
-								//allValues.push(checkDijits[j].get("value"));
-								allValues.push(new Array(checkDijits[j].get("name") ,checkDijits[j].get("value")));
-								allColumNames.push(decodeFieldValues(checkDijits[j].get("name") ,checkDijits[j].get("value")));
+								
+								if (checkDijits[j].get("value") !== "2_3" ){
+									if (checkDijits[j].get("value") !== "3_1_1" ){
+										if (checkDijits[j].get("value") !== "3_1_5" ){
+											if (checkDijits[j].get("value") !== "3_2_5" ){
+												
+												allValues.push(new Array(checkDijits[j].get("name") ,checkDijits[j].get("value")));
+											
+											}
+											
+										}
+									}
+									
+								}
+								
 						}
 				}				
 			}
 		}
-		alert("The Selected Values are : \n" + allValues.join("\n"));
-		alert("The Column Names are : \n" + allColumNames.join("\n"));
-		//submitInteractiveAnalysisSettings(allValues);
+		
+		if (allValues.length > 0){
+			 alert("The Selected Values are : \n" + allValues.join("\n"));
+			// submitInteractiveAnalysisSettings(allValues);
+			return allValues;
+		}
+		else alert("Select Parameters");
 	};
 	
-	function decodeFieldValues(fieldName, valueNumber){
-		var columName;
-		switch (fieldName){
-			case "group1":			
-				if (valueNumber == "1_1" ||
-					valueNumber == "1_2" ){						
-						columName = "System";
-				}					
-				break;
-				
-			case "group2":
-				if (valueNumber == "2_1" ||
-					valueNumber == "2_2" ||
-					valueNumber == "2_3" ){
-						columName = "Day_";
-				}
-				break;
-				
-			case "group3":
-				switch(valueNumber){
-					case "3_1_1_1":
-						columName = "Load_Factor_AM"
-						break;						
-					case "3_1_1_2":
-						columName = "Load_Factor_MID"
-						break;						
-					case "3_1_1_3":
-						columName = "Load_Factor_PM"
-						break;
-					case "3_1_1_4":
-						columName = "Load_Factor_Off"
-						break;
-					case "3_1_1_5":
-						columName = "Load_Factor_Total"
-						break;
-					case "3_1_2":
-						columName = "Veh_Age_Average"
-						break;
-					case "3_1_3":
-						columName = "Shelters_Percent" 
-						break;
-					case "3_1_4":
-						columName = "Ontime_Percent"
-						break;					
-					case "3_1_5_1":
-						columName = "Frequency_AM"
-						break;						
-					case "3_1_5_2":
-						columName = "Frequency_MID"
-						break;						
-					case "3_1_5_3":
-						columName = "Frequency_PM"
-						break;							
-					case "3_2_1":
-						columName = "Minority_Area_Percent"
-						break;
-					case "3_2_3":
-						columName = "Poverty_Area_Percent" 
-						break;
-					case "3_2_5_1":
-						columName = "LEP_French"
-						break;
-					case "3_2_5_2":
-						columName = "LEP_French_Creole"
-						break;
-					case "3_2_5_3":
-						columName = "LEP_Italian"
-						break;
-					case "3_2_5_4":
-						columName = "LEP_Polish"
-						break;
-					case "3_2_5_5":
-						columName = "LEP_Russian"
-						break;
-					case "3_2_5_6":
-						columName = "LEP_Spanish"
-						break;
-					case "3_2_5_7":
-						columName = "LEP_Viet" 
-						break;											
-					default:
-						columName = "Non_Specify"								
-				}		
-				break;
-			case "group5":
-				if (valueNumber == "5_1" ||
-					valueNumber == "5_2" ){
-						columName = "Unit";
-				}
-				break;
-			case "group6":
-				if (valueNumber == "6_1" ||
-					valueNumber == "6_2" ){
-						columName = "Type_";
-				}
-				break;
-			case "group6Local":
-				if (valueNumber == "6_1_1" ||
-					valueNumber == "6_1_2" ||
-					valueNumber == "6_1_3" ){
-						columName = "Buffer";
-				}
-				break;
-			case "group6Exp":
-				if (valueNumber == "6_2_1" ||
-					valueNumber == "6_2_2" ||
-					valueNumber == "6_2_3" ||
-					valueNumber == "6_2_4" ||
-					valueNumber == "6_2_5" ||
-					valueNumber == "6_2_6" ){
-						columName = "Buffer";
-				}
-				break;		
-				
-			default:
-				columName = "Non_Specify";			
-		}
-		return columName;		
+	///////////////////  MAPPING  ////////////////////
+	var arrAnalysis = [
+		{ value : "1_1", system: "Hartford"},
+		{ value : "1_2", system: "New Haven"},
+		{ value : "2_1", day: "Weekday"},
+		{ value : "2_2", day: "Weekend"},
+		{ value : "3_1_1_1", type_of_analysis: "load_factor_AM"},
+		{ value : "3_1_1_2", type_of_analysis: "load_factor_MID"},
+		{ value : "3_1_1_3", type_of_analysis: "load_factor_PM"},
+		{ value : "3_1_1_4", type_of_analysis: "load_factor_Off"},
+		{ value : "3_1_1_5", type_of_analysis: "load_factor_Total"},
+		{ value : "3_1_2",   type_of_analysis: "vehicle_age"},
+		{ value : "3_1_3",   type_of_analysis: "shelters_percent"},
+		{ value : "3_1_4",   type_of_analysis: "ontime_percentage"},
+		{ value : "3_1_5_1", type_of_analysis: "frequency_AM"},
+		{ value : "3_1_5_2", type_of_analysis: "frequency_MID"},
+		{ value : "3_1_5_3", type_of_analysis: "frequency_PM"},
+		{ value : "3_2_1",   type_of_analysis: "minoriry_area_percent"},
+		{ value : "3_2_3",   type_of_analysis: "poverty_area_percent"},
+		{ value : "3_2_5_1", type_of_analysis: "LEP_french"},
+		{ value : "3_2_5_2", type_of_analysis: "LEP_french-creole"},
+		{ value : "3_2_5_3", type_of_analysis: "LEP_italian"},
+		{ value : "3_2_5_4", type_of_analysis: "LEP_polish"},
+		{ value : "3_2_5_5", type_of_analysis: "LEP_russian"},
+		{ value : "3_2_5_6", type_of_analysis: "LEP_spanish"},
+		{ value : "3_2_5_7", type_of_analysis: "LEP_viet"},
+		{ value : "5_1", unit: "Block_Group"},
+		{ value : "5_2", unit: "Census_Tract"},
+		{ value : "6_1", type: "Local"},
+		{ value : "6_2", type: "Express"},
+		{ value : "6_1_1", local_buffer: "25"},
+		{ value : "6_1_2", local_buffer: "50"},
+		{ value : "6_1_3", local_buffer: "75"},
+		{ value : "6_2_1", express_buffer: "25"},
+		{ value : "6_2_2", express_buffer: "50"},
+		{ value : "6_2_3", express_buffer: "75"},
+		{ value : "6_2_4", express_buffer: "1"},
+		{ value : "6_2_5", express_buffer: "2"},
+		{ value : "6_2_6", express_buffer: "5"}
+		];
+	
+	function getDisplayForYAxis(typeAnalysis){
+		var displayY = "";
+		
+		switch(typeAnalysis){
+			case "load_factor_AM":
+					displayY = " % Vehicle Capaicty Used "
+					break;					
+			case "load_factor_MID":
+					displayY = " % Vehicle Capaicty Used "
+					break;
+			case "load_factor_PM":
+					displayY = " % Vehicle Capaicty Used "
+					break;
+			case "load_factor_Off":
+					displayY = " % Vehicle Capaicty Used "
+					break;
+			case "load_factor_Total":
+					displayY = " % Vehicle Capaicty Used "
+					break;
+			case "vehicle_age":
+					displayY = " Years "
+					break;
+			case "shelters_precent":
+					displayY = " % Stops of Shelters "
+					break;
+			case "ontime_percentage":
+					displayY = " On-Time Percentage "
+					break;
+			case "frequency_AM":
+					displayY = " Minutes "
+					break;
+			case "frequency_MID":
+					displayY = " Minutes "
+					break;
+			case "frequency_PM":
+					displayY = " Minutes "
+					break;
+			case "minoriry_area_percent":
+					displayY = " % Route Revenue Miles "
+					break;
+			case "poverty_area_percent":
+					displayY = " % Route Revenue Miles "
+					break;
+			case "LEP_french":
+					displayY = " LEP French Population Served "
+					break;
+			case "LEP_french-creole":
+					displayY = " LEP French-Creole Population Served "
+					break;
+			case "LEP_italian":
+					displayY = " LEP Italian Population Served "
+					break;
+			case "LEP_polish":
+					displayY = " LEP Polish Population Served "
+					break;
+			case "LEP_russian":
+					displayY = " LEP Russian Population Served "
+					break;
+			case "LEP_spanish":
+					displayY = " LEP Spanish Population Served "
+					break;
+			case "LEP_viet":
+					displayY = " LEP Vietnamese Population Served "
+					break;
+			default: 
+					break;		
+		}		
+		return displayY;
 	};
+	
+	var getSelectedAnalysis = function(){
+		//var allValues = [];
+		var SelectedValues = new Array();
+		var dijitChecks = dijit.byId("accorContainer");
+		checkDijits = dijitChecks.getDescendants();
+		Max = checkDijits.length;
+		var j;
+		if (Max > 0) {
+			for ( j = 0; j < Max; j++) {
+				if (checkDijits[j].get('declaredClass') == 'dijit.form.CheckBox' ||
+					checkDijits[j].get('declaredClass') == 'dijit.form.RadioButton' ||
+					checkDijits[j].get('declaredClass') == 'dijit.form.Select' ){
+						
+						if (checkDijits[j].get("checked") !== false &&
+							checkDijits[j].get("value") !== null &&
+							checkDijits[j].get("disabled") == false){									
+								
+								valueNumber = checkDijits[j].get("value");								
+								var columName = "";
+								var vValue = "";
+								
+								switch (checkDijits[j].get("name")){									
+									
+									case "group1":			
+										if (valueNumber == "1_1" ||
+											valueNumber == "1_2" ){			
+															
+											columName = "Transit System:  \t";
+											if (valueNumber == "1_1")
+												vValue = " Hartford";
+											else if (valueNumber == "1_2")
+												vValue = " New Haven";										
+											}					
+											break;				
+				
+									case "group2":
+										switch(valueNumber){
+											case "2_1":
+												if (dijit.byId("allDayOfWeekCheck").get("checked") == false){
+													columName = "Day of Week:  \t\t";
+													vValue = " Weekday ";
+												}
+												break;						
+											case "2_2":
+												if (dijit.byId("allDayOfWeekCheck").get("checked") == false){
+													columName = "Day of Week:  \t\t";
+													vValue = " Weekend ";
+												}
+												break;						
+											case "2_3":
+												columName = "Day of Week:  \t\t";
+												vValue = " Weekday & Weekend ";
+												break;											
+										}		
+										break;										
+										
+									case "group3":
+										switch(valueNumber){
+											case "3_1_1_1":
+												columName = "Type of Analysis:  \t";
+												vValue = " Load Factor AM Peak ";
+												break;						
+											case "3_1_1_2":
+												columName = "Type of Analysis:  \t";
+												vValue = " Load Factor Midday ";
+												break;						
+											case "3_1_1_3":
+												columName = "Type of Analysis:  \t";
+												vValue = " Load Factor PM Peak ";
+												break;
+											case "3_1_1_4":
+												columName = "Type of Analysis:  \t";
+												vValue = " Load Factor Off-Peak ";
+												break;
+											case "3_1_1_5":
+												columName = "Type of Analysis:  \t";
+												vValue = " Load Factor Total ";
+												break;
+											case "3_1_2":
+												columName = "Type of Analysis:  \t";
+												vValue = " Vehicle Age ";
+												break;
+											case "3_1_3":
+												columName = "Type of Analysis:  \t";
+												vValue = " Stop Amenities ";
+												break;
+											case "3_1_4":
+												columName = "Type of Analysis:  \t";
+												vValue = " On-Time % ";
+												break;					
+											case "3_1_5_1":
+												columName = "Type of Analysis:  \t";
+												vValue = " Headway AM Peak ";
+												break;						
+											case "3_1_5_2":
+												columName = "Type of Analysis:  \t";
+												vValue = " Headway Midday ";
+												break;						
+											case "3_1_5_3":
+												columName = "Type of Analysis:  \t";
+												vValue = " Headway PM Peak ";
+												break;							
+											case "3_2_1":
+												columName = "Type of Analysis:  \t";
+												vValue = " Minority ";
+												break;
+											case "3_2_3":
+												columName = "Type of Analysis:  \t";
+												vValue = " Low-Income ";
+												break;
+											case "3_2_5_1":
+												columName = "Type of Analysis:  \t";
+												vValue = " LEP French ";
+												break;
+											case "3_2_5_2":
+												columName = "Type of Analysis:  \t";
+												vValue = " LEP French-Creole ";
+												break;
+											case "3_2_5_3":
+												columName = "Type of Analysis:  \t";
+												vValue = " LEP Italian ";
+												break;
+											case "3_2_5_4":
+												columName = "Type of Analysis:  \t";
+												vValue = " LEP Polish ";
+												break;
+											case "3_2_5_5":
+												columName = "Type of Analysis:  \t";
+												vValue = " LEP Russian ";
+												break;
+											case "3_2_5_6":
+												columName = "Type of Analysis:  \t";
+												vValue = " LEP Spanish ";
+												break;
+											case "3_2_5_7":
+												columName = "Type of Analysis:  \t";
+												vValue = " LEP Vietnamese ";
+												break;											
+											default:
+												break;							
+										}		
+										break;
+									case "group5":
+										if (valueNumber == "5_1" ||
+											valueNumber == "5_2" ){
+												columName = "Unit of Analysis:  \t";
+												if (valueNumber == "5_1")
+													vValue = " Block Group ";
+												else if (valueNumber == "5_2")
+													vValue = " Census Tract ";
+										}
+										break;
+									case "group6":
+										if (valueNumber == "6_1" ||
+											valueNumber == "6_2" ){
+												columName = "Buffer Type:  \t\t";
+												if (valueNumber == "6_1" &&
+													dijit.byId("expressCheck").get("checked") == true){
+													vValue = " Local & Express";
+													break;
+												}													
+												else if (valueNumber == "6_1" &&
+													dijit.byId("expressCheck").get("checked") == false){
+													vValue = " Local ";
+													break;
+												}
+												else if (valueNumber == "6_2" &&
+													dijit.byId("localCheck").get("checked") == false){
+													vValue = " Express ";
+													break;
+												}
+										}
+										break;
+									case "group6Local":
+										if (valueNumber == "6_1_1" ||
+											valueNumber == "6_1_2" ||
+											valueNumber == "6_1_3" ){
+												columName = "Buffer Distance:  \t";
+												if (valueNumber == "6_1_1")
+													vValue = " Local 1/4 mile ";
+												else if (valueNumber == "6_1_2")
+													vValue = " Local 1/2 mile ";
+												else if (valueNumber == "6_1_3")
+													vValue = " Local 3/4 mile ";
+										}
+										break;
+									case "group6Exp":
+										if (valueNumber == "6_2_1" ||
+											valueNumber == "6_2_2" ||
+											valueNumber == "6_2_3" ||
+											valueNumber == "6_2_4" ||
+											valueNumber == "6_2_5" ||
+											valueNumber == "6_2_6" ){
+												columName = "Buffer Distance:  \t";
+												if (valueNumber == "6_2_1")
+													vValue = " Express 1/4 mile ";
+												else if (valueNumber == "6_2_2")
+													vValue = " Express 1/2 mile ";
+												else if (valueNumber == "6_2_3")
+													vValue = " Express 3/4 mile ";
+												else if (valueNumber == "6_2_4")
+													vValue = " Express 1 mile ";
+												else if (valueNumber == "6_2_5")
+													vValue = " Express 2 miles ";
+												else if (valueNumber == "6_2_6")
+													vValue = " Express 5 miles ";
+										}
+										break;		
+									default:
+												break;														
+								}
+								if (vValue !== "")
+								SelectedValues.push(columName + vValue);								
+									
+							}
+						}
+					}
+				}			
+				return SelectedValues;
+		};
 	
 	// Create buttons programmatically:
 	var startOverButton = new dijit.form.Button({
-		label : "Start Over",
+		label : "Clear Selections",
+		style: "font-family: arial; text-color: blue",
 		onClick : function() {
 			// uncheck all 
 			unCheckAll("accorContainer");
@@ -1233,11 +1399,14 @@ function(AccordionContainer, ContentPane, dom, domConstruct, CheckBox, Button, q
 	},"restartButton");
 
 	var generateRepButton = new dijit.form.Button({
-		label : "Set Parameters",
+		label : "Run Analysis",
+		style: "font-family: arial; ",
 		onClick : function() {
 			// Do something:
-			// alert("....Generating Report");
 			getCheckValues("accorContainer");
+			var selectPa = getSelectedAnalysis();
+			alert("The Selected Parameters are : \n" + selectPa.join("\n"));
+			
 		}
 	},"generateButton");
 	
